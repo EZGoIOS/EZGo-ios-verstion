@@ -79,7 +79,7 @@ class A1: UIViewController {
             picture = "worksheet_title_kookaburra.png"
         case 6:
             picture = "deer_title.png"
-
+            
         default:
             picture = "GG"
         }
@@ -185,18 +185,18 @@ class A1: UIViewController {
         //--------------圖片設定-----------
         var j:Int = 1//正確選項
         j = Int(showAns[frequency-1])!
-        image1.frame = CGRect(x: Int((fullScreenSize.width * 0.17)) , y:Int((fullScreenSize.height * 0.05)) , width: Int((fullScreenSize.width * 0.65)) , height: Int((fullScreenSize.height * 0.15)))
+        image1.frame = CGRect(x: Int((fullScreenSize.width * 0.125)) , y:Int((fullScreenSize.height * 0.07)) , width: Int((fullScreenSize.width * 0.75)) , height: Int((fullScreenSize.height * 0.18)))
         image1.image = UIImage(named: whichKnowledge(whichOne:whichAnimal))
-        image2.frame = CGRect(x: Int((fullScreenSize.width * 0.69)) , y:Int((fullScreenSize.height * 0.09)) , width: Int((fullScreenSize.width * 0.1)) , height: Int((fullScreenSize.width * 0.1)))
+        image2.frame = CGRect(x: Int((fullScreenSize.width * 0.685)) , y:Int((fullScreenSize.height * 0.123)) , width: Int((fullScreenSize.width * 0.13)) , height: Int((fullScreenSize.width * 0.13)))
         if frequency == 1{image2.image = UIImage(named: "number_wood_1.png")}
         if frequency == 2{image2.image = UIImage(named: "number_wood_2.png")}
         if frequency == 3{image2.image = UIImage(named: "number_wood_3.png")}
-        image2.frame = CGRect(x: Int((fullScreenSize.width * 0.69)) , y:Int((fullScreenSize.height * 0.09)) , width: Int((fullScreenSize.width * 0.1)) , height: Int((fullScreenSize.width * 0.1)))
+        //image2.frame = CGRect(x: Int((fullScreenSize.width * 0.69)) , y:Int((fullScreenSize.height * 0.09)) , width: Int((fullScreenSize.width * 0.1)) , height: Int((fullScreenSize.width * 0.1)))
         image3.frame = CGRect(x: Int((fullScreenSize.width * 0.4)) , y:Int((fullScreenSize.height * 0.3)) , width: Int((fullScreenSize.width * 0.2)) , height: Int((fullScreenSize.width * 0.2)))
         
         //-------------label設定-------------
-        lblshow.frame = CGRect(x: Int((fullScreenSize.width * 0.2)) , y:Int((fullScreenSize.height * 0.5)) , width: Int((fullScreenSize.width * 0.6)) , height: Int((fullScreenSize.height * 0.29)))
-        lbl1.frame = CGRect(x: Int((fullScreenSize.width * 0.325)) , y:Int((fullScreenSize.height * 0.4)) , width: Int((fullScreenSize.width * 0.35)) , height: Int((fullScreenSize.height * 0.05)))
+        lblshow.frame = CGRect(x: Int((fullScreenSize.width * 0.2)) , y:Int((fullScreenSize.height * 0.5)) , width: Int((fullScreenSize.width * 0.6)) , height: Int((fullScreenSize.height * 0.275)))
+        lbl1.frame = CGRect(x: Int((fullScreenSize.width * 0.35)) , y:Int((fullScreenSize.height * 0.4)) , width: Int((fullScreenSize.width * 0.3)) , height: Int((fullScreenSize.height * 0.05)))
         if frequency == 1{
             if showDescript[0] == "無"{
                 lblshow.text = ""
@@ -256,3 +256,4 @@ class A1: UIViewController {
      */
     
 }
+
