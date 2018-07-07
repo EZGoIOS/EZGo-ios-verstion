@@ -32,7 +32,11 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="589-j8-TAx">
-                    <rect key="frame" x="40" y="20" width="48" height="30"/>
+                    <rect key="frame" x="16" y="20" width="48" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="48" id="sce-a2-blt"/>
+                        <constraint firstAttribute="height" constant="30" id="t1Y-p8-iZo"/>
+                    </constraints>
                     <state key="normal" title="&lt; Back"/>
                     <connections>
                         <action selector="BackToMainStoryboardBtn:" destination="-1" eventType="touchUpInside" id="cQM-Eb-A2C"/>
@@ -41,10 +45,8 @@
             </subviews>
             <constraints>
                 <constraint firstItem="flp-gi-a21" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Crl-no-dGE"/>
-                <constraint firstItem="589-j8-TAx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="NmM-0H-f4k"/>
-                <constraint firstItem="flp-gi-a21" firstAttribute="top" secondItem="589-j8-TAx" secondAttribute="bottom" constant="186" id="TSJ-6C-Ot9"/>
-                <constraint firstAttribute="trailing" secondItem="589-j8-TAx" secondAttribute="trailing" constant="232" id="V5U-wZ-kxU"/>
-                <constraint firstItem="589-j8-TAx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="Xtw-ak-wOz"/>
+                <constraint firstItem="589-j8-TAx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="IFw-S4-kve"/>
+                <constraint firstItem="589-j8-TAx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="hSK-YC-37l"/>
                 <constraint firstItem="flp-gi-a21" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="iW9-sK-ZLT"/>
             </constraints>
         </view>

@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "EnterUnityViewController.h"
 
-@interface HomeViewController : UIViewController
+@interface HomeViewController : UIViewController<CLLocationManagerDelegate>
+
 - (IBAction)jumpToEnterUnityVC:(id)sender;
 
 @end

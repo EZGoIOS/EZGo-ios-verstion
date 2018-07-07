@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -16,21 +16,14 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch" translatesAutoresizingMaskIntoConstraints="NO" id="PzI-Kb-AHq">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="320" id="j5d-V9-xUU"/>
-                        <constraint firstAttribute="height" constant="568" id="ypF-Ou-1QE"/>
-                    </constraints>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="knowledge_background" translatesAutoresizingMaskIntoConstraints="NO" id="PzI-Kb-AHq">
+                    <rect key="frame" x="-51" y="-73" width="517" height="858"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqL-e7-sNN">
-                    <rect key="frame" x="85" y="281" width="150" height="140"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="140" id="axn-Pa-Ca7"/>
-                    </constraints>
+                    <rect key="frame" x="29" y="193" width="358" height="350"/>
                     <state key="normal" title="Jump" image="start"/>
                     <connections>
                         <action selector="jumpToEnterUnityVC:" destination="-1" eventType="touchUpInside" id="RLc-Ms-19C"/>
@@ -39,18 +32,19 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="PzI-Kb-AHq" secondAttribute="trailing" id="4We-Nw-exv"/>
-                <constraint firstItem="qqL-e7-sNN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="85" id="5k9-rs-qGj"/>
-                <constraint firstItem="PzI-Kb-AHq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="8Uy-AK-iXE"/>
-                <constraint firstItem="qqL-e7-sNN" firstAttribute="centerX" secondItem="PzI-Kb-AHq" secondAttribute="centerX" id="PjI-T2-Nhb"/>
-                <constraint firstItem="PzI-Kb-AHq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="RSg-ND-XeS"/>
-                <constraint firstAttribute="bottom" secondItem="PzI-Kb-AHq" secondAttribute="bottom" id="ebr-nq-Th3"/>
-                <constraint firstItem="qqL-e7-sNN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="281" id="qYL-Dh-tQk"/>
+                <constraint firstItem="PzI-Kb-AHq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="-73" id="Hg5-t9-T0C"/>
+                <constraint firstItem="qqL-e7-sNN" firstAttribute="centerX" secondItem="PzI-Kb-AHq" secondAttribute="centerX" id="IqD-tA-23C"/>
+                <constraint firstAttribute="trailing" secondItem="PzI-Kb-AHq" secondAttribute="trailing" constant="-52" id="QZQ-VQ-w4r"/>
+                <constraint firstItem="PzI-Kb-AHq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-51" id="YhS-dC-f4I"/>
+                <constraint firstAttribute="bottom" secondItem="PzI-Kb-AHq" secondAttribute="bottom" constant="-49" id="dSJ-g9-9j1"/>
+                <constraint firstItem="qqL-e7-sNN" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="tHv-MW-ASK"/>
+                <constraint firstItem="qqL-e7-sNN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="29" id="v0v-lm-HgE"/>
             </constraints>
+            <point key="canvasLocation" x="118" y="52"/>
         </view>
     </objects>
     <resources>
-        <image name="launch" width="720" height="1280"/>
+        <image name="knowledge_background" width="480" height="800"/>
         <image name="start" width="358" height="350"/>
     </resources>
 </document>

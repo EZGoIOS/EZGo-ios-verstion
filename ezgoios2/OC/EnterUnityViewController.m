@@ -68,7 +68,7 @@ int whichAnimal;
  */
 - (IBAction)BackToMainStoryboardBtn:(UIButton *)sender {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *vc = [sb instantiateViewControllerWithIdentifier:@"LessonViewController"];
+    UIViewController *vc = [sb instantiateViewControllerWithIdentifier:@"SWRevealViewController"];
     vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self presentViewController:vc animated:NO completion:NULL];
 }
@@ -112,14 +112,14 @@ int whichAnimal;
         //===============生成返回键================
         UIView *pauseUnityView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight)];//可以觸發的範圍
         UIButton *backBtn = [[UIButton alloc] initWithFrame:
-                             CGRectMake(screenHeight * 0.01, screenHeight * 0.01, screenWidth * 0.3, screenHeight * 0.05)];//x,y,寬,高
+                             CGRectMake(screenHeight * 0, screenHeight * 0, screenWidth * 0.3, screenHeight * 0.13)];//x,y,寬,高
         //上面底色
-        UILabel *lbltop = [[UILabel alloc] initWithFrame:CGRectMake(0,0, screenWidth , screenHeight * 0.07)];
+        UILabel *lbltop = [[UILabel alloc] initWithFrame:CGRectMake(0,0, screenWidth , screenHeight * 0.13)];
         [backBtn addTarget:self action:@selector(doExitSelector) forControlEvents:UIControlEventTouchDown];
-        [backBtn setBackgroundColor:[UIColor redColor]];//按鈕背景色
+        [backBtn setBackgroundColor:[UIColor colorWithRed:(202/255.0) green:(71/255.0) blue:(96/255.0) alpha:1]];//按鈕背景色
         [backBtn setTitle:@"結束導航" forState:(UIControlStateNormal)];//按鈕文字
-        [backBtn setTintColor:[UIColor whiteColor] ];//文字顏色
-        [lbltop setBackgroundColor:[UIColor colorWithRed:(27/255.0) green:(181/255.0) blue:(30/255.0) alpha:1]];//0.65背景色
+        [backBtn setTintColor:[UIColor whiteColor] ];//文字顏色 其實根本沒用＃＃＃
+        [lbltop setBackgroundColor:[UIColor colorWithRed:(73/255.0) green:(167/255.0) blue:(73/255.0) alpha:1]];//0.65背景色
         //add Subviews
         [pauseUnityView addSubview:lbltop];
         [pauseUnityView addSubview:backBtn];
@@ -158,6 +158,7 @@ int whichAnimal;
     [MyDataManager sharedManager].unityViewController = [MyDataManager sharedManager].myWindow.rootViewController;
     [[[UnityGetMainWindow() rootViewController] view] setHidden:YES]; //隐藏Unity的rootVC
     [MyDataManager sharedManager].myWindow.rootViewController = self; //将当前界面B作为当前window的rootVC
+    
     [UnityGetMainWindow() makeKeyAndVisible];
     //
   
@@ -209,6 +210,7 @@ int whichAnimal;
     //北商 25.041718, 121.526008
     //圓山25.071819, 121.520059 25.017182, Lng: 121.292658 25.020389, Lng: 121.294560
     //先跑一次 把log中的 Lat:??.???,Lng:???.??? 複製到 229行中測試
+    //25.042672, Lng: 121.524953
     aa = [self xx:(mylat) xxx:(mylng) xxxx:(24.9946605) xxxxx:(121.5887605)];//斑點狗 xxxx:(24.9946605) xxxxx:(121.5887605)
     ab = [self xx:(mylat) xxx:(mylng) xxxx:(24.9975801) xxxxx:(121.5799735)];//TW Bear
     ac = [self xx:(mylat) xxx:(mylng) xxxx:(24.9932772) xxxxx:(121.5900815)];//North Gray Wolf
@@ -221,7 +223,7 @@ int whichAnimal;
 //=============判斷是否到達範圍================
 -(bool)distanceIs:(double)distance{
     bool yesno;//是否小於Xm
-    if(distance <80000){//74
+    if(distance <25){//74
         yesno = true;
     }else{
         yesno = false;
@@ -237,33 +239,34 @@ int whichAnimal;
 //===========Timer呼叫==================
 - (void) freshLbl{
     NSLog(@"timer執行一次");
-    
     CGSize screenSize = [[UIScreen mainScreen] bounds].size;
     CGFloat screenWidth = screenSize.width;
     CGFloat screenHeight = screenSize.height;
-    UIView *upUiView = [[UIView alloc] initWithFrame:CGRectMake(screenWidth * 0.3, screenHeight * 0 , screenWidth * 0.7, screenHeight * 0.06)];//可以觸發的範圍
+    UIView *upUiView = [[UIView alloc] initWithFrame:CGRectMake(screenWidth * 0.31, screenHeight * 0 , screenWidth * 0.7, screenHeight * 0.13)];//可以觸發的範圍
     //距離
-    UILabel *lblupright = [[UILabel alloc] initWithFrame:CGRectMake(0,screenHeight * 0.01, screenWidth * 0.7, screenHeight * 0.05)];
-    UIView *downUiView = [[UIView alloc] initWithFrame:CGRectMake(screenWidth * 0, screenHeight * 0.93 , screenWidth, screenHeight * 0.07)];//可以觸發的範圍
+    UILabel *lblupright = [[UILabel alloc] initWithFrame:CGRectMake(0,screenHeight * 0, screenWidth * 0.7, screenHeight * 0.13)];
+    UIView *downUiView = [[UIView alloc] initWithFrame:CGRectMake(screenWidth * 0, screenHeight * 0.87 , screenWidth, screenHeight * 0.13)];//可以觸發的範圍
     //抵達後跳出的文字
-    UILabel *lbldown = [[UILabel alloc] initWithFrame:CGRectMake(screenWidth *0.1,screenHeight*0, screenWidth , screenHeight * 0.07)];
+    UILabel *lbldown = [[UILabel alloc] initWithFrame:CGRectMake(screenWidth *0.04,screenHeight*0, screenWidth , screenHeight * 0.13)];
     //抵達後跳出的底色
-    UILabel *lbldownBG = [[UILabel alloc] initWithFrame:CGRectMake(screenWidth *0.0,screenHeight*0, screenWidth , screenHeight * 0.07)];
+    UILabel *lbldownBG = [[UILabel alloc] initWithFrame:CGRectMake(screenWidth *0.0,screenHeight*0, screenWidth , screenHeight * 0.13)];
     //開始作答
-    UIButton *startBtn = [[UIButton alloc] initWithFrame:CGRectMake(screenWidth * 0.65, screenHeight * 0.01, screenWidth *0.3 , screenHeight * 0.05)];
+    UIButton *startBtn = [[UIButton alloc] initWithFrame:CGRectMake(screenWidth * 0.65, screenHeight * 0, screenWidth *0.35 , screenHeight * 0.13)];
     
-    [lblupright setBackgroundColor:[UIColor colorWithRed:(27/255.0) green:(181/255.0) blue:(30/255.0) alpha:1]];
+    [lblupright setBackgroundColor:[UIColor colorWithRed:(73/255.0) green:(167/255.0) blue:(73/255.0) alpha:1]];
     [lblupright setTextColor:[UIColor whiteColor]];
     lblupright.shadowOffset = CGSizeMake(1, 1);
     lblupright.text = [NSString stringWithFormat:@" 搜尋目標中..."];
-    [lbldownBG setBackgroundColor:[UIColor colorWithRed:(27/255.0) green:(181/255.0) blue:(30/255.0) alpha:1]];
+    [lbldownBG setBackgroundColor:[UIColor colorWithRed:(73/255.0) green:(167/255.0) blue:(73/255.0) alpha:1]];
     [lbldown setTextColor:[UIColor whiteColor]];
     lbldown.shadowOffset = CGSizeMake(1, 1); //阴影偏移  x，y为正表示向右下偏移
     [startBtn addTarget:self action:@selector(handleButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [startBtn setBackgroundColor:[UIColor redColor]];//按鈕背景色
-    [startBtn setTitle:@"開始作答" forState:(UIControlStateNormal)];  //按鈕文字
+    [startBtn setBackgroundColor:[UIColor colorWithRed:(85/255.0) green:(100/255.0) blue:(110/255.0) alpha:1]];//按鈕背景色
+    [startBtn setTitle:@"開始作答!" forState:(UIControlStateNormal)];
     //add Subview
-    [upUiView addSubview:lblupright];
+    lbldown.text = [NSString stringWithFormat:@""];
+    [upUiView addSubview:lbldown];
+    [upUiView addSubview:lblupright];//搜尋目標中...
     [[MyDataManager sharedManager].myWindow.rootViewController.view addSubview:upUiView];
     [[MyDataManager sharedManager].myWindow.rootViewController.view addSubview:downUiView];
     //===================是否第一次開啟程式 是的話add addSubview==========
@@ -271,101 +274,131 @@ int whichAnimal;
         NSLog(@"第一次開啟此檔案 add subview");
         isFirstTime = false;
     }
-    //================是否抵達選取的範圍======================
-    if(_whichAnimal==1){
-        lblupright.text = [NSString stringWithFormat:@" 距離斑點獵狗    %.0f    m",aa];
-        [[downUiView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
-        if ([self distanceIs:(aa)] == true){
-            NSLog(@"到了喔到了喔到了喔到了喔到了喔到了喔1111111111111");
-            [[downUiView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
-            [upUiView addSubview:lblupright];
-            [downUiView addSubview:lbldownBG];
-            [downUiView addSubview:lbldown];
-            [downUiView addSubview:startBtn];
-            lbldown.text = [NSString stringWithFormat:@"已抵達斑點獵狗範圍"];
-        }else if ([self distanceIs:(aa)] == false){
-            NSLog(@"還沒到還沒到還沒到加把勁XXXXXXXXXXXXXX");
-            [[downUiView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
-        }
-    }else if(_whichAnimal==2){
-        lblupright.text = [NSString stringWithFormat:@" 距離台灣黑熊    %.0f    m",ab];
-        [[downUiView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
-        if ([self distanceIs:(ab)] == true){
-            NSLog(@"到了喔到了喔到了喔到了喔到了喔到了喔22222222222");
-            [[downUiView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
-            [upUiView addSubview:lblupright];
-            [downUiView addSubview:lbldownBG];
-            [downUiView addSubview:lbldown];
-            [downUiView addSubview:startBtn];
-            lbldown.text = [NSString stringWithFormat:@"已抵達台灣黑熊範圍"];
-        }else if ([self distanceIs:(ab)] == false){
-            [[downUiView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
-        }
-    }else if(_whichAnimal==3){
-        lblupright.text = [NSString stringWithFormat:@" 距離北美灰狼    %.0f    m",ac];
-        [[downUiView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
-        if ([self distanceIs:(ac)] == true){
-            NSLog(@"到了喔到了喔到了喔到了喔到了喔到了喔333333333333333");
-            [[downUiView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
-            [upUiView addSubview:lblupright];
-            [downUiView addSubview:lbldownBG];
-            [downUiView addSubview:lbldown];
-            [downUiView addSubview:startBtn];
-            lbldown.text = [NSString stringWithFormat:@"已抵達北美灰狼範圍"];
-        }else if ([self distanceIs:(ac)] == false){
-            NSLog(@"還沒到還沒到還沒到加把勁XXXXXXXXXXXXXX");
-            [[downUiView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
-        }
-    }else if(_whichAnimal==4){
-        lblupright.text = [NSString stringWithFormat:@" 距離黑尾草原犬鼠    %.0f    m",ad];
-        [[downUiView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
-        if ([self distanceIs:(ad)] == true){
-            [[downUiView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
-            NSLog(@"到了喔到了喔到了喔到了喔到了喔到了喔44444444444");
-            [upUiView addSubview:lblupright];
-            [downUiView addSubview:lbldownBG];
-            [downUiView addSubview:lbldown];
-            [downUiView addSubview:startBtn];
-            lbldown.text = [NSString stringWithFormat:@"已抵達黑尾草原犬鼠範圍"];
-        }else if ([self distanceIs:(ad)] == false){
-            NSLog(@"還沒到還沒到還沒到加把勁XXXXXXXXXXXXXX");
-            [[downUiView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
-        }
-    }else if(_whichAnimal==5){
-        lblupright.text = [NSString stringWithFormat:@" 距離笑翠鳥    %.0f    m",ae];
-        [[downUiView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
-        if ([self distanceIs:(ae)] == true){
-            NSLog(@"到了喔到了喔到了喔到了喔到了喔到了555555555555555");
-            [[downUiView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
-            [upUiView addSubview:lblupright];
-            [downUiView addSubview:lbldownBG];
-            [downUiView addSubview:lbldown];
-            [downUiView addSubview:startBtn];
-            lbldown.text = [NSString stringWithFormat:@"已抵達笑翠鳥範圍"];
-        }else if ([self distanceIs:(ae)] == false){
-            NSLog(@"還沒到還沒到還沒到加把勁XXXXXXXXXXXXXX");
-            [[downUiView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
-        }
-    }else if(_whichAnimal==6){
-        lblupright.text = [NSString stringWithFormat:@" 距離山羌    %.0f    m",af];
-        [[downUiView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
-        if ([self distanceIs:(af)] == true){
-            NSLog(@"到了喔到了喔到了喔到了喔到了喔到了喔6666666666666");
-            [[downUiView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
-            [upUiView addSubview:lblupright];
-            [downUiView addSubview:lbldownBG];
-            [downUiView addSubview:lbldown];
-            [downUiView addSubview:startBtn];
-            lbldown.text = [NSString stringWithFormat:@"已抵達山羌範圍"];
-        }else if ([self distanceIs:(af)] == false){
-            NSLog(@"還沒到還沒到還沒到加把勁XXXXXXXXXXXXXX");
-            [[downUiView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
-        }
-    }else{
-        NSLog(@"不知道到了沒？？？？？？？？？？？？？");
-        [[downUiView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    }
     
+
+    //================是否抵達選取的範圍======================
+    switch (_whichAnimal) {
+        case 1:
+            lblupright.text = [NSString stringWithFormat:@" 離斑點鬣狗   %.0f   公尺",aa];
+            [[downUiView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+            if ([self distanceIs:(aa)] == true){
+                NSLog(@"到了喔到了喔到了喔到了喔到了喔到了喔1111111111111");
+                [[downUiView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+                [upUiView addSubview:lblupright];
+                [downUiView addSubview:lbldownBG];
+                [downUiView addSubview:lbldown];
+                [downUiView addSubview:startBtn];
+                lbldown.text = [NSString stringWithFormat:@"已抵達斑點鬣狗範圍"];
+            }
+            if ([self distanceIs:(aa)] == false){
+                NSLog(@"還沒到還沒到還沒到加把勁XXXXXXXXXXXXXX");
+                [[downUiView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+                lbldown.text = [NSString stringWithFormat:@""];
+                [downUiView addSubview:lbldown];
+            }
+            break;
+        case 2:
+            lblupright.text = [NSString stringWithFormat:@" 離台灣黑熊   %.0f   公尺",ab];
+            [[downUiView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+            if ([self distanceIs:(ab)] == true){
+                NSLog(@"到了喔到了喔到了喔到了喔到了喔到了喔22222222222");
+                [[downUiView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+                [upUiView addSubview:lblupright];
+                [downUiView addSubview:lbldownBG];
+                [downUiView addSubview:lbldown];
+                [downUiView addSubview:startBtn];
+                lbldown.text = [NSString stringWithFormat:@"已抵達台灣黑熊範圍"];
+            }
+            if ([self distanceIs:(ab)] == false){
+                NSLog(@"還沒到還沒到還沒到加把勁XXXXXXXXXXXXXX");
+                [[downUiView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+                lbldown.text = [NSString stringWithFormat:@""];
+                [downUiView addSubview:lbldown];            }
+            break;
+        case 3:
+            lblupright.text = [NSString stringWithFormat:@" 離北美灰狼    %.0f   公尺",ac];
+            [[downUiView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+            if ([self distanceIs:(ac)] == true){
+                NSLog(@"到了喔到了喔到了喔到了喔到了喔到了喔333333333333333");
+                [[downUiView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+                [upUiView addSubview:lblupright];
+                [downUiView addSubview:lbldownBG];
+                [downUiView addSubview:lbldown];
+                [downUiView addSubview:startBtn];
+                lbldown.text = [NSString stringWithFormat:@"已抵達北美灰狼範圍"];
+            }
+            if ([self distanceIs:(ac)] == false){
+                NSLog(@"還沒到還沒到還沒到加把勁XXXXXXXXXXXXXX");
+                [[downUiView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+                lbldown.text = [NSString stringWithFormat:@""];
+                [downUiView addSubview:lbldown];
+            }
+            break;
+        case 4:
+            lblupright.text = [NSString stringWithFormat:@" 離黑尾草原犬鼠 %.0f 公尺",ad];
+            [[downUiView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+            if ([self distanceIs:(ad)] == true){
+                [[downUiView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+                NSLog(@"到了喔到了喔到了喔到了喔到了喔到了喔44444444444");
+                [upUiView addSubview:lblupright];
+                [downUiView addSubview:lbldownBG];
+                [downUiView addSubview:lbldown];
+                [downUiView addSubview:startBtn];
+                lbldown.text = [NSString stringWithFormat:@"已抵達黑尾草原犬鼠範圍"];
+            }
+            if ([self distanceIs:(ad)] == false){
+                NSLog(@"還沒到還沒到還沒到加把勁XXXXXXXXXXXXXX");
+                [[downUiView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+                lbldown.text = [NSString stringWithFormat:@""];
+                [downUiView addSubview:lbldown];            }
+            break;
+        case 5:
+            lblupright.text = [NSString stringWithFormat:@" 離笑翠鳥    %.0f   公尺",ae];
+            [[downUiView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+            if ([self distanceIs:(ae)] == true){
+                NSLog(@"到了喔到了喔到了喔到了喔到了喔到了555555555555555");
+                [[downUiView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+                [upUiView addSubview:lblupright];
+                [downUiView addSubview:lbldownBG];
+                [downUiView addSubview:lbldown];
+                [downUiView addSubview:startBtn];
+                lbldown.text = [NSString stringWithFormat:@"已抵達笑翠鳥範圍"];
+            }
+            if ([self distanceIs:(ae)] == false){
+                NSLog(@"還沒到還沒到還沒到加把勁XXXXXXXXXXXXXX");
+                [[downUiView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+                lbldown.text = [NSString stringWithFormat:@""];
+                [downUiView addSubview:lbldown];
+            }
+            break;
+        case 6:
+            lblupright.text = [NSString stringWithFormat:@" 離山羌    %.0f   公尺",af];
+            [[downUiView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+            if ([self distanceIs:(af)] == true){
+                NSLog(@"到了喔到了喔到了喔到了喔到了喔到了喔6666666666666");
+                [[downUiView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+                [upUiView addSubview:lblupright];
+                [downUiView addSubview:lbldownBG];
+                [downUiView addSubview:lbldown];
+                [downUiView addSubview:startBtn];
+                lbldown.text = [NSString stringWithFormat:@"已抵達山羌範圍"];
+            }
+            if ([self distanceIs:(af)] == false){
+                NSLog(@"還沒到還沒到還沒到加把勁XXXXXXXXXXXXXX");
+                [[downUiView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+                lbldown.text = [NSString stringWithFormat:@""];
+                [downUiView addSubview:lbldown];
+            }
+            break;
+        default:
+            NSLog(@"不知道到了沒？？？？？？？？？？？？？");
+            [[downUiView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+            lbldown.text = [NSString stringWithFormat:@""];
+            [downUiView addSubview:lbldown];
+            break;
+    }
+   
+
 }
 
 //=========Timer呼叫1.讀檔->2.讀檔傳目標給unity============
