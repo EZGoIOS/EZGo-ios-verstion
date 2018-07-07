@@ -84,7 +84,12 @@ class Q3: UIViewController {
             }
             performSegue(withIdentifier: "Q3gotoA1", sender: self)
         }else {
-            lblshow.text = "你沒選選項"
+            var alert = UIAlertView()
+            alert.title = "注意！"
+            alert.message = "你沒選選項"
+            alert.addButton(withTitle: "OK")
+            alert.show()
+            
         }
         
     }
@@ -143,28 +148,28 @@ class Q3: UIViewController {
         
         //--------------圖片設定-----------
         
-        image1.frame = CGRect(x: Int((fullScreenSize.width * 0.17)) , y:Int((fullScreenSize.height * 0.05)) , width: Int((fullScreenSize.width * 0.65)) , height: Int((fullScreenSize.height * 0.15)))
+        image1.frame = CGRect(x: Int((fullScreenSize.width * 0.125)) , y:Int((fullScreenSize.height * 0.07)) , width: Int((fullScreenSize.width * 0.75)) , height: Int((fullScreenSize.height * 0.18)))
         image1.image = UIImage(named: whichKnowledge(whichOne:whichAnimal))
-        image2.frame = CGRect(x: Int((fullScreenSize.width * 0.69)) , y:Int((fullScreenSize.height * 0.09)) , width: Int((fullScreenSize.width * 0.1)) , height: Int((fullScreenSize.width * 0.1)))
+        image2.frame = CGRect(x: Int((fullScreenSize.width * 0.685)) , y:Int((fullScreenSize.height * 0.123)) , width: Int((fullScreenSize.width * 0.13)) , height: Int((fullScreenSize.width * 0.13)))
         if frequency == 1{image2.image = UIImage(named: "number_wood_1.png")}
         if frequency == 2{image2.image = UIImage(named: "number_wood_2.png")}
         if frequency == 3{image2.image = UIImage(named: "number_wood_3.png")}
         
         //-----------按鈕設定---------------
-        btn1.frame = CGRect(x: Int((fullScreenSize.width * 0.21)) , y:Int((fullScreenSize.height * 0.55)) , width: Int((fullScreenSize.width * 0.6)) , height: Int((fullScreenSize.width * 0.1)))
+        btn1.frame = CGRect(x: Int((fullScreenSize.width * 0.15)) , y:Int((fullScreenSize.height * 0.55)) , width: Int((fullScreenSize.width * 0.7)) , height: Int((fullScreenSize.width * 0.1)))
         btn1.setBackgroundImage(UIImage(named: "optiona" ), for: UIControlState.normal)
         btn1.titleLabel?.lineBreakMode = .byWordWrapping
         
-        btn2.frame = CGRect(x: Int((fullScreenSize.width * 0.21)) , y:Int((fullScreenSize.height * 0.61)) , width: Int((fullScreenSize.width * 0.6)) , height: Int((fullScreenSize.width * 0.1)))
+        btn2.frame = CGRect(x: Int((fullScreenSize.width * 0.15)) , y:Int((fullScreenSize.height * 0.61)) , width: Int((fullScreenSize.width * 0.7)) , height: Int((fullScreenSize.width * 0.1)))
         
         btn2.setBackgroundImage(UIImage(named: "optionb" ), for: UIControlState.normal)
         btn2.titleLabel?.lineBreakMode = .byWordWrapping
         
-        btn3.frame = CGRect(x: Int((fullScreenSize.width * 0.21)) , y:Int((fullScreenSize.height * 0.67)) , width: Int((fullScreenSize.width * 0.6)) , height: Int((fullScreenSize.width * 0.1)))
+        btn3.frame = CGRect(x: Int((fullScreenSize.width * 0.15)) , y:Int((fullScreenSize.height * 0.67)) , width: Int((fullScreenSize.width * 0.7)) , height: Int((fullScreenSize.width * 0.1)))
         btn3.setBackgroundImage(UIImage(named: "optionc" ), for: UIControlState.normal)
         btn3.titleLabel?.lineBreakMode = .byWordWrapping
         
-        btn4.frame = CGRect(x: Int((fullScreenSize.width * 0.21)) , y:Int((fullScreenSize.height * 0.73)) , width: Int((fullScreenSize.width * 0.6)) , height: Int((fullScreenSize.width * 0.1)))
+        btn4.frame = CGRect(x: Int((fullScreenSize.width * 0.15)) , y:Int((fullScreenSize.height * 0.73)) , width: Int((fullScreenSize.width * 0.7)) , height: Int((fullScreenSize.width * 0.1)))
         btn4.setBackgroundImage(UIImage(named: "optiond" ), for: UIControlState.normal)
         btn4.titleLabel?.lineBreakMode = .byWordWrapping
         
@@ -218,3 +223,4 @@ class Q3: UIViewController {
      */
     
 }
+

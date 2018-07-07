@@ -12,6 +12,11 @@ public var which_Animal = NSHomeDirectory() + "/Documents/which_Animal.txt"
 public var vall=String()
 
 class LessonViewController: UIViewController {
+
+    @IBAction func back_gesture(_ sender: Any) {
+        self.present(ViewController() ,animated: false, completion:nil)
+        print("swipeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")
+    }
     var recDone=[String](repeating:"0", count:18)
     var recDoneString = String()
     static var uuid=""
@@ -219,9 +224,21 @@ class LessonViewController: UIViewController {
         }
         return picture
     }
-    
+    @IBAction func clickMenubutton(sender: UIButton){
+        performSegue(withIdentifier: "gotoM2", sender: self)
+        
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 取得螢幕的尺寸r
+        let fullScreenSize = UIScreen.main.bounds.size
+        let btnM:UIButton = UIButton()
+        btnM.frame = CGRect(x: Int((fullScreenSize.width * 0.025)) , y:Int((fullScreenSize.height * 0.125)) , width: Int((fullScreenSize.width * 0.15)) , height: Int((fullScreenSize.width * 0.15)))
+        btnM.setBackgroundImage(UIImage(named: "house" ), for: UIControlState.normal)
+        btnM.addTarget(self,action: #selector(self.clickbutton),for: .touchUpInside)
+        view.addSubview(btnM)
+        
         getRecordDone()
         //        do{
         //            recDoneString = try (NSString(contentsOfFile: rec_done, encoding: String.Encoding.utf8.rawValue) as String)
@@ -233,8 +250,9 @@ class LessonViewController: UIViewController {
         //        }
         btnMenu.target = revealViewController()
         btnMenu.action = #selector(SWRevealViewController.revealToggle(_:))
-        // 取得螢幕的尺寸r
-        let fullScreenSize = UIScreen.main.bounds.size
+        self.view.addGestureRecognizer(revealViewController().panGestureRecognizer())
+        
+        
         //---------------------------------------
         //用迴圈建立6個按鈕
         let buttonNumber:UIButton = UIButton()

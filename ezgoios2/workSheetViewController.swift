@@ -104,10 +104,10 @@ class workSheetViewController: UIViewController {
             self.IDString.replacingOccurrences(of: "\n", with: "")
             showId = self.IDString.components(separatedBy: "\n")
             
+            
             self.whichAnimalString = try (NSString(contentsOfFile: which_Animal, encoding: String.Encoding.utf8.rawValue) as String)
             self.whichAnimalString.replacingOccurrences(of: "\n", with: "")
             whichAnimal = Int(whichAnimalString)!
-            
         }catch{
             print("error")
         }

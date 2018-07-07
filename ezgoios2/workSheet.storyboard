@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Mic-JN-0tg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Mic-JN-0tg">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,23 +18,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OEr-Y7-4Kv">
-                                <rect key="frame" x="134" y="318" width="106" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="開始闖關"/>
-                                <connections>
-                                    <action selector="btnGo:" destination="Mic-JN-0tg" eventType="touchUpInside" id="Jdu-tP-oy3"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlZ-EK-TaN">
-                                <rect key="frame" x="142" y="120" width="90" height="59"/>
+                                <rect key="frame" x="142" y="158.5" width="90" height="20.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="knowledge_background" translatesAutoresizingMaskIntoConstraints="NO" id="AQb-Vh-iOZ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OEr-Y7-4Kv">
+                                <rect key="frame" x="54.5" y="303" width="265" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Rdj-Pd-FQS"/>
+                                    <constraint firstAttribute="width" constant="265" id="acp-3X-2AG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="開始作答" backgroundImage="btn_reward0">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnGo:" destination="Mic-JN-0tg" eventType="touchUpInside" id="Jdu-tP-oy3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="AQb-Vh-iOZ" firstAttribute="leading" secondItem="Wrr-nI-Us0" secondAttribute="leading" id="4dl-Yx-idM"/>
+                            <constraint firstItem="AQb-Vh-iOZ" firstAttribute="leading" secondItem="Wrr-nI-Us0" secondAttribute="leading" id="BqK-7k-azu"/>
+                            <constraint firstItem="AQb-Vh-iOZ" firstAttribute="bottom" secondItem="Wrr-nI-Us0" secondAttribute="bottom" id="CkJ-Ot-Jxw"/>
+                            <constraint firstItem="AQb-Vh-iOZ" firstAttribute="top" secondItem="5Xn-ER-Byy" secondAttribute="top" id="E1d-Lu-Tbb"/>
+                            <constraint firstItem="OEr-Y7-4Kv" firstAttribute="centerY" secondItem="5Xn-ER-Byy" secondAttribute="centerY" id="JUN-Qb-7qO"/>
+                            <constraint firstItem="OEr-Y7-4Kv" firstAttribute="centerX" secondItem="5Xn-ER-Byy" secondAttribute="centerX" id="Kj0-17-9p9"/>
+                            <constraint firstItem="AQb-Vh-iOZ" firstAttribute="trailing" secondItem="Wrr-nI-Us0" secondAttribute="trailing" id="Qja-PK-H5e"/>
+                            <constraint firstItem="AQb-Vh-iOZ" firstAttribute="bottom" secondItem="Wrr-nI-Us0" secondAttribute="bottom" id="SOY-ml-V05"/>
+                            <constraint firstItem="AQb-Vh-iOZ" firstAttribute="top" secondItem="5Xn-ER-Byy" secondAttribute="top" id="fuE-pu-l4c"/>
+                            <constraint firstItem="AQb-Vh-iOZ" firstAttribute="trailing" secondItem="Wrr-nI-Us0" secondAttribute="trailing" id="yE0-cj-fcf"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Wrr-nI-Us0"/>
                     </view>
                     <connections>
@@ -56,7 +77,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="reset_background" translatesAutoresizingMaskIntoConstraints="NO" id="rh8-B2-sXT">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="worksheet_background1" translatesAutoresizingMaskIntoConstraints="NO" id="rh8-B2-sXT">
                                 <rect key="frame" x="-3" y="0.0" width="381" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -141,7 +162,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="reset_background" translatesAutoresizingMaskIntoConstraints="NO" id="ITZ-Vt-OxM">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="worksheet_background1" translatesAutoresizingMaskIntoConstraints="NO" id="ITZ-Vt-OxM">
                                 <rect key="frame" x="-6" y="0.0" width="381" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -215,7 +236,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="reset_background" translatesAutoresizingMaskIntoConstraints="NO" id="ScW-4l-L8e">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="worksheet_background1" translatesAutoresizingMaskIntoConstraints="NO" id="ScW-4l-L8e">
                                 <rect key="frame" x="-3" y="0.0" width="381" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -311,7 +332,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="reset_background" translatesAutoresizingMaskIntoConstraints="NO" id="8eL-hn-mOH">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="worksheet_background1" translatesAutoresizingMaskIntoConstraints="NO" id="8eL-hn-mOH">
                                 <rect key="frame" x="-3" y="0.0" width="381" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -338,7 +359,7 @@
                                 <rect key="frame" x="150" y="43" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ekK-QD-SFk">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ekK-QD-SFk">
                                 <rect key="frame" x="174" y="217" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -381,12 +402,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="reset_background" width="450" height="800"/>
+        <image name="btn_reward0" width="430" height="91"/>
+        <image name="knowledge_background" width="480" height="800"/>
+        <image name="worksheet_background1" width="480" height="800"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="lpr-1k-hq2"/>
-        <segue reference="PrI-vI-Qa7"/>
-        <segue reference="2bN-zC-qej"/>
-        <segue reference="Kq8-b2-ZC0"/>
+        <segue reference="UfP-Nb-SFV"/>
+        <segue reference="0Ty-Zn-8PB"/>
+        <segue reference="haV-GT-RuH"/>
     </inferredMetricsTieBreakers>
 </document>

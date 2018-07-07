@@ -15,8 +15,8 @@ class MenuViewController: UIViewController,UITableViewDataSource,UITableViewDele
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        menuNameArray = ["地圖導覽","闖關進度","旺哥小檔案","闖關說明","動物小知識","切換語言","關於我們","問題與回饋"]
-        iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"translate")!,UIImage(named:"contact")!,UIImage(named:"email")!]
+        menuNameArray = ["地圖導覽","闖關進度","旺哥小檔案","闖關說明","動物小知識","關於我們","問題與回饋"]
+        iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"email")!]
     }
     
     override func didReceiveMemoryWarning() {

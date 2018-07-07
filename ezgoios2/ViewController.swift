@@ -10,8 +10,18 @@ import UIKit
 import MapKit
 //import ezgo1
 
-class ViewController: UIViewController,MKMapViewDelegate {
+class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate {
+    var timer:Timer!
+    var abc:Bool=false
+    var timeArray = [String](repeating:"0",count:60)
+    var latArray = [Double](repeating:0.0,count:60)
+    var lngArray = [Double](repeating:0.0,count:60)
     
+    @IBOutlet weak var lblshow: UILabel!
+    let locationManager = CLLocationManager()
+    let uuid = UserDefaults.standard.string(forKey: "user_id")
+    
+
     @IBOutlet var btnMenu: UIBarButtonItem!
     @IBOutlet var mapView: MKMapView!
     var aa:Int = 0
@@ -19,17 +29,23 @@ class ViewController: UIViewController,MKMapViewDelegate {
     public var tileRenderer: MKTileOverlayRenderer!
     //public parameters=[:]
     override func viewDidLoad() {
+        var myDoubleTapGestureRecognizer: UIPanGestureRecognizer?
+        let fullScreenSize = UIScreen.main.bounds.size
+        
         super.viewDidLoad()
         if UserDefaults.standard.bool(forKey: "hasViewedGuide"){
             getWorksheet()
             getRecordDone()
         }
-        
+        getNowMM()
         //setupTileRenderer()
         // Do any additional setup after loading the view, typically from a nib.
         btnMenu.target = revealViewController()
         btnMenu.action = #selector(SWRevealViewController.revealToggle(_:))
+        myDoubleTapGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(gestureRecognizer(_:shouldRecognizeSimultaneouslyWith:)))
+     mapView.addGestureRecognizer(revealViewController().panGestureRecognizer())
         
+
         let location = CLLocationCoordinate2DMake(24.995, 121.584167)
         //設置地圖範圍（越小越精準）
         let span = MKCoordinateSpanMake(0.01, 0.01)
@@ -85,13 +101,48 @@ class ViewController: UIViewController,MKMapViewDelegate {
         //let name = defaults.string(forKey: "device id")
         //print("====device id 確定相同？：",name!)
         
+        
+        //map的設定
+        
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
+        locationManager.distanceFilter = kCLLocationAccuracyBestForNavigation; //表示移動3公尺再更新座標資訊
+        if CLLocationManager.locationServicesEnabled(){
+            
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.startUpdatingLocation()
+            
+        }
+        mapView.delegate=self
+        mapView.showsScale=true
+        mapView.showsPointsOfInterest=true
+        mapView.showsUserLocation=true
+        // 启用计时器，控制每秒执行一次tickDown方法
+        timer = Timer.scheduledTimer(timeInterval: 30,target:self,selector:#selector(self.tickDown30s),userInfo:nil,repeats:true)
+        timer = Timer.scheduledTimer(timeInterval: 60,target:self,selector:#selector(self.tickDown30m),userInfo:nil,repeats:true)
+        let btnM:UIButton = UIButton()
+        btnM.frame = CGRect(x: Int((fullScreenSize.width * 0.025)) , y:Int((fullScreenSize.height * 0.125)) , width: Int((fullScreenSize.width * 0.15)) , height: Int((fullScreenSize.width * 0.15)))
+        btnM.setBackgroundImage(UIImage(named: "house" ), for: UIControlState.normal)
+        btnM.addTarget(self,action: #selector(self.clickbutton),for: .touchUpInside)
+        view.addSubview(btnM)
+        btnM.tag = 123
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
-    
+
+    /*
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
+                           shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        print("gesture")
+        if ((gestureRecognizer == revealViewController().panGestureRecognizer()) && (otherGestureRecognizer is UIPanGestureRecognizer)) {
+            let otherTapGestureRecognizer = otherGestureRecognizer as! UIPanGestureRecognizer
+            return false
+        }
+        return true
+    }*/
     
     func mapView(_ mapkitView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         print("mapview")
@@ -107,11 +158,16 @@ class ViewController: UIViewController,MKMapViewDelegate {
             performSegue(withIdentifier: "gotoDetail", sender: self)
             
         }
+        else if sender.tag == 123{
+            performSegue(withIdentifier: "gotoM1", sender: self)
+
+        }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var xx:KnowledgeDetailViewController = segue.destination as! KnowledgeDetailViewController
-        xx.whichOne = self.aa
-        
+        if segue.identifier == "gotoDetail"{
+            var xx:KnowledgeDetailViewController = segue.destination as! KnowledgeDetailViewController
+            xx.whichOne = self.aa
+        }
     }
     
     //虎的func
@@ -160,33 +216,108 @@ class ViewController: UIViewController,MKMapViewDelegate {
         return annView
     }
     
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView){
-        
-        /*  if anns[0].title == "斑點鬣狗"{
-         print("1")
-         }
-         else if anns[1].title == "臺灣黑熊"{
-         print("2")
-         }
-         else if anns[2].title == "北美灰狼"{
-         print("3")
-         }
-         else if anns[3].title == "黑尾草原犬鼠"{
-         print("4")
-         }
-         else if anns[4].title == "笑翠鳥"{
-         print("5")
-         }
-         else if anns[5].title == "教育中心"{
-         print("6")
-         }
-         else if anns[6].title == "山羌"{
-         print("7")
-         }
-         */
+    func getNowMM()->Int{                 //取得目前時間的分數
+        let now = Date()
+        let dformatter = DateFormatter()
+        dformatter.dateFormat = "mm"
+        var time:Int = Int(dformatter.string(from: now))!
+        //print("目前分鐘數：" + String(time))
+        return time
     }
+    func getNowSS()->Int{                 //取得目前時間的秒數
+        let now = Date()
+        let dformatter = DateFormatter()
+        dformatter.dateFormat = "ss"
+        var time:Int = Int(dformatter.string(from: now))!
+        //print("目前秒數：" + String(time))
+        return time
+    }
+    func timeDifference(uuid:String)->Int{  //取得userId的時間差
+        
+        var timeDiff:Int
+        var id:String
+        id = uuid
+        timeDiff = Int((uuid.replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: "\n", with: "")))! % 30           //30分鐘為一單位
+        return timeDiff
+    }
+    @objc func tickDown30s(){
+        abc=true
+    }
+    @objc func tickDown30m(){
+        //上傳
+        print("timeArray",timeArray)
+        print("lngArray", lngArray)
+        print("latArray", latArray)
+        //postLocation(time: timeArray, lng: lngArray, lat: latArray)
+//        if getNowMM() % 30 == timeDifference(uuid: uuid!){
+//            //            //上傳
+//            //            print("timeArray",timeArray)
+//            //            print("lngArray", lngArray)
+//            //            print("latArray", latArray)
+//            //            postLocation(time: timeArray, lng: lngArray, lat: latArray)
+//            for i in 0...59{
+//                //timeArray[i]     三個要丟給家豪
+//                //lngArray[i]
+//                //latArray[i]
+//            }
+//        }
+    }
+    var x:Int = 0
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("進入locationManager")
+        if abc == true{
+            abc = false
+            let location = locations.first!
+            var mylat,mylng:Double
+            mylat=location.coordinate.latitude
+            mylng=location.coordinate.longitude
+            print("AQAQAQAQaQ")
+            print(mylng)
+            timeArray[x] = String(getNowMM())
+            lngArray[x] = mylng
+            latArray[x] = mylat
+            x = x + 1
+            lblshow.text = String(mylat) + String(mylng)
+        }
+    }
+    
+    var swich:Bool = true
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        // 首次使用 向使用者詢問定位自身位置權限
+        if CLLocationManager.authorizationStatus()
+            == .notDetermined {
+            // 取得定位服務授權
+            locationManager.requestAlwaysAuthorization()
+            
+            // 開始定位自身位置
+            locationManager.startUpdatingLocation()
+        }
+            // 使用者已經拒絕定位自身位置權限
+        else if CLLocationManager.authorizationStatus()
+            == .denied {
+            // 提示可至[設定]中開啟權限
+            let alertController = UIAlertController(
+                title: "定位權限已關閉",
+                message:
+                "如要變更權限，請至 設定 > 隱私權 > 定位服務 開啟",
+                preferredStyle: .alert)
+            let okAction = UIAlertAction(
+                title: "確認", style: .default, handler:nil)
+            alertController.addAction(okAction)
+            self.present(
+                alertController,
+                animated: true, completion: nil)
+        }
+            // 使用者已經同意定位自身位置權限
+        else if CLLocationManager.authorizationStatus()
+            == .authorizedWhenInUse {
+            // 開始定位自身位置
+            locationManager.startUpdatingLocation()
+        }
         
         if UserDefaults.standard.bool(forKey: "hasViewedGuide") {
             return
@@ -198,6 +329,9 @@ class ViewController: UIViewController,MKMapViewDelegate {
         }
     }
     
-    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        locationManager.stopUpdatingLocation()
+    }
 }
 

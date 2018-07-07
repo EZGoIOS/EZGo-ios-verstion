@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -114,6 +114,10 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="worksheet_background" translatesAutoresizingMaskIntoConstraints="NO" id="M4X-11-WJJ">
                                 <rect key="frame" x="-42" y="0.0" width="464" height="983"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="4da-Sy-o9b" appends="YES" id="i5h-yw-jm4"/>
+                                </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="目前答對題數:0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMh-5O-Arj">
                                 <rect key="frame" x="112" y="52" width="278" height="108"/>
@@ -123,9 +127,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="完成全部答題可領取獎品" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ofA-3d-nTd">
-                                <rect key="frame" x="23" y="548" width="221" height="33"/>
+                                <rect key="frame" x="23" y="548" width="315" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -140,13 +144,17 @@
                         <outlet property="btnMenu" destination="L41-QM-J2i" id="GMf-54-3sa"/>
                         <outlet property="lbl" destination="ofA-3d-nTd" id="Zvz-TW-Ux7"/>
                         <outlet property="lblshow" destination="CMh-5O-Arj" id="VIT-WM-PkS"/>
-                        <segue destination="QSo-Zr-r2g" kind="show" identifier="gotoworksheet" id="sCC-rw-x7Y"/>
-                        <segue destination="iJj-LZ-oed" kind="show" identifier="gotoReward" id="AHm-oi-aCd"/>
+                        <segue destination="QSo-Zr-r2g" kind="push" identifier="gotoworksheet" id="sCC-rw-x7Y"/>
+                        <segue destination="iJj-LZ-oed" kind="push" identifier="gotoReward" id="AHm-oi-aCd"/>
+                        <segue destination="Qh4-14-cIq" kind="show" identifier="gotoM2" id="gfO-nr-yAa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TMP-FB-eBa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="4da-Sy-o9b">
+                    <rectEdge key="edges" left="YES"/>
+                </screenEdgePanGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1864.8" y="-450.22488755622192"/>
+            <point key="canvasLocation" x="2444" y="-607"/>
         </scene>
         <!--Dog Info View Controller-->
         <scene sceneID="n7m-Fy-SlE">
@@ -174,11 +182,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="btnMenu" destination="qKi-Dy-qDH" id="Mkv-73-7SG"/>
+                        <segue destination="Qh4-14-cIq" kind="show" identifier="gotoM3" id="Ud1-Ev-5bm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NIw-1a-QQK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2570" y="-342"/>
+            <point key="canvasLocation" x="1762" y="-435"/>
         </scene>
         <!--Guide View Controller-->
         <scene sceneID="TWn-9Z-sJa">
@@ -232,11 +241,12 @@
                     <size key="freeformSize" width="375" height="1200"/>
                     <connections>
                         <outlet property="btnMenu" destination="EcH-1H-OFV" id="R57-nI-8Yk"/>
+                        <segue destination="Qh4-14-cIq" kind="show" identifier="gotoM" id="v8g-Zn-Qlg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1YX-df-cWr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3184.8000000000002" y="-341.82908545727139"/>
+            <point key="canvasLocation" x="3092" y="-343"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="hxy-0c-kSw">
@@ -252,10 +262,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="YBw-KV-xC9" firstAttribute="trailing" secondItem="qdN-nP-ehH" secondAttribute="trailing" id="BX4-Ji-jHr"/>
-                            <constraint firstItem="YBw-KV-xC9" firstAttribute="bottom" secondItem="qdN-nP-ehH" secondAttribute="bottom" id="DRy-7m-oRj"/>
-                            <constraint firstItem="YBw-KV-xC9" firstAttribute="leading" secondItem="qdN-nP-ehH" secondAttribute="leading" id="XFe-4W-V9c"/>
-                            <constraint firstItem="YBw-KV-xC9" firstAttribute="top" secondItem="qdN-nP-ehH" secondAttribute="top" id="vsm-Bk-nrk"/>
+                            <constraint firstItem="YBw-KV-xC9" firstAttribute="leading" secondItem="RZL-FP-nLh" secondAttribute="leading" id="Ntz-Z9-G1Y"/>
+                            <constraint firstAttribute="trailing" secondItem="YBw-KV-xC9" secondAttribute="trailing" id="WJh-kw-HV0"/>
+                            <constraint firstItem="YBw-KV-xC9" firstAttribute="bottom" secondItem="qdN-nP-ehH" secondAttribute="bottom" id="Y8N-Iw-qor"/>
+                            <constraint firstItem="YBw-KV-xC9" firstAttribute="top" secondItem="qdN-nP-ehH" secondAttribute="top" id="aio-vG-QHB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qdN-nP-ehH"/>
                     </view>
@@ -268,6 +278,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="btnMenu" destination="1os-PT-mCc" id="3dY-XE-44e"/>
+                        <segue destination="Qh4-14-cIq" kind="show" identifier="gotoM4" id="Ywt-of-TPn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mFX-H7-eIU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -278,7 +289,7 @@
         <!--View Controller-->
         <scene sceneID="CjH-a0-AQx">
             <objects>
-                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vE5-v2-GtL" customClass="ViewController" customModule="ezgo2" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vE5-v2-GtL" customClass="ViewController" customModule="ezgo2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uHo-0G-H0X">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -286,13 +297,23 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9lZ-qw-7Rs">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heH-pa-nrf">
+                                <rect key="frame" x="91" y="203" width="133" height="125"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="9lZ-qw-7Rs" firstAttribute="leading" secondItem="uHo-0G-H0X" secondAttribute="leading" id="GFH-DW-RnX"/>
-                            <constraint firstItem="9lZ-qw-7Rs" firstAttribute="bottom" secondItem="3Zy-mZ-fbr" secondAttribute="bottom" id="O4P-Hb-aqV"/>
-                            <constraint firstAttribute="trailing" secondItem="9lZ-qw-7Rs" secondAttribute="trailing" id="Oqa-Nc-8dA"/>
-                            <constraint firstItem="9lZ-qw-7Rs" firstAttribute="top" secondItem="uHo-0G-H0X" secondAttribute="top" id="U1n-Y4-Cmg"/>
+                            <constraint firstItem="3Zy-mZ-fbr" firstAttribute="bottom" secondItem="heH-pa-nrf" secondAttribute="bottom" constant="339" id="6gZ-D9-psI"/>
+                            <constraint firstItem="3Zy-mZ-fbr" firstAttribute="trailing" secondItem="heH-pa-nrf" secondAttribute="trailing" constant="151" id="DwZ-CA-7Zr"/>
+                            <constraint firstItem="9lZ-qw-7Rs" firstAttribute="top" secondItem="uHo-0G-H0X" secondAttribute="top" id="Icg-Lv-YdX"/>
+                            <constraint firstItem="heH-pa-nrf" firstAttribute="leading" secondItem="3Zy-mZ-fbr" secondAttribute="leading" constant="91" id="R8p-AF-2bc"/>
+                            <constraint firstItem="9lZ-qw-7Rs" firstAttribute="bottom" secondItem="3Zy-mZ-fbr" secondAttribute="bottom" id="T7l-fy-SJS"/>
+                            <constraint firstAttribute="trailing" secondItem="9lZ-qw-7Rs" secondAttribute="trailing" id="UBd-Me-qki"/>
+                            <constraint firstItem="9lZ-qw-7Rs" firstAttribute="leading" secondItem="uHo-0G-H0X" secondAttribute="leading" id="WCL-Qi-wr2"/>
+                            <constraint firstItem="heH-pa-nrf" firstAttribute="top" secondItem="3Zy-mZ-fbr" secondAttribute="top" constant="139" id="nHe-ro-x14"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3Zy-mZ-fbr"/>
                     </view>
@@ -301,13 +322,15 @@
                     </navigationItem>
                     <connections>
                         <outlet property="btnMenu" destination="xSa-iP-bCO" id="opB-mv-5pp"/>
+                        <outlet property="lblshow" destination="heH-pa-nrf" id="2nL-4R-nIO"/>
                         <outlet property="mapView" destination="9lZ-qw-7Rs" id="1Bn-WK-Gei"/>
-                        <segue destination="fGp-Xt-NXP" kind="show" identifier="gotoDetail" id="xlA-bG-Cmv"/>
+                        <segue destination="fGp-Xt-NXP" kind="push" identifier="gotoDetail" id="xlA-bG-Cmv"/>
+                        <segue destination="Qh4-14-cIq" kind="show" identifier="gotoM1" id="O0F-IN-BI5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1jq-aR-LE0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1890" y="322"/>
+            <point key="canvasLocation" x="1888.8" y="321.58920539730138"/>
         </scene>
         <!--Knowledge View Controller-->
         <scene sceneID="Ftf-1b-Rgy">
@@ -320,8 +343,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q1x-GB-Jkt">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SEE-ys-5mW">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SEE-ys-5mW">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="knowledge_background" translatesAutoresizingMaskIntoConstraints="NO" id="gDB-CV-3v3">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
@@ -421,11 +444,12 @@
                         <outlet property="btn5" destination="92h-Yy-bIl" id="Pzd-eZ-ryM"/>
                         <outlet property="btn6" destination="oAl-P0-XIS" id="1nb-UE-Eln"/>
                         <outlet property="btnMenu" destination="8go-Cq-Mej" id="P2g-bs-Ef4"/>
+                        <segue destination="Qh4-14-cIq" kind="show" identifier="gotoM5" id="cZk-MK-a1x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uWP-GG-Lnf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4663" y="-298"/>
+            <point key="canvasLocation" x="4661.6000000000004" y="-298.65067466266868"/>
         </scene>
         <!--Knowledge Detail View Controller-->
         <scene sceneID="Btn-j2-Vyq">
@@ -474,6 +498,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="V3U-yV-V3U"/>
                     </view>
+                    <navigationItem key="navigationItem" id="hXL-Hb-KaO"/>
                     <size key="freeformSize" width="375" height="800"/>
                     <connections>
                         <outlet property="background" destination="1Kg-V4-N3n" id="rix-aJ-Euf"/>
@@ -492,6 +517,13 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xZW-Ym-7gL">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -620,6 +652,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wMG-vw-hpG"/>
                     </view>
+                    <navigationItem key="navigationItem" id="vY5-2P-Sg2"/>
                     <connections>
                         <outlet property="btn" destination="Slu-Pu-esX" id="3yF-vF-pO2"/>
                         <outlet property="image1" destination="OnP-Vu-5wK" id="6Ml-7P-R5Q"/>
@@ -632,7 +665,9 @@
         <!--workSheet-->
         <scene sceneID="XtB-gb-y5P">
             <objects>
-                <viewControllerPlaceholder storyboardName="workSheet" id="QSo-Zr-r2g" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="workSheet" id="QSo-Zr-r2g" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="5gA-at-9Hw"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xo7-Ul-5UN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2349" y="-786"/>
@@ -640,7 +675,7 @@
     </scenes>
     <resources>
         <image name="about" width="944" height="1334"/>
-        <image name="dog_info" width="355" height="544"/>
+        <image name="dog_info" width="480" height="800"/>
         <image name="exchange_background" width="450" height="750"/>
         <image name="guide" width="500" height="1600"/>
         <image name="kn_bear" width="480" height="210"/>
@@ -655,6 +690,7 @@
         <image name="worksheet_background" width="450" height="800"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xlA-bG-Cmv"/>
+        <segue reference="R9Y-jI-Dzv"/>
+        <segue reference="cZk-MK-a1x"/>
     </inferredMetricsTieBreakers>
 </document>

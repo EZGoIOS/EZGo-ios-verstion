@@ -12,9 +12,30 @@ class RewardViewController: UIViewController {
     
     @IBOutlet weak var image1: UIImageView!
     @IBOutlet weak var btn: UIButton!
-    @IBAction func btn(_ sender: Any) {
-        //  if btn.backgroundImage(UIImage(named: "exchange" ), for: UIControlState.normal)
+    /*
+     if UserDefaults.standard.bool(forKey: "reward_done")==false{
+     
+     updateReward(user_id:String((UserDefaults.standard.string(forKey: "user_id"))!).replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: "\n", with: "")){ConnectionResult3 in
+     switch ConnectionResult3{
+     case .failure(let error):
+     print(error)
+     case .success(let data):
+     print("success")
+     }
+     }
+     UserDefaults.standard.set(true, forKey: "reward_done")
+     btn.setBackgroundImage(UIImage(named: "notexchange" ), for: UIControlState.normal)
+     print("exchange")
+     }
+     if UserDefaults.standard.bool(forKey: "reward_done")==true{
+     //UserDefaults.standard.set(false, forKey: "reward_done")
+     btn.setBackgroundImage(UIImage(named: "notexchange" ), for: UIControlState.normal)
+     print("can't exchange")
+     }*/
+    
+    @IBAction func okAction(sender: UIButton){
         if UserDefaults.standard.bool(forKey: "reward_done")==false{
+            
             updateReward(user_id:String((UserDefaults.standard.string(forKey: "user_id"))!).replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: "\n", with: "")){ConnectionResult3 in
                 switch ConnectionResult3{
                 case .failure(let error):
@@ -32,6 +53,57 @@ class RewardViewController: UIViewController {
             btn.setBackgroundImage(UIImage(named: "notexchange" ), for: UIControlState.normal)
             print("can't exchange")
         }
+    }
+    
+    @IBAction func btn(_ sender: Any) {
+        //  if btn.backgroundImage(UIImage(named: "exchange" ), for: UIControlState.normal)
+        
+        // 建立一個提示框
+        let alertController = UIAlertController(
+            title: "注意",
+            message: "你確定兌換?",
+            preferredStyle: .alert)
+        
+        // 建立[取消]按鈕
+        let cancelAction = UIAlertAction(
+            title: "取消",
+            style: .cancel,
+            handler: nil)
+        alertController.addAction(cancelAction)
+        
+        let okAction = UIAlertAction(
+            title: "確認",
+            style: .default,
+            handler: {
+                (action: UIAlertAction!) -> Void in
+                if UserDefaults.standard.bool(forKey: "reward_done")==false{
+                    updateReward(user_id:String((UserDefaults.standard.string(forKey: "user_id"))!).replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: "\n", with: "")){ConnectionResult3 in
+                        switch ConnectionResult3{
+                        case .failure(let error):
+                            print(error)
+                        case .success(let data):
+                            print("success")
+                        }
+                    }
+                    UserDefaults.standard.set(true, forKey: "reward_done")
+                    self.btn.setBackgroundImage(UIImage(named: "notexchange" ), for: UIControlState.normal)
+                    print("exchange")
+                }
+                if UserDefaults.standard.bool(forKey: "reward_done")==true{
+                    //UserDefaults.standard.set(false, forKey: "reward_done")
+                    self.btn.setBackgroundImage(UIImage(named: "notexchange" ), for: UIControlState.normal)
+                    print("can't exchange")
+                }
+        })
+        alertController.addAction(okAction)
+        
+        
+        // 顯示提示框
+        self.present(
+            alertController,
+            animated: true,
+            completion: nil)
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,54 +127,7 @@ class RewardViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    //    func getDone(){
-    //        let defaults = UserDefaults.standard
-    //        let name = defaults.string(forKey: "device id")
-    //        let parameters = ["device_id" : name]
-    //        guard let url = URL(string:"http://ezgo.twjoin.com/update")else{return}
-    //        var request = URLRequest(url:url)
-    //        request.httpMethod = "POST"
-    //        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-    //        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: [])else{return}
-    //        request.httpBody = httpBody
-    //
-    //        let session = URLSession.shared
-    //
-    //        session.dataTask(with:request){(data,response,error) in
-    //            if let response = response{
-    //                print(response)
-    //            }
-    //            if let data = data{
-    //                do{
-    //                    let json = try JSONSerialization.jsonObject(with: data, options:[.allowFragments]) as? NSDictionary
-    //                    //print(json)
-    //                    //print(json!)
-    //                    let val = (((json!.value(forKey: "userDone")!)) as AnyObject).value(forKey: "user_done")!
-    //                    print(String(describing: val))
-    //
-    //                    if (String(describing: val).replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: "\n", with: ""))=="1"{
-    //                        UserDefaults.standard.set(true, forKey: "reward_done")
-    //                        print("done")
-    //                    }else{
-    //                        UserDefaults.standard.set(false, forKey: "reward_done")
-    //                        print("haven't done")
-    //                    }
-    //
-    //                }catch{
-    //                    print(error)
-    //                }
-    //            }
-    //            }.resume()
-    //
-    //    }
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
+
+
