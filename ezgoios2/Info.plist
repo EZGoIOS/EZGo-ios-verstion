@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>ezgoios</string>
+	<string>EZGo</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFiles</key>
@@ -25,7 +25,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>0</string>
+	<string>2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -36,7 +36,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Please Open Camera</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Pleaso Open GPS</string>
+	<string>Please Open GPS</string>
 	<key>UIApplicationExitsOnSuspend</key>
 	<false/>
 	<key>UILaunchStoryboardName~iphone</key>
@@ -54,13 +54,15 @@
 	<key>UIRequiresPersistentWiFi</key>
 	<false/>
 	<key>UIStatusBarHidden</key>
-	<true/>
+	<false/>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleDefault</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 	<key>UnityCloudProjectID</key>
 	<string>277c9281-6f05-4544-bb5c-926e28fb2ae3</string>
 	<key>UnityCrashSubmissionURL</key>
