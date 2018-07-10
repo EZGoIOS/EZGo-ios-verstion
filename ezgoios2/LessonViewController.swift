@@ -15,7 +15,7 @@ class LessonViewController: UIViewController {
 
     @IBAction func back_gesture(_ sender: Any) {
         self.present(ViewController() ,animated: false, completion:nil)
-        print("swipeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")
+        //print("swipeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")
     }
     var recDone=[String](repeating:"0", count:18)
     var recDoneString = String()
@@ -38,11 +38,15 @@ class LessonViewController: UIViewController {
         performSegue(withIdentifier: "gotoReward", sender: self)
         
     }
+    @IBAction func clickbuttonMenu(sender: UIButton){
+        performSegue(withIdentifier: "gotoM2", sender: self)
+        
+    }
     @IBAction func clickbutton(sender: UIButton){
         if sender.tag == 1{//hyena
             whichAnimal = 1
             getJsonFromUrl(whichAnimal: self.whichAnimal){ConnectionResult in
-                print("first-----",self.showQr)
+                //print("first-----",self.showQr)
                 switch ConnectionResult{
                 case .failure(let error):
                     print(error)
@@ -81,7 +85,7 @@ class LessonViewController: UIViewController {
                     try vall.write(toFile: which_Animal, atomically: true, encoding: .utf8)
                     print(which_Animal)
                     let recString = try (NSString(contentsOfFile: which_Animal, encoding: String.Encoding.utf8.rawValue) as String)
-                    print("catch recString",recString)
+                    //print("catch recString",recString)
                 }catch{
                     print("catch error")
                     
@@ -104,7 +108,7 @@ class LessonViewController: UIViewController {
                     try vall.write(toFile: which_Animal, atomically: true, encoding: .utf8)
                     print(which_Animal)
                     let recString = try (NSString(contentsOfFile: which_Animal, encoding: String.Encoding.utf8.rawValue) as String)
-                    print("catch recString",recString)
+                    //print("catch recString",recString)
                 }catch{
                     print("catch error")
                     
@@ -127,7 +131,7 @@ class LessonViewController: UIViewController {
                     try vall.write(toFile: which_Animal, atomically: true, encoding: .utf8)
                     print(which_Animal)
                     let recString = try (NSString(contentsOfFile: which_Animal, encoding: String.Encoding.utf8.rawValue) as String)
-                    print("catch recString",recString)
+                    //print("catch recString",recString)
                 }catch{
                     print("catch error")
                     
@@ -150,7 +154,7 @@ class LessonViewController: UIViewController {
                     try vall.write(toFile: which_Animal, atomically: true, encoding: .utf8)
                     print(which_Animal)
                     let recString = try (NSString(contentsOfFile: which_Animal, encoding: String.Encoding.utf8.rawValue) as String)
-                    print("catch recString",recString)
+                    //print("catch recString",recString)
                 }catch{
                     print("catch error")
                     
@@ -174,7 +178,7 @@ class LessonViewController: UIViewController {
                     try vall.write(toFile: which_Animal, atomically: true, encoding: .utf8)
                     print(which_Animal)
                     let recString = try (NSString(contentsOfFile: which_Animal, encoding: String.Encoding.utf8.rawValue) as String)
-                    print("catch recString",recString)
+                    //print("catch recString",recString)
                 }catch{
                     print("catch error")
                     
@@ -236,7 +240,7 @@ class LessonViewController: UIViewController {
         let btnM:UIButton = UIButton()
         btnM.frame = CGRect(x: Int((fullScreenSize.width * 0.025)) , y:Int((fullScreenSize.height * 0.125)) , width: Int((fullScreenSize.width * 0.15)) , height: Int((fullScreenSize.width * 0.15)))
         btnM.setBackgroundImage(UIImage(named: "house" ), for: UIControlState.normal)
-        btnM.addTarget(self,action: #selector(self.clickbutton),for: .touchUpInside)
+        btnM.addTarget(self,action: #selector(self.clickbuttonMenu),for: .touchUpInside)
         view.addSubview(btnM)
         
         getRecordDone()
@@ -292,9 +296,9 @@ class LessonViewController: UIViewController {
                     recDoneString = try (NSString(contentsOfFile: rec_done, encoding: String.Encoding.utf8.rawValue) as String)
                     recDoneString.replacingOccurrences(of: ",", with: "")
                     recDone = recDoneString.components(separatedBy: ",")
-                    print("recdone",recDone)
+                    //print("recdone",recDone)
                 }catch{
-                    print("recdone error")
+                    //print("recdone error")
                 }
                 if recDone[0]=="1" && recDone[1]=="1" && recDone[2]=="1"{
                     buttonNumber1.setImage(UIImage(named: whichKnowledge(whichOne:i)), for: UIControlState.normal)
@@ -319,9 +323,9 @@ class LessonViewController: UIViewController {
                     recDoneString = try (NSString(contentsOfFile: rec_done, encoding: String.Encoding.utf8.rawValue) as String)
                     recDoneString.replacingOccurrences(of: ",", with: "")
                     recDone = recDoneString.components(separatedBy: ",")
-                    print("recdone",recDone)
+                    //print("recdone",recDone)
                 }catch{
-                    print("recdone error")
+                    //print("recdone error")
                 }
                 if recDone[3]=="1" && recDone[4]=="1" && recDone[5]=="1"{
                     buttonNumber2.setImage(UIImage(named: whichKnowledge(whichOne:i)), for: UIControlState.normal)
@@ -346,9 +350,9 @@ class LessonViewController: UIViewController {
                     recDoneString = try (NSString(contentsOfFile: rec_done, encoding: String.Encoding.utf8.rawValue) as String)
                     recDoneString.replacingOccurrences(of: ",", with: "")
                     recDone = recDoneString.components(separatedBy: ",")
-                    print("recdone",recDone)
+                    //print("recdone",recDone)
                 }catch{
-                    print("recdone error")
+                    //print("recdone error")
                 }
                 if recDone[6]=="1" && recDone[7]=="1" && recDone[8]=="1"{
                     buttonNumber3.setImage(UIImage(named: whichKnowledge(whichOne:i)), for: UIControlState.normal)
@@ -373,9 +377,9 @@ class LessonViewController: UIViewController {
                     recDoneString = try (NSString(contentsOfFile: rec_done, encoding: String.Encoding.utf8.rawValue) as String)
                     recDoneString.replacingOccurrences(of: ",", with: "")
                     recDone = recDoneString.components(separatedBy: ",")
-                    print("recdone",recDone)
+                    //print("recdone",recDone)
                 }catch{
-                    print("recdone error")
+                    //print("recdone error")
                 }
                 if recDone[9]=="1" && recDone[10]=="1" && recDone[11]=="1"{
                     buttonNumber4.setImage(UIImage(named: whichKnowledge(whichOne:i)), for: UIControlState.normal)
@@ -400,9 +404,9 @@ class LessonViewController: UIViewController {
                     recDoneString = try (NSString(contentsOfFile: rec_done, encoding: String.Encoding.utf8.rawValue) as String)
                     recDoneString.replacingOccurrences(of: ",", with: "")
                     recDone = recDoneString.components(separatedBy: ",")
-                    print("recdone",recDone)
+                    //print("recdone",recDone)
                 }catch{
-                    print("recdone error")
+                    //print("recdone error")
                 }
                 if recDone[12]=="1" && recDone[13]=="1" && recDone[14]=="1"{
                     buttonNumber5.setImage(UIImage(named: whichKnowledge(whichOne:i)), for: UIControlState.normal)
@@ -427,9 +431,9 @@ class LessonViewController: UIViewController {
                     recDoneString = try (NSString(contentsOfFile: rec_done, encoding: String.Encoding.utf8.rawValue) as String)
                     recDoneString.replacingOccurrences(of: ",", with: "")
                     recDone = recDoneString.components(separatedBy: ",")
-                    print("recdone",recDone)
+                    //print("recdone",recDone)
                 }catch{
-                    print("recdone error")
+                    //print("recdone error")
                 }
                 if recDone[15]=="1" && recDone[16]=="1" && recDone[17]=="1"{
                     buttonNumber6.setImage(UIImage(named: whichKnowledge(whichOne:i)), for: UIControlState.normal)
@@ -453,15 +457,15 @@ class LessonViewController: UIViewController {
         }
         var ansCnt:Int = 0
         var TOT:Float = 0
-        print(recDone)
+        //print(recDone)
         for i in 0...17{
             if recDone[i] == "1"{TOT = TOT + 1}
             
         }
         //ansCnt = TOT\3
-        print("NOOOOOOOOOOO",TOT)
+        //print("NOOOOOOOOOOO",TOT)
         ansCnt = Int(floorf(TOT/3))
-        print("NNNNNOOOOOOO",ansCnt)
+        //print("NNNNNOOOOOOO",ansCnt)
         
         lblshow.text = "目前闖關進度:" + String(ansCnt)
         //ansCnt = 6
