@@ -43,6 +43,8 @@ func updateReward(user_id:String,completion: @escaping(ConnectionResult3) -> ())
             do{
                 let json = try JSONSerialization.jsonObject(with: data, options: [.allowFragments]) as? [String: Any]
                 print(json!)
+                print("已兌換")
+                
                 
             }catch{
                 print(error)

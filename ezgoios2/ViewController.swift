@@ -36,6 +36,16 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
         if UserDefaults.standard.bool(forKey: "hasViewedGuide"){
             getWorksheet()
             getRecordDone()
+            downloadRec(userid:String((UserDefaults.standard.string(forKey: "user_id"))!).replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: "\n", with: "")){
+                ConnectionResult7 in
+                switch ConnectionResult7{
+                case .failure(let error):
+                    print(error)
+                    
+                case .success(let data):
+                    print("success")
+                }
+            }
         }
         getNowMM()
         //setupTileRenderer()
@@ -245,9 +255,9 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
     }
     @objc func tickDown30m(){
         //上傳
-        print("timeArray",timeArray)
-        print("lngArray", lngArray)
-        print("latArray", latArray)
+        //print("timeArray",timeArray)
+        //print("lngArray", lngArray)
+        //print("latArray", latArray)
         //postLocation(time: timeArray, lng: lngArray, lat: latArray)
 //        if getNowMM() % 30 == timeDifference(uuid: uuid!){
 //            //            //上傳
@@ -265,15 +275,15 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
     var x:Int = 0
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("進入locationManager")
+        //print("進入locationManager")
         if abc == true{
             abc = false
             let location = locations.first!
             var mylat,mylng:Double
             mylat=location.coordinate.latitude
             mylng=location.coordinate.longitude
-            print("AQAQAQAQaQ")
-            print(mylng)
+            //print("AQAQAQAQaQ")
+            //print(mylng)
             timeArray[x] = String(getNowMM())
             lngArray[x] = mylng
             latArray[x] = mylat
