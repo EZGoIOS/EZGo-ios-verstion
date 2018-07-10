@@ -58,56 +58,65 @@ class RewardViewController: UIViewController {
     @IBAction func btn(_ sender: Any) {
         //  if btn.backgroundImage(UIImage(named: "exchange" ), for: UIControlState.normal)
         
-        // 建立一個提示框
-        let alertController = UIAlertController(
-            title: "注意",
-            message: "你確定兌換?",
-            preferredStyle: .alert)
-        
-        // 建立[取消]按鈕
-        let cancelAction = UIAlertAction(
-            title: "取消",
-            style: .cancel,
-            handler: nil)
-        alertController.addAction(cancelAction)
-        
-        let okAction = UIAlertAction(
-            title: "確認",
-            style: .default,
-            handler: {
-                (action: UIAlertAction!) -> Void in
-                if UserDefaults.standard.bool(forKey: "reward_done")==false{
-                    updateReward(user_id:String((UserDefaults.standard.string(forKey: "user_id"))!).replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: "\n", with: "")){ConnectionResult3 in
-                        switch ConnectionResult3{
-                        case .failure(let error):
-                            print(error)
-                        case .success(let data):
-                            print("success")
+        if UserDefaults.standard.bool(forKey: "reward_done")==false{
+            // 建立一個提示框
+            let alertController = UIAlertController(
+                title: "注意",
+                message: "你確定兌換?",
+                preferredStyle: .alert)
+            
+            // 建立[取消]按鈕
+            let cancelAction = UIAlertAction(
+                title: "取消",
+                style: .cancel,
+                handler: nil)
+            alertController.addAction(cancelAction)
+            
+            let okAction = UIAlertAction(
+                title: "確認",
+                style: .default,
+                handler: {
+                    (action: UIAlertAction!) -> Void in
+                    if UserDefaults.standard.bool(forKey: "reward_done")==false{
+                        updateReward(user_id:String((UserDefaults.standard.string(forKey: "user_id"))!).replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: "\n", with: "")){ConnectionResult3 in
+                            switch ConnectionResult3{
+                            case .failure(let error):
+                                print(error)
+                            case .success(let data):
+                                print("success")
+                            }
                         }
+                        UserDefaults.standard.set(true, forKey: "reward_done")
+                        self.btn.setBackgroundImage(UIImage(named: "notexchange" ), for: UIControlState.normal)
+                        print("exchange")
                     }
-                    UserDefaults.standard.set(true, forKey: "reward_done")
-                    self.btn.setBackgroundImage(UIImage(named: "notexchange" ), for: UIControlState.normal)
-                    print("exchange")
-                }
-                if UserDefaults.standard.bool(forKey: "reward_done")==true{
-                    //UserDefaults.standard.set(false, forKey: "reward_done")
-                    self.btn.setBackgroundImage(UIImage(named: "notexchange" ), for: UIControlState.normal)
-                    print("can't exchange")
-                }
-        })
-        alertController.addAction(okAction)
-        
-        
-        // 顯示提示框
-        self.present(
-            alertController,
-            animated: true,
-            completion: nil)
-        
+                    if UserDefaults.standard.bool(forKey: "reward_done")==true{
+                        //UserDefaults.standard.set(false, forKey: "reward_done")
+                        self.btn.setBackgroundImage(UIImage(named: "notexchange" ), for: UIControlState.normal)
+                        print("can't exchange")
+                    }
+                    UserDefaults.standard.set(true, forKey: "hasChangedReward")
+            })
+            alertController.addAction(okAction)
+            
+            
+            // 顯示提示框
+            self.present(
+                alertController,
+                animated: true,
+                completion: nil)
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         //getDone()
+        if UserDefaults.standard.bool(forKey: "hasChangedReward") == true{
+            btn.setBackgroundImage(UIImage(named: "exchange" ), for: UIControlState.normal)
+            UserDefaults.standard.set(true, forKey: "reward_done")
+        }else{
+            btn.setBackgroundImage(UIImage(named: "notexchange" ), for: UIControlState.normal)
+            UserDefaults.standard.set(false, forKey: "reward_done")
+        }
         print(UserDefaults.standard.bool(forKey: "reward_done"))
         // 取得螢幕的尺寸
         let fullScreenSize = UIScreen.main.bounds.size
