@@ -21,7 +21,7 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
     let locationManager = CLLocationManager()
     let uuid = UserDefaults.standard.string(forKey: "user_id")
     
-
+    
     @IBOutlet var btnMenu: UIBarButtonItem!
     @IBOutlet var mapView: MKMapView!
     var aa:Int = 0
@@ -53,9 +53,9 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
         btnMenu.target = revealViewController()
         btnMenu.action = #selector(SWRevealViewController.revealToggle(_:))
         myDoubleTapGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(gestureRecognizer(_:shouldRecognizeSimultaneouslyWith:)))
-     mapView.addGestureRecognizer(revealViewController().panGestureRecognizer())
+        mapView.addGestureRecognizer(revealViewController().panGestureRecognizer())
         
-
+        
         let location = CLLocationCoordinate2DMake(24.995, 121.584167)
         //設置地圖範圍（越小越精準）
         let span = MKCoordinateSpanMake(0.01, 0.01)
@@ -81,31 +81,54 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
         print("set delegate")
         //虎的maker
         
+        if UserDefaults.standard.bool(forKey: "english")==true{
+            anns[0].coordinate = CLLocationCoordinate2D(latitude: 24.9946605, longitude: 121.5887605)
+            anns[0].title = "Hyena"
+            
+            anns[1].coordinate = CLLocationCoordinate2D(latitude: 24.9975801, longitude: 121.5799735)
+            anns[1].title = "Formosan Bear"
+            
+            anns[2].coordinate = CLLocationCoordinate2D(latitude: 24.9932772, longitude: 121.5900815)
+            anns[2].title = "Gray Wolf"
+            
+            anns[3].coordinate = CLLocationCoordinate2D(latitude: 24.9921553, longitude: 121.5890408)
+            anns[3].title = "Prairiedog"
+            
+            anns[4].coordinate = CLLocationCoordinate2D(latitude: 24.995106, longitude: 121.583514)
+            anns[4].title = "Kookaburra"
+            
+            anns[5].coordinate = CLLocationCoordinate2D(latitude: 24.9978621, longitude: 121.5818524)
+            anns[5].title = "Education Center"
+            
+            anns[6].coordinate = CLLocationCoordinate2D(latitude: 24.9977223, longitude: 121.5810719)
+            anns[6].title = "Muntjac"
+            
+            mapView.addAnnotations(anns)
+        }else{
+            anns[0].coordinate = CLLocationCoordinate2D(latitude: 24.9946605, longitude: 121.5887605)
+            anns[0].title = "斑點鬣狗"
         
-        anns[0].coordinate = CLLocationCoordinate2D(latitude: 24.9946605, longitude: 121.5887605)
-        anns[0].title = "斑點鬣狗"
-        
-        anns[1].coordinate = CLLocationCoordinate2D(latitude: 24.9975801, longitude: 121.5799735)
-        anns[1].title = "臺灣黑熊"
-        
-        anns[2].coordinate = CLLocationCoordinate2D(latitude: 24.9932772, longitude: 121.5900815)
-        anns[2].title = "北美灰狼"
-        
-        anns[3].coordinate = CLLocationCoordinate2D(latitude: 24.9921553, longitude: 121.5890408)
-        anns[3].title = "黑尾草原犬鼠"
-        
-        anns[4].coordinate = CLLocationCoordinate2D(latitude: 24.995106, longitude: 121.583514)
-        anns[4].title = "笑翠鳥"
-        
-        anns[5].coordinate = CLLocationCoordinate2D(latitude: 24.9978621, longitude: 121.5818524)
-        anns[5].title = "教育中心"
-        
-        anns[6].coordinate = CLLocationCoordinate2D(latitude: 24.9977223, longitude: 121.5810719)
-        anns[6].title = "山羌"
-        
-        mapView.addAnnotations(anns)
-        
-        
+            anns[1].coordinate = CLLocationCoordinate2D(latitude: 24.9975801, longitude: 121.5799735)
+            anns[1].title = "臺灣黑熊"
+            
+            anns[2].coordinate = CLLocationCoordinate2D(latitude: 24.9932772, longitude: 121.5900815)
+            anns[2].title = "北美灰狼"
+            
+            anns[3].coordinate = CLLocationCoordinate2D(latitude: 24.9921553, longitude: 121.5890408)
+            anns[3].title = "黑尾草原犬鼠"
+            
+            anns[4].coordinate = CLLocationCoordinate2D(latitude: 24.995106, longitude: 121.583514)
+            anns[4].title = "笑翠鳥"
+            
+            anns[5].coordinate = CLLocationCoordinate2D(latitude: 24.9978621, longitude: 121.5818524)
+            anns[5].title = "教育中心"
+            
+            anns[6].coordinate = CLLocationCoordinate2D(latitude: 24.9977223, longitude: 121.5810719)
+            anns[6].title = "山羌"
+            
+            mapView.addAnnotations(anns)
+        }
+        //mapView.addAnnotations(anns)
         //device id 確認
         //let defaults = UserDefaults.standard
         //let name = defaults.string(forKey: "device id")
@@ -142,17 +165,17 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
-
+    
     /*
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
-                           shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        print("gesture")
-        if ((gestureRecognizer == revealViewController().panGestureRecognizer()) && (otherGestureRecognizer is UIPanGestureRecognizer)) {
-            let otherTapGestureRecognizer = otherGestureRecognizer as! UIPanGestureRecognizer
-            return false
-        }
-        return true
-    }*/
+     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
+     shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+     print("gesture")
+     if ((gestureRecognizer == revealViewController().panGestureRecognizer()) && (otherGestureRecognizer is UIPanGestureRecognizer)) {
+     let otherTapGestureRecognizer = otherGestureRecognizer as! UIPanGestureRecognizer
+     return false
+     }
+     return true
+     }*/
     
     func mapView(_ mapkitView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         print("mapview")
@@ -162,15 +185,27 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
     @IBAction func clickbutton(sender: UIButton){
         if sender.tag == 1{//hyena
             print("success")
-            //   performSegue(withIdentifier: "aaaa", sender: self)
-            //performSegue(withIdentifier: "aaaa", sender: Any?.self)
             aa = 1
             performSegue(withIdentifier: "gotoDetail", sender: self)
             
-        }
-        else if sender.tag == 123{
+        }else if sender.tag == 123{
             performSegue(withIdentifier: "gotoM1", sender: self)
-
+            
+        }else if sender.tag == 2{
+            aa = 2
+            performSegue(withIdentifier: "gotoDetail", sender: self)
+        }else if sender.tag == 3{
+            aa = 3
+            performSegue(withIdentifier: "gotoDetail", sender: self)
+        }else if sender.tag == 4{
+            aa = 4
+            performSegue(withIdentifier: "gotoDetail", sender: self)
+        }else if sender.tag == 5{
+            aa = 5
+            performSegue(withIdentifier: "gotoDetail", sender: self)
+        }else if sender.tag == 6{
+            aa = 6
+            performSegue(withIdentifier: "gotoDetail", sender: self)
         }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -194,7 +229,7 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
         }
         let rightButton = UIButton(type: .detailDisclosure)
         rightButton.tag = annotation.hash
-        if (annotation.title)! == "斑點鬣狗" {
+        if (annotation.title)! == "斑點鬣狗" || (annotation.title)!=="Hyena" {
             annView?.image = UIImage(named:"circle_hyena")
             annView?.canShowCallout = true
             
@@ -202,23 +237,43 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
             rightButton.addTarget(self,action: #selector(self.clickbutton),for: .touchUpInside)
             rightButton.tag = 1
         }
-        else if (annotation.title)! == "臺灣黑熊"{
+        else if (annotation.title)! == "臺灣黑熊" || (annotation.title)!=="Formosan Bear"{
             annView?.image = UIImage(named:"circle_bear")
+            
+            annView?.rightCalloutAccessoryView = rightButton
+            rightButton.addTarget(self,action: #selector(self.clickbutton),for: .touchUpInside)
+            rightButton.tag = 2
         }
-        else if (annotation.title)! == "北美灰狼"{
+        else if (annotation.title)! == "北美灰狼" || (annotation.title)!=="Gray Wolf"{
             annView?.image = UIImage(named:"circle_wolf")
+            
+            annView?.rightCalloutAccessoryView = rightButton
+            rightButton.addTarget(self,action: #selector(self.clickbutton),for: .touchUpInside)
+            rightButton.tag = 3
         }
-        else if (annotation.title)! == "黑尾草原犬鼠"{
+        else if (annotation.title)! == "黑尾草原犬鼠" || (annotation.title)!=="PrairieDog"{
             annView?.image = UIImage(named:"circle_prairiedog")
+            
+            annView?.rightCalloutAccessoryView = rightButton
+            rightButton.addTarget(self,action: #selector(self.clickbutton),for: .touchUpInside)
+            rightButton.tag = 4
         }
-        else if (annotation.title)! == "笑翠鳥"{
+        else if (annotation.title)! == "笑翠鳥" || (annotation.title)!=="Kookaburra"{
             annView?.image = UIImage(named:"circle_kookaburra")
+            
+            annView?.rightCalloutAccessoryView = rightButton
+            rightButton.addTarget(self,action: #selector(self.clickbutton),for: .touchUpInside)
+            rightButton.tag = 5
         }
-        else if (annotation.title)! == "教育中心"{
+        else if (annotation.title)! == "教育中心" || (annotation.title)!=="Education Center"{
             annView?.image = UIImage(named:"gift")
         }
-        else if (annotation.title)! == "山羌"{
+        else if (annotation.title)! == "山羌" || (annotation.title)!=="Muntjac"{
             annView?.image = UIImage(named:"circle_deer")
+            
+            annView?.rightCalloutAccessoryView = rightButton
+            rightButton.addTarget(self,action: #selector(self.clickbutton),for: .touchUpInside)
+            rightButton.tag = 6
         }
         
         annView?.canShowCallout = true
@@ -259,18 +314,18 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
         //print("lngArray", lngArray)
         //print("latArray", latArray)
         //postLocation(time: timeArray, lng: lngArray, lat: latArray)
-//        if getNowMM() % 30 == timeDifference(uuid: uuid!){
-//            //            //上傳
-//            //            print("timeArray",timeArray)
-//            //            print("lngArray", lngArray)
-//            //            print("latArray", latArray)
-//            //            postLocation(time: timeArray, lng: lngArray, lat: latArray)
-//            for i in 0...59{
-//                //timeArray[i]     三個要丟給家豪
-//                //lngArray[i]
-//                //latArray[i]
-//            }
-//        }
+        //        if getNowMM() % 30 == timeDifference(uuid: uuid!){
+        //            //            //上傳
+        //            //            print("timeArray",timeArray)
+        //            //            print("lngArray", lngArray)
+        //            //            print("latArray", latArray)
+        //            //            postLocation(time: timeArray, lng: lngArray, lat: latArray)
+        //            for i in 0...59{
+        //                //timeArray[i]     三個要丟給家豪
+        //                //lngArray[i]
+        //                //latArray[i]
+        //            }
+        //        }
     }
     var x:Int = 0
     

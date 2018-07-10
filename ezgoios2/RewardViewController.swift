@@ -10,6 +10,8 @@ import UIKit
 
 class RewardViewController: UIViewController {
     
+    @IBOutlet weak var lblText: UILabel!
+    @IBOutlet weak var imgBack: UIImageView!
     @IBOutlet weak var image1: UIImageView!
     @IBOutlet weak var btn: UIButton!
     /*
@@ -45,12 +47,20 @@ class RewardViewController: UIViewController {
                 }
             }
             UserDefaults.standard.set(true, forKey: "reward_done")
-            btn.setBackgroundImage(UIImage(named: "notexchange" ), for: UIControlState.normal)
+            if UserDefaults.standard.bool(forKey: "english")==true{
+                btn.setBackgroundImage(UIImage(named: "notexchange_en" ), for: UIControlState.normal)
+            }else{
+                btn.setBackgroundImage(UIImage(named: "notexchange" ), for: UIControlState.normal)
+            }
             print("exchange")
         }
         if UserDefaults.standard.bool(forKey: "reward_done")==true{
             //UserDefaults.standard.set(false, forKey: "reward_done")
-            btn.setBackgroundImage(UIImage(named: "notexchange" ), for: UIControlState.normal)
+            if UserDefaults.standard.bool(forKey: "english")==true{
+                btn.setBackgroundImage(UIImage(named: "notexchange_en" ), for: UIControlState.normal)
+            }else{
+                btn.setBackgroundImage(UIImage(named: "notexchange" ), for: UIControlState.normal)
+            }
             print("can't exchange")
         }
     }
@@ -59,62 +69,133 @@ class RewardViewController: UIViewController {
         //  if btn.backgroundImage(UIImage(named: "exchange" ), for: UIControlState.normal)
         
         if UserDefaults.standard.bool(forKey: "reward_done")==false{
-            // 建立一個提示框
-            let alertController = UIAlertController(
-                title: "注意",
-                message: "你確定兌換?",
-                preferredStyle: .alert)
-            
-            // 建立[取消]按鈕
-            let cancelAction = UIAlertAction(
-                title: "取消",
-                style: .cancel,
-                handler: nil)
-            alertController.addAction(cancelAction)
-            
-            let okAction = UIAlertAction(
-                title: "確認",
-                style: .default,
-                handler: {
-                    (action: UIAlertAction!) -> Void in
-                    if UserDefaults.standard.bool(forKey: "reward_done")==false{
-                        updateReward(user_id:String((UserDefaults.standard.string(forKey: "user_id"))!).replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: "\n", with: "")){ConnectionResult3 in
-                            switch ConnectionResult3{
-                            case .failure(let error):
-                                print(error)
-                            case .success(let data):
-                                print("success")
+            if UserDefaults.standard.bool(forKey: "english")==true{
+                // 建立一個提示框
+                let alertController = UIAlertController(
+                    title: "Notice",
+                    message: "Are you sure to exchange now?[Yes/No]",
+                    preferredStyle: .alert)
+                
+                // 建立[取消]按鈕
+                let cancelAction = UIAlertAction(
+                    title: "NO",
+                    style: .default,
+                    handler: nil)
+                alertController.addAction(cancelAction)
+                
+                let okAction = UIAlertAction(
+                    title: "YES",
+                    style: .default,
+                    handler: {
+                        (action: UIAlertAction!) -> Void in
+                        if UserDefaults.standard.bool(forKey: "reward_done")==false{
+                            updateReward(user_id:String((UserDefaults.standard.string(forKey: "user_id"))!).replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: "\n", with: "")){ConnectionResult3 in
+                                switch ConnectionResult3{
+                                case .failure(let error):
+                                    print(error)
+                                case .success(let data):
+                                    print("success")
+                                }
                             }
+                            UserDefaults.standard.set(true, forKey: "reward_done")
+                            if UserDefaults.standard.bool(forKey: "english")==true{
+                                self.btn.setBackgroundImage(UIImage(named: "notexchange_en" ), for: UIControlState.normal)
+                            }else{
+                                self.btn.setBackgroundImage(UIImage(named: "notexchange" ), for: UIControlState.normal)
+                            }
+                            print("exchange")
                         }
-                        UserDefaults.standard.set(true, forKey: "reward_done")
-                        self.btn.setBackgroundImage(UIImage(named: "notexchange" ), for: UIControlState.normal)
-                        print("exchange")
-                    }
-                    if UserDefaults.standard.bool(forKey: "reward_done")==true{
-                        //UserDefaults.standard.set(false, forKey: "reward_done")
-                        self.btn.setBackgroundImage(UIImage(named: "notexchange" ), for: UIControlState.normal)
-                        print("can't exchange")
-                    }
-                    UserDefaults.standard.set(true, forKey: "hasChangedReward")
-            })
-            alertController.addAction(okAction)
-            
-            
-            // 顯示提示框
-            self.present(
-                alertController,
-                animated: true,
-                completion: nil)
+                        if UserDefaults.standard.bool(forKey: "reward_done")==true{
+                            //UserDefaults.standard.set(false, forKey: "reward_done")
+                            if UserDefaults.standard.bool(forKey: "english")==true{
+                                self.btn.setBackgroundImage(UIImage(named: "notexchange_en" ), for: UIControlState.normal)
+                            }else{
+                                self.btn.setBackgroundImage(UIImage(named: "notexchange" ), for: UIControlState.normal)
+                            }
+                            print("can't exchange")
+                        }
+                        UserDefaults.standard.set(true, forKey: "hasChangedReward")
+                })
+                alertController.addAction(okAction)
+                
+                
+                // 顯示提示框
+                self.present(
+                    alertController,
+                    animated: true,
+                    completion: nil)
+            }else{
+                // 建立一個提示框
+                let alertController = UIAlertController(
+                    title: "注意",
+                    message: "確定兌換請按「確認」，若稍後再換，請按「取消」",
+                    preferredStyle: .alert)
+                
+                // 建立[取消]按鈕
+                let cancelAction = UIAlertAction(
+                    title: "取消",
+                    style: .default,
+                    handler: nil)
+                alertController.addAction(cancelAction)
+                
+                let okAction = UIAlertAction(
+                    title: "確認",
+                    style: .default,
+                    handler: {
+                        (action: UIAlertAction!) -> Void in
+                        if UserDefaults.standard.bool(forKey: "reward_done")==false{
+                            updateReward(user_id:String((UserDefaults.standard.string(forKey: "user_id"))!).replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: "\n", with: "")){ConnectionResult3 in
+                                switch ConnectionResult3{
+                                case .failure(let error):
+                                    print(error)
+                                case .success(let data):
+                                    print("success")
+                                }
+                            }
+                            UserDefaults.standard.set(true, forKey: "reward_done")
+                            self.btn.setBackgroundImage(UIImage(named: "notexchange" ), for: UIControlState.normal)
+                            print("exchange")
+                        }
+                        if UserDefaults.standard.bool(forKey: "reward_done")==true{
+                            //UserDefaults.standard.set(false, forKey: "reward_done")
+                            self.btn.setBackgroundImage(UIImage(named: "notexchange" ), for: UIControlState.normal)
+                            print("can't exchange")
+                        }
+                        UserDefaults.standard.set(true, forKey: "hasChangedReward")
+                })
+                alertController.addAction(okAction)
+                
+                
+                // 顯示提示框
+                self.present(
+                    alertController,
+                    animated: true,
+                    completion: nil)
+            }
         }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        if UserDefaults.standard.bool(forKey: "english")==true{
+            imgBack.image = UIImage(named:"reward_background_en")!
+        }
+        if UserDefaults.standard.bool(forKey: "english")==true{
+            lblText.text = "Exchange at:Visitor center                     Get your prize by showing this page to our staff   （up to 2018/09/30)"
+        }
         //getDone()
         if UserDefaults.standard.bool(forKey: "hasChangedReward") == true{
-            btn.setBackgroundImage(UIImage(named: "exchange" ), for: UIControlState.normal)
+            if UserDefaults.standard.bool(forKey: "english")==true{
+                btn.setBackgroundImage(UIImage(named: "exchange_en" ), for: UIControlState.normal)
+            }else{
+                btn.setBackgroundImage(UIImage(named: "exchange" ), for: UIControlState.normal)
+            }
             UserDefaults.standard.set(true, forKey: "reward_done")
         }else{
-            btn.setBackgroundImage(UIImage(named: "notexchange" ), for: UIControlState.normal)
+            if UserDefaults.standard.bool(forKey: "english")==true{
+                btn.setBackgroundImage(UIImage(named: "notexchange_en" ), for: UIControlState.normal)
+            }else{
+                btn.setBackgroundImage(UIImage(named: "notexchange" ), for: UIControlState.normal)
+            }
             UserDefaults.standard.set(false, forKey: "reward_done")
         }
         print(UserDefaults.standard.bool(forKey: "reward_done"))
@@ -125,9 +206,17 @@ class RewardViewController: UIViewController {
         image1.image = UIImage(named:"dog_exchange")
         btn.frame = CGRect(x: Int((fullScreenSize.width * 0.15)) , y:Int((fullScreenSize.height * 0.72)) , width: Int((fullScreenSize.width * 0.7)) , height: Int((fullScreenSize.width * 0.2)))
         if UserDefaults.standard.bool(forKey: "reward_done")==false{
-            btn.setBackgroundImage(UIImage(named: "exchange" ), for: UIControlState.normal)
+            if UserDefaults.standard.bool(forKey: "english")==true{
+                btn.setBackgroundImage(UIImage(named: "exchange_en" ), for: UIControlState.normal)
+            }else{
+                btn.setBackgroundImage(UIImage(named: "exchange" ), for: UIControlState.normal)
+            }
         }else{
-            btn.setBackgroundImage(UIImage(named: "notexchange" ), for: UIControlState.normal)
+            if UserDefaults.standard.bool(forKey: "english")==true{
+                btn.setBackgroundImage(UIImage(named: "notexchange_en" ), for: UIControlState.normal)
+            }else{
+                btn.setBackgroundImage(UIImage(named: "notexchange" ), for: UIControlState.normal)
+            }
         }
     }
     

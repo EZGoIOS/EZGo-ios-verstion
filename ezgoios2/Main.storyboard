@@ -126,7 +126,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="目前答對題數:0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMh-5O-Arj">
                                 <rect key="frame" x="112" y="52" width="278" height="108"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -186,6 +186,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="btnMenu" destination="qKi-Dy-qDH" id="Mkv-73-7SG"/>
+                        <outlet property="imgFull" destination="OK5-Mk-MD9" id="OSo-gN-NVA"/>
                         <segue destination="Qh4-14-cIq" kind="show" identifier="gotoM3" id="Ud1-Ev-5bm"/>
                     </connections>
                 </viewController>
@@ -245,6 +246,7 @@
                     <size key="freeformSize" width="375" height="1200"/>
                     <connections>
                         <outlet property="btnMenu" destination="EcH-1H-OFV" id="R57-nI-8Yk"/>
+                        <outlet property="imgFull" destination="5jG-Vb-vOR" id="9UB-jf-mbu"/>
                         <segue destination="Qh4-14-cIq" kind="show" identifier="gotoM" id="v8g-Zn-Qlg"/>
                     </connections>
                 </viewController>
@@ -260,7 +262,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="about" translatesAutoresizingMaskIntoConstraints="NO" id="YBw-KV-xC9">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="about_new" translatesAutoresizingMaskIntoConstraints="NO" id="YBw-KV-xC9">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
                         </subviews>
@@ -302,7 +304,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heH-pa-nrf">
-                                <rect key="frame" x="91" y="203" width="133" height="125"/>
+                                <rect key="frame" x="91" y="159" width="133" height="169"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -716,6 +718,17 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exchange_background" translatesAutoresizingMaskIntoConstraints="NO" id="oEN-ZH-0vp">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="兌換地點：遊客服務中心                     請將本畫面出示給工作人員已領取獎品   （2018/9/30前有效)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16N-Xa-KO1">
+                                <rect key="frame" x="31" y="545" width="313" height="93"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="16N-Xa-KO1" secondAttribute="height" multiplier="313:93" id="Gdb-Bi-pfE"/>
+                                    <constraint firstAttribute="width" constant="313" id="tTv-h4-H4E"/>
+                                    <constraint firstAttribute="height" constant="93" id="vkS-tb-wBw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".PingFangTC-Regular" family=".PingFang TC" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OnP-Vu-5wK">
                                 <rect key="frame" x="67" y="171" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -731,9 +744,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="oEN-ZH-0vp" firstAttribute="leading" secondItem="1ck-d1-EOx" secondAttribute="leading" id="4lW-pG-qXe"/>
+                            <constraint firstItem="wMG-vw-hpG" firstAttribute="trailing" secondItem="16N-Xa-KO1" secondAttribute="trailing" constant="31" id="CX2-0M-Cye"/>
                             <constraint firstAttribute="trailing" secondItem="oEN-ZH-0vp" secondAttribute="trailing" id="ICm-xN-V0A"/>
+                            <constraint firstItem="wMG-vw-hpG" firstAttribute="bottom" secondItem="16N-Xa-KO1" secondAttribute="bottom" constant="29" id="JoI-eF-9h9"/>
                             <constraint firstItem="oEN-ZH-0vp" firstAttribute="top" secondItem="1ck-d1-EOx" secondAttribute="top" id="Tun-uU-k1Z"/>
                             <constraint firstItem="oEN-ZH-0vp" firstAttribute="bottom" secondItem="wMG-vw-hpG" secondAttribute="bottom" id="jnC-ls-Dmh"/>
+                            <constraint firstItem="16N-Xa-KO1" firstAttribute="leading" secondItem="wMG-vw-hpG" secondAttribute="leading" constant="31" id="nd6-eh-v9y"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wMG-vw-hpG"/>
                     </view>
@@ -741,6 +757,8 @@
                     <connections>
                         <outlet property="btn" destination="Slu-Pu-esX" id="3yF-vF-pO2"/>
                         <outlet property="image1" destination="OnP-Vu-5wK" id="6Ml-7P-R5Q"/>
+                        <outlet property="imgBack" destination="oEN-ZH-0vp" id="pjF-Jg-8kx"/>
+                        <outlet property="lblText" destination="16N-Xa-KO1" id="Ro8-6G-23e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RzT-pS-LYe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -759,7 +777,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="about" width="944" height="1334"/>
+        <image name="about_new" width="960" height="1466"/>
         <image name="dog_info" width="480" height="800"/>
         <image name="exchange_background" width="450" height="750"/>
         <image name="guide" width="500" height="1600"/>
@@ -778,7 +796,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="xlA-bG-Cmv"/>
-        <segue reference="Lg2-kv-uA6"/>
-        <segue reference="DoQ-jJ-96H"/>
+        <segue reference="A7P-Ac-Qdn"/>
+        <segue reference="O0F-IN-BI5"/>
     </inferredMetricsTieBreakers>
 </document>

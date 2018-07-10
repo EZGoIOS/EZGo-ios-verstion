@@ -218,11 +218,20 @@ class A1: UIViewController {
         }
         
         if j == answer{
-            lbl1.text = "恭喜您 答對了"
+            if UserDefaults.standard.bool(forKey: "english")==true{
+                lbl1.text = "Correct!"
+            }else{
+                lbl1.text = "恭喜您 答對了"
+            }
+            
             image3.image = UIImage(named: "worksheet_true.png")
         }
         else {
-            lbl1.text = "很可惜 答錯了"
+            if UserDefaults.standard.bool(forKey: "english")==true{
+                lbl1.text = "You're wrong"
+            }else{
+                lbl1.text = "很可惜 答錯了"
+            }
             image3.image = UIImage(named: "worksheet_false.png")
             
         }
@@ -231,10 +240,17 @@ class A1: UIViewController {
         btn1.setBackgroundImage(UIImage(named: "btn_reward0" ), for: UIControlState.normal)
         btn1.setTitleColor(UIColor.white, for: UIControlState.normal)
         if frequency == 3{
-            btn1.setTitle("回主頁", for: UIControlState.normal)
-            
+            if UserDefaults.standard.bool(forKey: "english")==true{
+                btn1.setTitle("Back to Map", for: UIControlState.normal)
+            }else{
+                btn1.setTitle("回主頁", for: UIControlState.normal)
+            }
         }else{
-            btn1.setTitle("下一題", for: UIControlState.normal)
+            if UserDefaults.standard.bool(forKey: "english")==true{
+                btn1.setTitle("Next", for: UIControlState.normal)
+            }else{
+                btn1.setTitle("下一題", for: UIControlState.normal)
+            }
         }
         // Do any additional setup after loading the view.
     }

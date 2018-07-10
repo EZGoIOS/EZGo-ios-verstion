@@ -20,8 +20,12 @@ class RestartViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         let fullScreenSize = UIScreen.main.bounds.size
-        pressConti.frame = CGRect(x: Int((fullScreenSize.width * 0.15)) , y:Int((fullScreenSize.height * 0.08)) , width: Int((fullScreenSize.width * 0.7)) , height: Int((fullScreenSize.width * 0.3)))
+        pressConti.frame = CGRect(x: Int((fullScreenSize.width * 0.15)) , y:Int((fullScreenSize.height * 0.28)) , width: Int((fullScreenSize.width * 0.7)) , height: Int((fullScreenSize.width * 0.3)))
         pressRestart.frame = CGRect(x: Int((fullScreenSize.width * 0.15)) , y:Int((fullScreenSize.height * 0.28)) , width: Int((fullScreenSize.width * 0.7)) , height: Int((fullScreenSize.width * 0.3)))
+        if UserDefaults.standard.bool(forKey: "english")==true{
+            pressConti.setTitle("Continue", for: UIControlState.normal)
+            pressRestart.setTitle("Restart", for: UIControlState.normal)
+        }
         let btnM:UIButton = UIButton()
         btnM.frame = CGRect(x: Int((fullScreenSize.width * 0.025)) , y:Int((fullScreenSize.height * 0.125)) , width: Int((fullScreenSize.width * 0.15)) , height: Int((fullScreenSize.width * 0.15)))
         btnM.setBackgroundImage(UIImage(named: "house" ), for: UIControlState.normal)

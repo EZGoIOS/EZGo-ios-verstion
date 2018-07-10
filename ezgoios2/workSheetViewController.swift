@@ -9,6 +9,7 @@
 import UIKit
 
 class workSheetViewController: UIViewController {
+    @IBOutlet weak var btnStart: UIButton!
     var frequency:Int = 0 //作答次數
     var aa:Int = 0 //有幾個選項
     var recArray = [String](repeating:"0",count:3)
@@ -168,6 +169,9 @@ class workSheetViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        if UserDefaults.standard.bool(forKey: "english")==true{
+            btnStart.setTitle("Start to Answer", for: UIControlState.normal)
+        }
         
     }
     override func didReceiveMemoryWarning() {

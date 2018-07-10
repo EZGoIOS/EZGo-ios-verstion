@@ -59,6 +59,7 @@
                         <viewLayoutGuide key="safeArea" id="Wrr-nI-Us0"/>
                     </view>
                     <connections>
+                        <outlet property="btnStart" destination="OEr-Y7-4Kv" id="cQI-1t-f58"/>
                         <outlet property="lblshow" destination="jlZ-EK-TaN" id="lP2-PM-g7u"/>
                         <segue destination="bhr-Pw-rMk" kind="modal" identifier="gotoQ1" id="0Ty-Zn-8PB"/>
                         <segue destination="HFM-A0-Mju" kind="modal" identifier="gotoQ2" id="haV-GT-RuH"/>
@@ -360,7 +361,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ekK-QD-SFk">
-                                <rect key="frame" x="174" y="217" width="42" height="21"/>
+                                <rect key="frame" x="118" y="217" width="136" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -408,8 +409,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="lpr-1k-hq2"/>
-        <segue reference="UfP-Nb-SFV"/>
-        <segue reference="0Ty-Zn-8PB"/>
-        <segue reference="haV-GT-RuH"/>
+        <segue reference="PrI-vI-Qa7"/>
+        <segue reference="2bN-zC-qej"/>
+        <segue reference="Kq8-b2-ZC0"/>
     </inferredMetricsTieBreakers>
 </document>

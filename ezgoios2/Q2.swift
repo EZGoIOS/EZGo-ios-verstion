@@ -73,11 +73,19 @@ class Q2: UIViewController {
             }
             performSegue(withIdentifier: "Q2gotoA1", sender: self)
         }else {
-            var alert = UIAlertView()
-            alert.title = "注意！"
-            alert.message = "你沒選選項"
-            alert.addButton(withTitle: "OK")
-            alert.show()
+            if UserDefaults.standard.bool(forKey: "english")==true{
+                var alert = UIAlertView()
+                alert.title = "Notice！"
+                alert.message = "You didn't choose"
+                alert.addButton(withTitle: "OK")
+                alert.show()
+            }else{
+                var alert = UIAlertView()
+                alert.title = "注意！"
+                alert.message = "你沒選選項"
+                alert.addButton(withTitle: "OK")
+                alert.show()
+            }
         }
     }
     func whichKnowledge1(whichOne:Int) -> String {
@@ -159,7 +167,11 @@ class Q2: UIViewController {
         btnSure.frame = CGRect(x: Int((fullScreenSize.width * 0.35)) , y:Int((fullScreenSize.height * 0.85)) , width: Int((fullScreenSize.width * 0.3)) , height: Int((fullScreenSize.width * 0.1)))
         btnSure.setBackgroundImage(UIImage(named: "btn_reward0" ), for: UIControlState.normal)
         btnSure.setTitleColor(UIColor.white, for: UIControlState.normal)
-        btnSure.setTitle("確定", for: UIControlState.normal)
+        if UserDefaults.standard.bool(forKey: "english"){
+            btnSure.setTitle("OK", for: UIControlState.normal)
+        }else{
+            btnSure.setTitle("確定", for: UIControlState.normal)
+        }
         //-------------label設定-------------
         lblshow.frame = CGRect(x: Int((fullScreenSize.width * 0.215)) , y:Int((fullScreenSize.height * 0.22)) , width: Int((fullScreenSize.width * 0.6)) , height: Int((fullScreenSize.height * 0.305)))
         

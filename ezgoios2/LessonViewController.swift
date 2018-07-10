@@ -235,6 +235,7 @@ class LessonViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // 取得螢幕的尺寸r
         let fullScreenSize = UIScreen.main.bounds.size
         let btnM:UIButton = UIButton()
@@ -263,7 +264,11 @@ class LessonViewController: UIViewController {
         buttonNumber.frame = CGRect(x: Int((fullScreenSize.width * 0.15)) , y:Int((fullScreenSize.height * 0.8)) , width: Int((fullScreenSize.width * 0.7)) , height: Int((fullScreenSize.width * 0.2)))
         buttonNumber.setBackgroundImage(UIImage(named: "btn_reward0" ), for: UIControlState.normal)
         buttonNumber.setTitleColor(UIColor.white, for: UIControlState.normal)
-        buttonNumber.setTitle("闖關尚未成功", for: UIControlState.normal)
+        if UserDefaults.standard.bool(forKey: "english") == true{
+            buttonNumber.setTitle("UNDONE", for: UIControlState.normal)
+        }else{
+            buttonNumber.setTitle("闖關尚未成功", for: UIControlState.normal)
+        }
         buttonNumber.tag = 7
         view.addSubview(buttonNumber)
         lblshow.frame = CGRect(x: Int((fullScreenSize.width * 0.15)) , y:Int((fullScreenSize.height * 0.1)) , width: Int((fullScreenSize.width * 0.7)) , height: Int((fullScreenSize.height * 0.1)))
@@ -455,22 +460,34 @@ class LessonViewController: UIViewController {
             default: break //GG
             }
         }
-        var ansCnt:Int = 0
+        
         var TOT:Float = 0
         //print(recDone)
         for i in 0...17{
             if recDone[i] == "1"{TOT = TOT + 1}
             
         }
+        var ansCnt:Int = 0
+        
         //ansCnt = TOT\3
         //print("NOOOOOOOOOOO",TOT)
         ansCnt = Int(floorf(TOT/3))
         //print("NNNNNOOOOOOO",ansCnt)
-        
-        lblshow.text = "目前闖關進度:" + String(ansCnt)
+        if UserDefaults.standard.bool(forKey: "english")==true{
+            lblshow.text = "Complete animals:" + String(ansCnt)
+            lbl.text = "Complete the entire questions to receive prizes."
+        }else{
+            lblshow.text = "目前闖關進度:" + String(ansCnt)
+        }
+        //lblshow.text = "目前闖關進度:" + String(ansCnt)
         //ansCnt = 6
         if ansCnt == 6{
-            buttonNumber.setTitle("可以兌換獎品囉", for: UIControlState.normal)
+            if UserDefaults.standard.bool(forKey: "english")==true{
+                buttonNumber.setTitle("Get Prize", for: UIControlState.normal)
+            }else{
+                buttonNumber.setTitle("兌換獎品", for: UIControlState.normal)
+            }
+            
             buttonNumber.addTarget(self,action: #selector(self.clickbuttonjump),for: .touchUpInside)
             
         }

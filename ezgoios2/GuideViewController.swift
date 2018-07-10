@@ -13,8 +13,12 @@ class GuideViewController: UIViewController {
     
     @IBOutlet weak var backMenu: UIButton!
     @IBOutlet var btnMenu: UIBarButtonItem!
+    @IBOutlet weak var imgFull: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        if UserDefaults.standard.bool(forKey: "english")==true{
+            imgFull.image = UIImage(named:"guide_en")!
+        }
         let fullScreenSize = UIScreen.main.bounds.size
 
         let btnM:UIButton = UIButton()

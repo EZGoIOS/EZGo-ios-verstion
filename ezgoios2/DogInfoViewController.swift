@@ -10,6 +10,7 @@ import UIKit
 
 class DogInfoViewController: UIViewController {
     
+    @IBOutlet weak var imgFull: UIImageView!
     @IBOutlet var btnMenu: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,10 @@ class DogInfoViewController: UIViewController {
         btnM.setBackgroundImage(UIImage(named: "house" ), for: UIControlState.normal)
         btnM.addTarget(self,action: #selector(self.clickbutton),for: .touchUpInside)
         view.addSubview(btnM)
+        
+        if UserDefaults.standard.bool(forKey: "english")==true{
+            imgFull.image = UIImage(named:"dog_info_en")
+        }
     }
     @IBAction func clickbutton(sender: UIButton){
         performSegue(withIdentifier: "gotoM3", sender: self) 
