@@ -48,7 +48,6 @@
 		2EEC57DA20AC366D006C5F1B /* updateWorksheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC57BF20AC366B006C5F1B /* updateWorksheet.swift */; };
 		2EEC57DB20AC366D006C5F1B /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC57C020AC366B006C5F1B /* ContactViewController.swift */; };
 		2EEC57DC20AC366D006C5F1B /* getRecordDone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC57C120AC366B006C5F1B /* getRecordDone.swift */; };
-		2EEC57DD20AC366D006C5F1B /* workSheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EEC57C220AC366B006C5F1B /* workSheet.storyboard */; };
 		2EEC57DE20AC366D006C5F1B /* DogInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC57C420AC366C006C5F1B /* DogInfoViewController.swift */; };
 		2EEC57DF20AC366D006C5F1B /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC57C520AC366C006C5F1B /* AboutViewController.swift */; };
 		2EEC57E020AC366D006C5F1B /* KnowledgeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC57C620AC366C006C5F1B /* KnowledgeDetailViewController.swift */; };
@@ -98,6 +97,11 @@
 		7F36C11113C5C673007FBDD9 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F36C10E13C5C673007FBDD9 /* CoreMedia.framework */; };
 		7F36C11213C5C673007FBDD9 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F36C10F13C5C673007FBDD9 /* CoreVideo.framework */; };
 		7F36C11313C5C673007FBDD9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F36C11013C5C673007FBDD9 /* AVFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		824A56A020C237A20093F0A5 /* workSheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 824A569F20C237A10093F0A5 /* workSheet.storyboard */; };
+		82A3870620EF4D8400BCB158 /* RestartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A3870520EF4D8400BCB158 /* RestartViewController.swift */; };
+		82A3870920EF5C4300BCB158 /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A3870820EF5C4300BCB158 /* DLRadioButton.m */; };
+		82A3870B20EF891C00BCB158 /* downloadRecordDone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A3870A20EF891C00BCB158 /* downloadRecordDone.swift */; };
+		82AFB2AD20EFB6C600FFCEBF /* clearRec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AFB2AC20EFB6C600FFCEBF /* clearRec.swift */; };
 		830B5C110E5ED4C100C7819F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 830B5C100E5ED4C100C7819F /* UIKit.framework */; };
 		8358D1B80ED1CC3700E3A684 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8358D1B70ED1CC3700E3A684 /* AudioToolbox.framework */; };
 		83B256E20E62FEA000468741 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83B256E10E62FEA000468741 /* OpenGLES.framework */; };
@@ -265,7 +269,6 @@
 		2EEC57BF20AC366B006C5F1B /* updateWorksheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = updateWorksheet.swift; sourceTree = "<group>"; };
 		2EEC57C020AC366B006C5F1B /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		2EEC57C120AC366B006C5F1B /* getRecordDone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = getRecordDone.swift; sourceTree = "<group>"; };
-		2EEC57C220AC366B006C5F1B /* workSheet.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = workSheet.storyboard; sourceTree = "<group>"; };
 		2EEC57C320AC366B006C5F1B /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		2EEC57C420AC366C006C5F1B /* DogInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogInfoViewController.swift; sourceTree = "<group>"; };
 		2EEC57C520AC366C006C5F1B /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
@@ -318,6 +321,12 @@
 		7F36C10E13C5C673007FBDD9 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		7F36C10F13C5C673007FBDD9 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		7F36C11013C5C673007FBDD9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		824A569F20C237A10093F0A5 /* workSheet.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = workSheet.storyboard; sourceTree = "<group>"; };
+		82A3870520EF4D8400BCB158 /* RestartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestartViewController.swift; sourceTree = "<group>"; };
+		82A3870720EF5C3D00BCB158 /* DLRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRadioButton.h; sourceTree = "<group>"; };
+		82A3870820EF5C4300BCB158 /* DLRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRadioButton.m; sourceTree = "<group>"; };
+		82A3870A20EF891C00BCB158 /* downloadRecordDone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = downloadRecordDone.swift; sourceTree = "<group>"; };
+		82AFB2AC20EFB6C600FFCEBF /* clearRec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = clearRec.swift; sourceTree = "<group>"; };
 		830B5C100E5ED4C100C7819F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8358D1B70ED1CC3700E3A684 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		83B256E10E62FEA000468741 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -594,11 +603,16 @@
 				2EEC57CA20AC366C006C5F1B /* getUserDetail.swift */,
 				2EEC57B620AC366A006C5F1B /* GuideContentViewController.swift */,
 				2EEC57B320AC3669006C5F1B /* GuidePageViewController.swift */,
+				82A3870720EF5C3D00BCB158 /* DLRadioButton.h */,
+				82A3870820EF5C4300BCB158 /* DLRadioButton.m */,
 				2EEC57CB20AC366D006C5F1B /* GuideViewController.swift */,
 				2EEC57C620AC366C006C5F1B /* KnowledgeDetailViewController.swift */,
 				2EEC57B220AC3669006C5F1B /* KnowledgeViewController.swift */,
 				2EEC57B720AC366A006C5F1B /* LessonViewController.swift */,
 				2EEC57B820AC366A006C5F1B /* Main.storyboard */,
+				82A3870520EF4D8400BCB158 /* RestartViewController.swift */,
+				82AFB2AC20EFB6C600FFCEBF /* clearRec.swift */,
+				82A3870A20EF891C00BCB158 /* downloadRecordDone.swift */,
 				2EEC57C820AC366C006C5F1B /* MenuTableViewCell.swift */,
 				2EEC57BE20AC366B006C5F1B /* MenuViewController.swift */,
 				2EEC57B420AC366A006C5F1B /* Q1.swift */,
@@ -608,9 +622,9 @@
 				2EEC57C320AC366B006C5F1B /* SWRevealViewController.h */,
 				2EEC57BA20AC366A006C5F1B /* SWRevealViewController.m */,
 				2EEC57B920AC366A006C5F1B /* updateReward.swift */,
+				824A569F20C237A10093F0A5 /* workSheet.storyboard */,
 				2EEC57BF20AC366B006C5F1B /* updateWorksheet.swift */,
 				2EEC57C920AC366C006C5F1B /* ViewController.swift */,
-				2EEC57C220AC366B006C5F1B /* workSheet.storyboard */,
 				2EEC57BB20AC366B006C5F1B /* workSheetViewController.swift */,
 				2EEC57B020AC3668006C5F1B /* Unity-iPhone-Bridging-Header.h */,
 			);
@@ -908,7 +922,7 @@
 			attributes = {
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
-						DevelopmentTeam = SG97Z46729;
+						DevelopmentTeam = 6H244LUQJ6;
 						LastSwiftMigration = 0930;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -952,7 +966,7 @@
 				AA31BF971B55660D0013FB1B /* Data in Resources */,
 				56C56C9817D6015200616839 /* Images.xcassets in Resources */,
 				C2B34EE0BB3AB46CD4B02DE7 /* LaunchScreen-iPhone.xib in Resources */,
-				2EEC57DD20AC366D006C5F1B /* workSheet.storyboard in Resources */,
+				824A56A020C237A20093F0A5 /* workSheet.storyboard in Resources */,
 				2EEC57D320AC366D006C5F1B /* Main.storyboard in Resources */,
 				B25440B5BF22D8F6E5720D74 /* LaunchScreen-iPhonePortrait.png in Resources */,
 				9C0A42DD978CA35245D8A2C5 /* LaunchScreen-iPhoneLandscape.png in Resources */,
@@ -1021,6 +1035,7 @@
 				8A2AA93516E0978D001FB470 /* CMVideoSampling.mm in Sources */,
 				8A851BA716FB2F6D00E911DB /* UnityView.mm in Sources */,
 				2EEC57D920AC366D006C5F1B /* MenuViewController.swift in Sources */,
+				82A3870620EF4D8400BCB158 /* RestartViewController.swift in Sources */,
 				2EEC57AF20AC34DF006C5F1B /* UnitySubAppDelegate.m in Sources */,
 				2EEC57D620AC366D006C5F1B /* workSheetViewController.swift in Sources */,
 				2EEC57DF20AC366D006C5F1B /* AboutViewController.swift in Sources */,
@@ -1059,7 +1074,9 @@
 				A51149F6A93CF09D7469197E /* Bulk_Mono.Security_0.cpp in Sources */,
 				F7FB4324B962FA11DC19C137 /* Bulk_Mono.Security_1.cpp in Sources */,
 				BA5E400393BA4D8221DC5E86 /* Bulk_System.Core_0.cpp in Sources */,
+				82AFB2AD20EFB6C600FFCEBF /* clearRec.swift in Sources */,
 				650948E2B7E65779331CDA5D /* Bulk_System_0.cpp in Sources */,
+				82A3870920EF5C4300BCB158 /* DLRadioButton.m in Sources */,
 				18544BBB89EF877AF74BE8B0 /* Bulk_System_1.cpp in Sources */,
 				465D4D028FF61B69F15DC6E6 /* Bulk_UnityEngine.Analytics_0.cpp in Sources */,
 				5EF84686899655790C231949 /* Bulk_UnityEngine.AnimationModule_0.cpp in Sources */,
@@ -1079,6 +1096,7 @@
 				232B45F4A6B91C46526DF507 /* Bulk_UnityEngine.UI_0.cpp in Sources */,
 				29D5430FB7CC60E81B078C01 /* Bulk_UnityEngine.UI_1.cpp in Sources */,
 				B1154421A1816181857CFB31 /* Bulk_UnityEngine.UnityAnalyticsModule_0.cpp in Sources */,
+				82A3870B20EF891C00BCB158 /* downloadRecordDone.swift in Sources */,
 				23594CF4935740D6147695DC /* Bulk_UnityEngine.UnityConnectModule_0.cpp in Sources */,
 				719D4C8FA72591B4BF624D30 /* Bulk_UnityEngine.UnityWebRequestModule_0.cpp in Sources */,
 				0BCD4559AC72EF617556BF2C /* Bulk_UnityEngine_0.cpp in Sources */,
@@ -1190,8 +1208,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = SG97Z46729;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1237,9 +1258,10 @@
 					CoreMotion,
 					"-weak-lSystem",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = case.ezgo2;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.ntub.imd.ezgo;
 				PRODUCT_NAME = ezgo2;
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Unity-iPhone-Bridging-Header.h";
@@ -1266,8 +1288,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				DEVELOPMENT_TEAM = SG97Z46729;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
@@ -1310,9 +1335,10 @@
 					CoreMotion,
 					"-weak-lSystem",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = case.ezgo2;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.ntub.imd.ezgo;
 				PRODUCT_NAME = ezgo2;
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Unity-iPhone-Bridging-Header.h";
@@ -1465,9 +1491,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = SG97Z46729;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
@@ -1510,9 +1539,10 @@
 					CoreMotion,
 					"-weak-lSystem",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = case.ezgo2;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.ntub.imd.ezgo;
 				PRODUCT_NAME = ezgo2;
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Unity-iPhone-Bridging-Header.h";
@@ -1608,8 +1638,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				DEVELOPMENT_TEAM = SG97Z46729;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
@@ -1652,9 +1685,10 @@
 					CoreMotion,
 					"-weak-lSystem",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = case.ezgo2;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.ntub.imd.ezgo;
 				PRODUCT_NAME = ezgo2;
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Unity-iPhone-Bridging-Header.h";
