@@ -223,7 +223,7 @@ int whichAnimal;
 //=============判斷是否到達範圍================
 -(bool)distanceIs:(double)distance{
     bool yesno;//是否小於Xm
-    if(distance <25){//74
+    if(distance <100000){//74
         yesno = true;
     }else{
         yesno = false;
