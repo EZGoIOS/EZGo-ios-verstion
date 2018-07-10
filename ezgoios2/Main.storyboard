@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -98,6 +99,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sG5-hx-S5O"/>
                     </view>
+                    <connections>
+                        <outlet property="table" destination="gXm-RO-ey4" id="rCw-rw-Yoa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lwg-BV-1fI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -618,7 +622,88 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KGI-Ds-Upf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3235" y="691"/>
+            <point key="canvasLocation" x="2705" y="731"/>
+        </scene>
+        <!--Restart View Controller-->
+        <scene sceneID="bjJ-eR-dm6">
+            <objects>
+                <viewController storyboardIdentifier="RestartViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dWv-3k-7YR" customClass="RestartViewController" customModule="ezgo2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0s9-m3-hHp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reset_background" translatesAutoresizingMaskIntoConstraints="NO" id="dEB-Yn-wpv">
+                                <rect key="frame" x="-30" y="20" width="435" height="693"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="693" id="Jli-iB-ZQQ"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="693" id="NTf-YG-Hxa"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="435" id="cD3-n8-PdO"/>
+                                    <constraint firstAttribute="width" constant="435" id="nhI-G9-iIN"/>
+                                    <constraint firstAttribute="width" secondItem="dEB-Yn-wpv" secondAttribute="height" multiplier="145:231" id="wyX-LL-YRe"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PIt-8c-31b">
+                                <rect key="frame" x="88" y="400" width="198" height="156"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="156" id="GPf-sK-az8"/>
+                                    <constraint firstAttribute="width" constant="198" id="Hg2-Il-UB1"/>
+                                    <constraint firstAttribute="width" secondItem="PIt-8c-31b" secondAttribute="height" multiplier="33:26" id="iiX-77-K7U"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="25"/>
+                                <inset key="titleEdgeInsets" minX="-220" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="再玩一次" image="reset_board"/>
+                                <connections>
+                                    <action selector="pressRestart:" destination="dWv-3k-7YR" eventType="touchUpInside" id="qga-Lg-2LD"/>
+                                    <segue destination="vE5-v2-GtL" kind="show" identifier="gobackmain" id="MdR-Ya-cZs"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NEf-tv-w6T">
+                                <rect key="frame" x="88" y="200" width="198" height="159"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="NEf-tv-w6T" secondAttribute="height" multiplier="66:53" id="0hH-9j-buZ"/>
+                                    <constraint firstAttribute="width" constant="198" id="HPq-N6-B9y"/>
+                                    <constraint firstAttribute="height" constant="159" id="W7U-5Q-3rC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="25"/>
+                                <inset key="titleEdgeInsets" minX="-220" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="繼續遊玩" image="reset_board"/>
+                                <connections>
+                                    <action selector="pressConti:" destination="dWv-3k-7YR" eventType="touchUpInside" id="qKZ-28-PEW"/>
+                                    <segue destination="vE5-v2-GtL" kind="show" identifier="gotoMain" id="A7P-Ac-Qdn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="NEf-tv-w6T" firstAttribute="leading" secondItem="940-ge-rmV" secondAttribute="leading" constant="88" id="08X-t9-Csl"/>
+                            <constraint firstItem="dEB-Yn-wpv" firstAttribute="top" secondItem="940-ge-rmV" secondAttribute="top" id="B0k-3f-W4f"/>
+                            <constraint firstItem="dEB-Yn-wpv" firstAttribute="leading" secondItem="0s9-m3-hHp" secondAttribute="leading" constant="-30" id="F4n-Zy-opu"/>
+                            <constraint firstItem="dEB-Yn-wpv" firstAttribute="top" secondItem="940-ge-rmV" secondAttribute="top" id="H4Y-kW-r5A"/>
+                            <constraint firstItem="940-ge-rmV" firstAttribute="trailing" secondItem="NEf-tv-w6T" secondAttribute="trailing" constant="89" id="JQU-qC-AOd"/>
+                            <constraint firstItem="PIt-8c-31b" firstAttribute="top" secondItem="NEf-tv-w6T" secondAttribute="bottom" constant="41" id="Ozw-6e-gzA"/>
+                            <constraint firstAttribute="trailing" secondItem="dEB-Yn-wpv" secondAttribute="trailing" constant="-30" id="QQI-Re-D7R"/>
+                            <constraint firstAttribute="bottom" secondItem="dEB-Yn-wpv" secondAttribute="bottom" constant="-46" id="RYM-Kf-TsJ"/>
+                            <constraint firstItem="940-ge-rmV" firstAttribute="trailing" secondItem="PIt-8c-31b" secondAttribute="trailing" constant="89" id="YNA-wk-s24"/>
+                            <constraint firstItem="NEf-tv-w6T" firstAttribute="top" secondItem="940-ge-rmV" secondAttribute="top" constant="180" id="eAv-79-2kK"/>
+                            <constraint firstItem="940-ge-rmV" firstAttribute="bottom" secondItem="PIt-8c-31b" secondAttribute="bottom" constant="111" id="kjJ-vR-WNP"/>
+                            <constraint firstItem="PIt-8c-31b" firstAttribute="leading" secondItem="940-ge-rmV" secondAttribute="leading" constant="88" id="kxX-ft-dbM"/>
+                            <constraint firstItem="PIt-8c-31b" firstAttribute="top" secondItem="NEf-tv-w6T" secondAttribute="bottom" constant="41" id="wac-JT-IXf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="940-ge-rmV"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="gIC-E3-lSe">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="menu" id="Akq-fd-fxw"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="btnMenu" destination="Akq-fd-fxw" id="XJa-3s-fMg"/>
+                        <outlet property="pressConti" destination="NEf-tv-w6T" id="T4i-YY-2fx"/>
+                        <outlet property="pressRestart" destination="PIt-8c-31b" id="K5t-SN-ooL"/>
+                        <segue destination="Qh4-14-cIq" kind="show" identifier="gotoM7" id="6rF-DP-LT2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="phM-z9-MiT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3420" y="730.88455772113946"/>
         </scene>
         <!--Reward View Controller-->
         <scene sceneID="bH1-Fz-wZM">
@@ -686,11 +771,14 @@
         <image name="kn_wolf" width="480" height="176"/>
         <image name="knowledge_background" width="480" height="800"/>
         <image name="menu" width="24" height="24"/>
+        <image name="reset_background" width="450" height="800"/>
+        <image name="reset_board" width="217" height="156"/>
         <image name="start" width="358" height="350"/>
         <image name="worksheet_background" width="450" height="800"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="R9Y-jI-Dzv"/>
-        <segue reference="cZk-MK-a1x"/>
+        <segue reference="xlA-bG-Cmv"/>
+        <segue reference="Lg2-kv-uA6"/>
+        <segue reference="DoQ-jJ-96H"/>
     </inferredMetricsTieBreakers>
 </document>
