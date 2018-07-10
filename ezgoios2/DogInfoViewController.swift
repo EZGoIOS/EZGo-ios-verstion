@@ -26,9 +26,7 @@ class DogInfoViewController: UIViewController {
         view.addSubview(btnM)
     }
     @IBAction func clickbutton(sender: UIButton){
-        performSegue(withIdentifier: "gotoM3", sender: self)
-        
-        
+        performSegue(withIdentifier: "gotoM3", sender: self) 
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
