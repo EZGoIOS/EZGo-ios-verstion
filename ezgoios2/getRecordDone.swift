@@ -27,16 +27,16 @@ func getRecordDone(){
     
     session.dataTask(with:request){(data,response,error) in
         if let response = response{
-            print(response)
+            //print(response)
         }
         if let data = data{
             do{
                 let json = try JSONSerialization.jsonObject(with: data, options:[.allowFragments]) as? NSDictionary
                 //print(json)
-                print(json!)
+                //print(json!)
                 val = String(describing: ((json!.value(forKey: "result")!) as! NSObject).value(forKey: "record_done")!).replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: "\n", with: "").replacingOccurrences(of: "\r\n", with: "")
                 try val.write(toFile: rec_done, atomically: true, encoding: .utf8)
-                print(rec_done)
+                //print(rec_done)
                 //var rec_done=[String](repeating:"0", count:18)
                 //rec_done = val.components(separatedBy: ",")
                 //print(rec_done)

@@ -52,11 +52,16 @@ public var recUse=[String](repeating:"0",count:18)
 let userid = UserDefaults.standard.string(forKey: "user_id")
 
 //the json file url 把userdefault裡面不必要的東西也去掉 才能接到網頁後面取資料
-let urlWorksheet = "http://ezgo.twjoin.com/showQuest/\((String((UserDefaults.standard.string(forKey: "user_id"))!).replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: "\n", with: "")))"
+public var urlWorksheet = ""
 
 
 //this function is fetching the json from URL
 func getJsonFromUrl(whichAnimal:Int, completion: @escaping(ConnectionResult) -> ()){
+    if UserDefaults.standard.bool(forKey: "english")==true{
+        urlWorksheet = "http://ezgo.twjoin.com/showQuest_en/\((String((UserDefaults.standard.string(forKey: "user_id"))!).replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: "\n", with: "")))"
+    }else{
+        urlWorksheet = "http://ezgo.twjoin.com/showQuest/\((String((UserDefaults.standard.string(forKey: "user_id"))!).replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: "\n", with: "")))"
+    }
     print("為啥咪全部都是梅花鹿ＱＡＱ")
     print(whichAnimal)
     question=[String](repeating:"0", count:18)
