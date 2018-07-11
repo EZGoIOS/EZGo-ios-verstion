@@ -83,25 +83,25 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
         
         if UserDefaults.standard.bool(forKey: "english")==true{
             anns[0].coordinate = CLLocationCoordinate2D(latitude: 24.9946605, longitude: 121.5887605)
-            anns[0].title = "Hyena"
+            anns[0].title = "Spotted hyena"
             
             anns[1].coordinate = CLLocationCoordinate2D(latitude: 24.9975801, longitude: 121.5799735)
-            anns[1].title = "Formosan Bear"
+            anns[1].title = "Formosan black bear"
             
             anns[2].coordinate = CLLocationCoordinate2D(latitude: 24.9932772, longitude: 121.5900815)
-            anns[2].title = "Gray Wolf"
+            anns[2].title = "North American gray wolf"
             
             anns[3].coordinate = CLLocationCoordinate2D(latitude: 24.9921553, longitude: 121.5890408)
-            anns[3].title = "Prairiedog"
+            anns[3].title = "Black-tailed prairie dog"
             
             anns[4].coordinate = CLLocationCoordinate2D(latitude: 24.995106, longitude: 121.583514)
-            anns[4].title = "Kookaburra"
+            anns[4].title = "Laughing kookaburra"
             
             anns[5].coordinate = CLLocationCoordinate2D(latitude: 24.9978621, longitude: 121.5818524)
-            anns[5].title = "Education Center"
+            anns[5].title = "Visitor Center"
             
             anns[6].coordinate = CLLocationCoordinate2D(latitude: 24.9977223, longitude: 121.5810719)
-            anns[6].title = "Muntjac"
+            anns[6].title = "Reeves's muntjac"
             
             mapView.addAnnotations(anns)
         }else{
@@ -121,7 +121,7 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
             anns[4].title = "笑翠鳥"
             
             anns[5].coordinate = CLLocationCoordinate2D(latitude: 24.9978621, longitude: 121.5818524)
-            anns[5].title = "教育中心"
+            anns[5].title = "服務中心"
             
             anns[6].coordinate = CLLocationCoordinate2D(latitude: 24.9977223, longitude: 121.5810719)
             anns[6].title = "山羌"
@@ -229,7 +229,7 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
         }
         let rightButton = UIButton(type: .detailDisclosure)
         rightButton.tag = annotation.hash
-        if (annotation.title)! == "斑點鬣狗" || (annotation.title)!=="Hyena" {
+        if (annotation.title)! == "斑點鬣狗" || (annotation.title)!=="Spotted hyena" {
             annView?.image = UIImage(named:"circle_hyena")
             annView?.canShowCallout = true
             
@@ -237,38 +237,38 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
             rightButton.addTarget(self,action: #selector(self.clickbutton),for: .touchUpInside)
             rightButton.tag = 1
         }
-        else if (annotation.title)! == "臺灣黑熊" || (annotation.title)!=="Formosan Bear"{
+        else if (annotation.title)! == "臺灣黑熊" || (annotation.title)!=="Formosan black bear"{
             annView?.image = UIImage(named:"circle_bear")
             
             annView?.rightCalloutAccessoryView = rightButton
             rightButton.addTarget(self,action: #selector(self.clickbutton),for: .touchUpInside)
             rightButton.tag = 2
         }
-        else if (annotation.title)! == "北美灰狼" || (annotation.title)!=="Gray Wolf"{
+        else if (annotation.title)! == "北美灰狼" || (annotation.title)!=="North American gray wolf"{
             annView?.image = UIImage(named:"circle_wolf")
             
             annView?.rightCalloutAccessoryView = rightButton
             rightButton.addTarget(self,action: #selector(self.clickbutton),for: .touchUpInside)
             rightButton.tag = 3
         }
-        else if (annotation.title)! == "黑尾草原犬鼠" || (annotation.title)!=="PrairieDog"{
+        else if (annotation.title)! == "黑尾草原犬鼠" || (annotation.title)!=="Black-tailed prairie dog"{
             annView?.image = UIImage(named:"circle_prairiedog")
             
             annView?.rightCalloutAccessoryView = rightButton
             rightButton.addTarget(self,action: #selector(self.clickbutton),for: .touchUpInside)
             rightButton.tag = 4
         }
-        else if (annotation.title)! == "笑翠鳥" || (annotation.title)!=="Kookaburra"{
+        else if (annotation.title)! == "笑翠鳥" || (annotation.title)!=="Laughing kookaburra"{
             annView?.image = UIImage(named:"circle_kookaburra")
             
             annView?.rightCalloutAccessoryView = rightButton
             rightButton.addTarget(self,action: #selector(self.clickbutton),for: .touchUpInside)
             rightButton.tag = 5
         }
-        else if (annotation.title)! == "教育中心" || (annotation.title)!=="Education Center"{
+        else if (annotation.title)! == "服務中心" || (annotation.title)!=="Visitor Center"{
             annView?.image = UIImage(named:"gift")
         }
-        else if (annotation.title)! == "山羌" || (annotation.title)!=="Muntjac"{
+        else if (annotation.title)! == "山羌" || (annotation.title)!=="Reeves's muntjac"{
             annView?.image = UIImage(named:"circle_deer")
             
             annView?.rightCalloutAccessoryView = rightButton

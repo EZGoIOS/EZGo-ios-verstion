@@ -12,12 +12,18 @@ class RestartViewController: UIViewController {
     @IBOutlet weak var btnMenu: UIBarButtonItem!
 
     @IBOutlet weak var pressConti: UIButton!
+    @IBOutlet weak var lblConti: UILabel!
+    @IBOutlet weak var lblRestart: UILabel!
     @IBOutlet weak var pressRestart: UIButton!
     @IBAction func pressConti(_ sender: Any) {
         performSegue(withIdentifier: "gotoMain", sender: self)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        if UserDefaults.standard.bool(forKey: "english")==true{
+            lblConti.text = "Click Continue will keep going on your task."
+            lblRestart.text = "Click Restart will restart your task."
+        }
         // Do any additional setup after loading the view.
         let fullScreenSize = UIScreen.main.bounds.size
         pressConti.frame = CGRect(x: Int((fullScreenSize.width * 0.15)) , y:Int((fullScreenSize.height * 0.28)) , width: Int((fullScreenSize.width * 0.7)) , height: Int((fullScreenSize.width * 0.3)))
@@ -37,16 +43,7 @@ class RestartViewController: UIViewController {
     }
 
     @IBAction func pressRestart(_ sender: Any) {
-        clearRec(userid:String((UserDefaults.standard.string(forKey: "user_id"))!).replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: "\n", with: "")){
-            ConnectionResult8 in
-            switch ConnectionResult8{
-            case .failure(let error):
-                print(error)
-                
-            case .success(let data):
-                print("success")
-            }
-        }
+        /*
         let alertController = UIAlertController(
             title: "提醒",
             message: "已重置闖關進度",
@@ -58,9 +55,19 @@ class RestartViewController: UIViewController {
             style: .default,
             handler: nil)
         alertController.addAction(okAction)
+        */
         
+        clearRec(userid:String((UserDefaults.standard.string(forKey: "user_id"))!).replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: "\n", with: "")){
+            ConnectionResult8 in
+            switch ConnectionResult8{
+            case .failure(let error):
+                print(error)
+                
+            case .success(let data):
+                print("success")
+            }
+        }
         performSegue(withIdentifier: "gobackmain", sender: self)
-        
     }
     
     @IBAction func clickbutton(sender: UIButton){

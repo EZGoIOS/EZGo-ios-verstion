@@ -73,13 +73,13 @@ class RewardViewController: UIViewController {
                 // 建立一個提示框
                 let alertController = UIAlertController(
                     title: "Notice",
-                    message: "Are you sure to exchange now?[Yes/No]",
+                    message: "Are you sure to exchange now?",
                     preferredStyle: .alert)
                 
                 // 建立[取消]按鈕
                 let cancelAction = UIAlertAction(
                     title: "NO",
-                    style: .default,
+                    style: .cancel,
                     handler: nil)
                 alertController.addAction(cancelAction)
                 
@@ -128,13 +128,13 @@ class RewardViewController: UIViewController {
                 // 建立一個提示框
                 let alertController = UIAlertController(
                     title: "注意",
-                    message: "確定兌換請按「確認」，若稍後再換，請按「取消」",
+                    message: "你確定兌換?",
                     preferredStyle: .alert)
                 
                 // 建立[取消]按鈕
                 let cancelAction = UIAlertAction(
                     title: "取消",
-                    style: .default,
+                    style: .cancel,
                     handler: nil)
                 alertController.addAction(cancelAction)
                 
@@ -180,7 +180,7 @@ class RewardViewController: UIViewController {
             imgBack.image = UIImage(named:"reward_background_en")!
         }
         if UserDefaults.standard.bool(forKey: "english")==true{
-            lblText.text = "Exchange at:Visitor center                     Get your prize by showing this page to our staff   （up to 2018/09/30)"
+            lblText.text = "Please head to the visitor center and show this screen to our staff to claim your prize.（up to 2018/09/30）"
         }
         //getDone()
         if UserDefaults.standard.bool(forKey: "hasChangedReward") == true{

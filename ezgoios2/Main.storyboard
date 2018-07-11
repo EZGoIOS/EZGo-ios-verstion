@@ -674,21 +674,46 @@
                                     <segue destination="vE5-v2-GtL" kind="show" identifier="gotoMain" id="A7P-Ac-Qdn"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reset_bk" translatesAutoresizingMaskIntoConstraints="NO" id="VYa-gw-WZ2">
+                                <rect key="frame" x="29" y="579" width="318" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="VYa-gw-WZ2" secondAttribute="height" multiplier="159:40" id="6pd-YW-xJ7"/>
+                                    <constraint firstAttribute="width" constant="318" id="mbo-hb-6JI"/>
+                                    <constraint firstAttribute="height" constant="80" id="oHg-kw-lXn"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="若選“繼續遊玩”將保持先前遊玩紀錄" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JaY-Zs-yVC">
+                                <rect key="frame" x="50" y="597" width="297" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="若選“再玩一次”可重新闖關答題" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ABO-3U-oNk">
+                                <rect key="frame" x="50" y="617" width="297" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="NEf-tv-w6T" firstAttribute="leading" secondItem="940-ge-rmV" secondAttribute="leading" constant="88" id="08X-t9-Csl"/>
                             <constraint firstItem="dEB-Yn-wpv" firstAttribute="top" secondItem="940-ge-rmV" secondAttribute="top" id="B0k-3f-W4f"/>
+                            <constraint firstItem="VYa-gw-WZ2" firstAttribute="leading" secondItem="940-ge-rmV" secondAttribute="leading" constant="29" id="ChU-v3-u2Y"/>
                             <constraint firstItem="dEB-Yn-wpv" firstAttribute="leading" secondItem="0s9-m3-hHp" secondAttribute="leading" constant="-30" id="F4n-Zy-opu"/>
                             <constraint firstItem="dEB-Yn-wpv" firstAttribute="top" secondItem="940-ge-rmV" secondAttribute="top" id="H4Y-kW-r5A"/>
                             <constraint firstItem="940-ge-rmV" firstAttribute="trailing" secondItem="NEf-tv-w6T" secondAttribute="trailing" constant="89" id="JQU-qC-AOd"/>
                             <constraint firstItem="PIt-8c-31b" firstAttribute="top" secondItem="NEf-tv-w6T" secondAttribute="bottom" constant="41" id="Ozw-6e-gzA"/>
                             <constraint firstAttribute="trailing" secondItem="dEB-Yn-wpv" secondAttribute="trailing" constant="-30" id="QQI-Re-D7R"/>
                             <constraint firstAttribute="bottom" secondItem="dEB-Yn-wpv" secondAttribute="bottom" constant="-46" id="RYM-Kf-TsJ"/>
+                            <constraint firstItem="940-ge-rmV" firstAttribute="bottom" secondItem="VYa-gw-WZ2" secondAttribute="bottom" constant="8" id="Y0A-Wh-t9w"/>
                             <constraint firstItem="940-ge-rmV" firstAttribute="trailing" secondItem="PIt-8c-31b" secondAttribute="trailing" constant="89" id="YNA-wk-s24"/>
                             <constraint firstItem="NEf-tv-w6T" firstAttribute="top" secondItem="940-ge-rmV" secondAttribute="top" constant="180" id="eAv-79-2kK"/>
                             <constraint firstItem="940-ge-rmV" firstAttribute="bottom" secondItem="PIt-8c-31b" secondAttribute="bottom" constant="111" id="kjJ-vR-WNP"/>
                             <constraint firstItem="PIt-8c-31b" firstAttribute="leading" secondItem="940-ge-rmV" secondAttribute="leading" constant="88" id="kxX-ft-dbM"/>
+                            <constraint firstItem="940-ge-rmV" firstAttribute="trailing" secondItem="VYa-gw-WZ2" secondAttribute="trailing" constant="28" id="r4r-oK-oeD"/>
                             <constraint firstItem="PIt-8c-31b" firstAttribute="top" secondItem="NEf-tv-w6T" secondAttribute="bottom" constant="41" id="wac-JT-IXf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="940-ge-rmV"/>
@@ -698,6 +723,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="btnMenu" destination="Akq-fd-fxw" id="XJa-3s-fMg"/>
+                        <outlet property="lblConti" destination="JaY-Zs-yVC" id="8qS-6A-3vX"/>
+                        <outlet property="lblRestart" destination="ABO-3U-oNk" id="01K-5I-yXe"/>
                         <outlet property="pressConti" destination="NEf-tv-w6T" id="T4i-YY-2fx"/>
                         <outlet property="pressRestart" destination="PIt-8c-31b" id="K5t-SN-ooL"/>
                         <segue destination="Qh4-14-cIq" kind="show" identifier="gotoM7" id="6rF-DP-LT2"/>
@@ -718,14 +745,14 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exchange_background" translatesAutoresizingMaskIntoConstraints="NO" id="oEN-ZH-0vp">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="兌換地點：遊客服務中心                     請將本畫面出示給工作人員已領取獎品   （2018/9/30前有效)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16N-Xa-KO1">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請至&quot;服務中心&quot;出示此畫面向工作人員兌換狗年專屬禮一份哦！（在2018/09/30前）" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16N-Xa-KO1">
                                 <rect key="frame" x="31" y="545" width="313" height="93"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="16N-Xa-KO1" secondAttribute="height" multiplier="313:93" id="Gdb-Bi-pfE"/>
                                     <constraint firstAttribute="width" constant="313" id="tTv-h4-H4E"/>
                                     <constraint firstAttribute="height" constant="93" id="vkS-tb-wBw"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name=".PingFangTC-Regular" family=".PingFang TC" pointSize="17"/>
+                                <fontDescription key="fontDescription" name=".PingFangTC-Regular" family=".PingFang TC" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -790,13 +817,14 @@
         <image name="knowledge_background" width="480" height="800"/>
         <image name="menu" width="24" height="24"/>
         <image name="reset_background" width="450" height="800"/>
+        <image name="reset_bk" width="480" height="144"/>
         <image name="reset_board" width="217" height="156"/>
         <image name="start" width="358" height="350"/>
         <image name="worksheet_background" width="450" height="800"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xlA-bG-Cmv"/>
+        <segue reference="R9Y-jI-Dzv"/>
         <segue reference="A7P-Ac-Qdn"/>
-        <segue reference="O0F-IN-BI5"/>
+        <segue reference="6rF-DP-LT2"/>
     </inferredMetricsTieBreakers>
 </document>
