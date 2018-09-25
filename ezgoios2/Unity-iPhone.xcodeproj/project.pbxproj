@@ -177,6 +177,11 @@
 		C21C4DBE9BD91905F2A1BA7C /* Il2CppGenericInstDefinitions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00E7472097C17A4B087F7A05 /* Il2CppGenericInstDefinitions.cpp */; };
 		C2B34EE0BB3AB46CD4B02DE7 /* LaunchScreen-iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58B9445BB781EC1EA031672B /* LaunchScreen-iPhone.xib */; };
 		C2C543608145F0D96D42B9BB /* Il2CppMetadataUsage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66124B9888FAC6C6EB21BB67 /* Il2CppMetadataUsage.cpp */; };
+		C32F3F642151193600118EEA /* State_menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32F3F632151193600118EEA /* State_menu.swift */; };
+		C32F3F6621511EF700118EEA /* statePreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32F3F6521511EF700118EEA /* statePreViewController.swift */; };
+		C32F3F6821511F1400118EEA /* stateGuessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32F3F6721511F1400118EEA /* stateGuessViewController.swift */; };
+		C32F3F6A2152476700118EEA /* State_select.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32F3F692152476700118EEA /* State_select.swift */; };
+		C32F3F6C2152488400118EEA /* State_done.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32F3F6B2152488400118EEA /* State_done.swift */; };
 		C4724982B46DB72151F4290D /* Bulk_Generics_6.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85F747EDA84A33B47FBE0E75 /* Bulk_Generics_6.cpp */; };
 		CCE8C2BA135C7EA3000D8035 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE8C2B9135C7EA3000D8035 /* Security.framework */; };
 		D52C493EAD1086CFDA4C1ACA /* Bulk_UnityEngine.AudioModule_0.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29524EBFA836E016326FBD97 /* Bulk_UnityEngine.AudioModule_0.cpp */; };
@@ -440,6 +445,11 @@
 		BDA64A588A6165177BAACEBE /* Il2CppCompilerCalculateTypeValuesTable.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Il2CppCompilerCalculateTypeValuesTable.cpp; path = Classes/Native/Il2CppCompilerCalculateTypeValuesTable.cpp; sourceTree = SOURCE_ROOT; };
 		BEC149D0A72070D733D88B33 /* UnityClassRegistration.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = UnityClassRegistration.cpp; path = Classes/Native/UnityClassRegistration.cpp; sourceTree = SOURCE_ROOT; };
 		C063442089BA450E2A293D50 /* Il2CppCompilerCalculateTypeValues_8Table.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Il2CppCompilerCalculateTypeValues_8Table.cpp; path = Classes/Native/Il2CppCompilerCalculateTypeValues_8Table.cpp; sourceTree = SOURCE_ROOT; };
+		C32F3F632151193600118EEA /* State_menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State_menu.swift; sourceTree = "<group>"; };
+		C32F3F6521511EF700118EEA /* statePreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = statePreViewController.swift; sourceTree = "<group>"; };
+		C32F3F6721511F1400118EEA /* stateGuessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stateGuessViewController.swift; sourceTree = "<group>"; };
+		C32F3F692152476700118EEA /* State_select.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State_select.swift; sourceTree = "<group>"; };
+		C32F3F6B2152488400118EEA /* State_done.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State_done.swift; sourceTree = "<group>"; };
 		C67F4F2D88C94A6CB411CFE3 /* Bulk_mscorlib_3.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Bulk_mscorlib_3.cpp; path = Classes/Native/Bulk_mscorlib_3.cpp; sourceTree = SOURCE_ROOT; };
 		CC5544A1BA20622186996836 /* Il2CppAttributes.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Il2CppAttributes.cpp; path = Classes/Native/Il2CppAttributes.cpp; sourceTree = SOURCE_ROOT; };
 		CCE8C2B9135C7EA3000D8035 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -597,9 +607,9 @@
 				2EEC57B520AC366A006C5F1B /* A1.swift */,
 				2EEC57C520AC366C006C5F1B /* AboutViewController.swift */,
 				2EEC57C020AC366B006C5F1B /* ContactViewController.swift */,
-				2EEC57C420AC366C006C5F1B /* DogInfoViewController.swift */,
 				2EEC57BC20AC366B006C5F1B /* getJsonFromUrl.swift */,
 				2EEC57C120AC366B006C5F1B /* getRecordDone.swift */,
+				2EEC57C420AC366C006C5F1B /* DogInfoViewController.swift */,
 				2EEC57CA20AC366C006C5F1B /* getUserDetail.swift */,
 				2EEC57B620AC366A006C5F1B /* GuideContentViewController.swift */,
 				2EEC57B320AC3669006C5F1B /* GuidePageViewController.swift */,
@@ -610,6 +620,11 @@
 				2EEC57B220AC3669006C5F1B /* KnowledgeViewController.swift */,
 				2EEC57B720AC366A006C5F1B /* LessonViewController.swift */,
 				2EEC57B820AC366A006C5F1B /* Main.storyboard */,
+				C32F3F6B2152488400118EEA /* State_done.swift */,
+				C32F3F692152476700118EEA /* State_select.swift */,
+				C32F3F6721511F1400118EEA /* stateGuessViewController.swift */,
+				C32F3F6521511EF700118EEA /* statePreViewController.swift */,
+				C32F3F632151193600118EEA /* State_menu.swift */,
 				82A3870520EF4D8400BCB158 /* RestartViewController.swift */,
 				82AFB2AC20EFB6C600FFCEBF /* clearRec.swift */,
 				82A3870A20EF891C00BCB158 /* downloadRecordDone.swift */,
@@ -1032,9 +1047,12 @@
 				FC85CCBB16C3ED8000BAF7C7 /* CrashReporter.mm in Sources */,
 				8AB3CB3E16D390BB00697AD5 /* VideoPlayer.mm in Sources */,
 				8A793A071ED43EE100B44EF1 /* UnityView+tvOS.mm in Sources */,
+				C32F3F6621511EF700118EEA /* statePreViewController.swift in Sources */,
 				8A2AA93516E0978D001FB470 /* CMVideoSampling.mm in Sources */,
 				8A851BA716FB2F6D00E911DB /* UnityView.mm in Sources */,
+				C32F3F642151193600118EEA /* State_menu.swift in Sources */,
 				2EEC57D920AC366D006C5F1B /* MenuViewController.swift in Sources */,
+				C32F3F6C2152488400118EEA /* State_done.swift in Sources */,
 				82A3870620EF4D8400BCB158 /* RestartViewController.swift in Sources */,
 				2EEC57AF20AC34DF006C5F1B /* UnitySubAppDelegate.m in Sources */,
 				2EEC57D620AC366D006C5F1B /* workSheetViewController.swift in Sources */,
@@ -1142,6 +1160,7 @@
 				EBAF4DD084E4C4606CB339E7 /* Il2CppCompilerCalculateTypeValues_8Table.cpp in Sources */,
 				187D48BEAE83FCC0308D41A9 /* Il2CppCompilerCalculateTypeValues_9Table.cpp in Sources */,
 				A1A8421D9B89720588794F25 /* Il2CppGenericClassTable.cpp in Sources */,
+				C32F3F6821511F1400118EEA /* stateGuessViewController.swift in Sources */,
 				2F5F42DFA5C14060AE48BE99 /* Il2CppGenericComDefinitions0.cpp in Sources */,
 				C21C4DBE9BD91905F2A1BA7C /* Il2CppGenericInstDefinitions.cpp in Sources */,
 				7B5349E788E15C65DAB7AFBB /* Il2CppGenericMethodDefinitions.cpp in Sources */,
@@ -1152,6 +1171,7 @@
 				5DB842758F87370A4A92620B /* Il2CppInvokerTable.cpp in Sources */,
 				B6D6431E80C13ABBA8B5422E /* Il2CppMetadataRegistration.cpp in Sources */,
 				C2C543608145F0D96D42B9BB /* Il2CppMetadataUsage.cpp in Sources */,
+				C32F3F6A2152476700118EEA /* State_select.swift in Sources */,
 				2EEC57E120AC366D006C5F1B /* Q2.swift in Sources */,
 				58124B17B5335C96E0C47B0E /* Il2CppMethodPointerTable.cpp in Sources */,
 				2EEC57D020AC366D006C5F1B /* A1.swift in Sources */,
