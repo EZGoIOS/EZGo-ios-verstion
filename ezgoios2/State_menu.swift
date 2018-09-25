@@ -1,0 +1,81 @@
+//
+//  State_menu.swift
+//  Unity-iPhone
+//
+//  Created by Administrator on 2018/9/18.
+//
+
+import UIKit
+
+class State_menu: UIViewController {
+    var aa:Int = 0
+    @IBOutlet var btnMenu: UIBarButtonItem!
+    
+    @IBOutlet weak var btn1: UIButton!
+    @IBOutlet weak var btn2: UIButton!
+    @IBOutlet weak var btn3: UIButton!
+    @IBOutlet weak var btn4: UIButton!
+    @IBOutlet weak var btn5: UIButton!
+    @IBOutlet weak var btn6: UIButton!
+    override func viewDidLoad() {
+        // 取得螢幕的尺寸
+        let fullScreenSize = UIScreen.main.bounds.size
+        btn1.frame = CGRect(x: Int((fullScreenSize.width * 0.15)) , y:Int((fullScreenSize.height * 0.08)) , width: Int((fullScreenSize.width * 0.7)) , height: Int((fullScreenSize.width * 0.3)))
+        btn2.frame = CGRect(x: Int((fullScreenSize.width * 0.15)) , y:Int((fullScreenSize.height * 0.28)) , width: Int((fullScreenSize.width * 0.7)) , height: Int((fullScreenSize.width * 0.3)))
+        btn3.frame = CGRect(x: Int((fullScreenSize.width * 0.15)) , y:Int((fullScreenSize.height * 0.48)) , width: Int((fullScreenSize.width * 0.7)) , height: Int((fullScreenSize.width * 0.3)))
+        btn4.frame = CGRect(x: Int((fullScreenSize.width * 0.15)) , y:Int((fullScreenSize.height * 0.68)) , width: Int((fullScreenSize.width * 0.7)) , height: Int((fullScreenSize.width * 0.3)))
+        btn5.frame = CGRect(x: Int((fullScreenSize.width * 0.15)) , y:Int((fullScreenSize.height * 0.88)) , width: Int((fullScreenSize.width * 0.7)) , height: Int((fullScreenSize.width * 0.3)))
+        btn6.frame = CGRect(x: Int((fullScreenSize.width * 0.15)) , y:Int((fullScreenSize.height * 1.08)) , width: Int((fullScreenSize.width * 0.7)) , height: Int((fullScreenSize.width * 0.3)))
+        if UserDefaults.standard.bool(forKey: "english") == true{
+            btn1.setImage(UIImage(named: "kn_hyena_en"), for: UIControlState.normal)
+            btn2.setImage(UIImage(named: "kn_bear_en"), for: UIControlState.normal)
+            btn3.setImage(UIImage(named: "kn_wolf_en"), for: UIControlState.normal)
+            btn4.setImage(UIImage(named: "kn_prairiedog_en"), for: UIControlState.normal)
+            btn5.setImage(UIImage(named: "kn_kookaburra_en"), for: UIControlState.normal)
+            btn6.setImage(UIImage(named: "kn_deer_en"), for: UIControlState.normal)
+        }
+        super.viewDidLoad()
+        btnMenu.target = revealViewController()
+        btnMenu.action = #selector(SWRevealViewController.revealToggle(_:))
+        self.view.addGestureRecognizer(revealViewController().panGestureRecognizer())
+        let btnM:UIButton = UIButton()
+        btnM.frame = CGRect(x: Int((fullScreenSize.width * 0.025)) , y:Int((fullScreenSize.height * 0.125)) , width: Int((fullScreenSize.width * 0.15)) , height: Int((fullScreenSize.width * 0.15)))
+        btnM.setBackgroundImage(UIImage(named: "house" ), for: UIControlState.normal)
+        btnM.addTarget(self,action: #selector(self.clickbutton),for: .touchUpInside)
+        view.addSubview(btnM)
+        
+    }
+    
+    @IBAction func clickbutton(sender: UIButton){
+        performSegue(withIdentifier: "gotoMA1", sender: self)
+        
+        
+    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    @IBAction func btn1(_ sender: Any) {aa = 1}
+    @IBAction func btn2(_ sender: Any) {aa = 2}
+    @IBAction func btn3(_ sender: Any) {aa = 3}
+    @IBAction func btn4(_ sender: Any) {aa = 4}
+    @IBAction func btn5(_ sender: Any) {aa = 5}
+    @IBAction func btn6(_ sender: Any) {aa = 6}
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "gotoMA1"{
+            
+        }else{
+            
+            let xx:statePreViewController = segue.destination as! statePreViewController
+            xx.whichOne = aa
+            
+        }
+    }
+    
+}
+
+
+
+
+
+

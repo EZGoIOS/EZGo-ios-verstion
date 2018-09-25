@@ -136,7 +136,7 @@ class A1: UIViewController {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {   //傳值
         if segue.identifier == "A1gotoQ1"{
-            var xxx = segue.destination as!Q1
+            let xxx = segue.destination as!Q1
             xxx.aaaa = aa
             xxx.frequency = frequency + 1
             xxx.recArray = recArray
@@ -148,7 +148,7 @@ class A1: UIViewController {
             xxx.showId = showId
         }
         if segue.identifier == "A1gotoQ2"{
-            var xxx = segue.destination as!Q2
+            let xxx = segue.destination as!Q2
             xxx.aaaa = aa
             xxx.frequency = frequency + 1
             xxx.recArray = recArray
@@ -161,7 +161,7 @@ class A1: UIViewController {
             
         }
         if segue.identifier == "A1gotoQ3"{
-            var xxx = segue.destination as!Q3
+            let xxx = segue.destination as!Q3
             xxx.aaaa = aa
             xxx.frequency = frequency + 1
             xxx.recArray = recArray

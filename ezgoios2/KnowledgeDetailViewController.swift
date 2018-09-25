@@ -21,46 +21,26 @@ class KnowledgeDetailViewController: UIViewController {
     
     func whichKnowledge(whichOne:Int) -> String {
         var picture:String
-        switch whichOne {
-        case 1:
-            if UserDefaults.standard.bool(forKey: "english")==true{
-                picture = "knowledge_hyena_en.png"
-            }else{
-                picture = "knowledge_hyena.png"
+        if UserDefaults.standard.bool(forKey: "english")==true{
+            switch whichOne {
+            case 1: picture = "knowledge_hyena_en.png"
+            case 2: picture = "knowledge_bear_en.png"
+            case 3: picture = "knowledge_wolf_en.png"
+            case 4: picture = "knowledge_prairiedog_en.png"
+            case 5: picture = "knowledge_kookaburra_en.png"
+            case 6: picture = "knowledge_deer_en.png"
+            default: picture = "GG"
             }
-        case 2:
-            if UserDefaults.standard.bool(forKey: "english")==true{
-                picture = "knowledge_bear_en.png"
-            }else{
-                picture = "knowledge_bear.png"
+        }else{
+            switch whichOne {
+            case 1: picture = "knowledge_hyena.png"
+            case 2: picture = "knowledge_bear.png"
+            case 3: picture = "knowledge_wolf.png"
+            case 4: picture = "knowledge_prairiedog.png"
+            case 5: picture = "knowledge_kookaburra.png"
+            case 6: picture = "knowledge_deer.png"
+            default: picture = "GG"
             }
-        case 3:
-            if UserDefaults.standard.bool(forKey: "english")==true{
-                picture = "knowledge_wolf_en.png"
-            }else{
-                picture = "knowledge_wolf.png"
-            }
-        case 4:
-            if UserDefaults.standard.bool(forKey: "english")==true{
-                picture = "knowledge_prairiedog_en.png"
-            }else{
-                picture = "knowledge_prairiedog.png"
-            }
-        case 5:
-            if UserDefaults.standard.bool(forKey: "english")==true{
-                picture = "knowledge_kookaburra_en.png"
-            }else{
-                picture = "knowledge_kookaburra.png"
-            }
-        case 6:
-            if UserDefaults.standard.bool(forKey: "english")==true{
-                picture = "knowledge_deer_en.png"
-            }else{
-                picture = "knowledge_deer.png"
-            }
-            
-        default:
-            picture = "GG"
         }
         return picture
     }

@@ -125,7 +125,7 @@ func getJsonFromUrl(whichAnimal:Int, completion: @escaping(ConnectionResult) -> 
             let question_Seperate = question_String.components(separatedBy: ",")
             let answer_Seperate = answer_String.components(separatedBy: ",")
             let qdescription_Seperate = qdescription_String.components(separatedBy: ",")
-            let rec_qid_Seperate = rec_qid_String.components(separatedBy: ",")
+            _ = rec_qid_String.components(separatedBy: ",")
             print("========================")
             print(question_Seperate)
             //把分割搞定的陣列移回去原本宣告的陣列
@@ -149,7 +149,7 @@ func getJsonFromUrl(whichAnimal:Int, completion: @escaping(ConnectionResult) -> 
             }
             
             //=======選項處理=======
-            var cnt = qOption.count
+            _ = qOption.count
             w = 0
             print("GGGGGGGGGGGGGGG")
             print(option_question_id)
@@ -161,7 +161,7 @@ func getJsonFromUrl(whichAnimal:Int, completion: @escaping(ConnectionResult) -> 
                 //print(w)
                 var x = 1
                 var optArr=[String]()
-                for var j in k...100{
+                for j in k...100{
                     if j==option_question_id.count{
                         
                         break
@@ -227,10 +227,10 @@ func getJsonFromUrl(whichAnimal:Int, completion: @escaping(ConnectionResult) -> 
             
             
             do{
-                var writev = showQ.joined(separator: "\n")
-                var writeId = showId.joined(separator: "\n")
-                var writeAns = showAns.joined(separator: "\n")
-                var writeDes = showDescript.joined(separator: "\n")
+                let writev = showQ.joined(separator: "\n")
+                let writeId = showId.joined(separator: "\n")
+                let writeAns = showAns.joined(separator: "\n")
+                let writeDes = showDescript.joined(separator: "\n")
                 //forKey會是變數喔！
                 var writeo = "love555\n" + (((options as NSDictionary).value(forKey: String(whichAnimal * 3 - 2))!) as! NSArray).componentsJoined(by: "\n")
                 writeo = writeo + "\nlove666\n" + (((options as NSDictionary).value(forKey: String(whichAnimal * 3 - 1))!) as! NSArray).componentsJoined(by: "\n")
@@ -243,7 +243,7 @@ func getJsonFromUrl(whichAnimal:Int, completion: @escaping(ConnectionResult) -> 
                 try (writeId).write(toFile: questionIdFile, atomically: true, encoding: .utf8)
                 try (writeAns).write(toFile: showAnsFile, atomically: true, encoding: .utf8)
                 try (writeDes).write(toFile: showDescriptFile, atomically: true, encoding: .utf8)
-                var recString = (try NSString(contentsOfFile: showQFile, encoding: String.Encoding.utf8.rawValue) as String)
+                _ = (try NSString(contentsOfFile: showQFile, encoding: String.Encoding.utf8.rawValue) as String)
                 //print("in file",recString)
                 //print("showQFile:",showQFile)
                 print(questionIdFile)
