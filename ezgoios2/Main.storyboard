@@ -736,7 +736,7 @@
         <scene sceneID="uav-cS-Ee1">
             <objects>
                 <viewController storyboardIdentifier="WebViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="If0-nz-PhL" customClass="WebViewController" customModule="ezgo2" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="gEK-gc-jzH">
+                    <view key="view" autoresizesSubviews="NO" contentMode="scaleToFill" id="gEK-gc-jzH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -746,12 +746,12 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" image="menu" id="PnN-YP-FqU" userLabel="btnMenu"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="btnMenu" destination="PnN-YP-FqU" id="cTg-pg-mhN"/>
+                        <outlet property="btnMenu" destination="PnN-YP-FqU" id="7qj-pP-zZ1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6PF-7F-Ldw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="911" y="-1103"/>
+            <point key="canvasLocation" x="352.80000000000001" y="-1135.6821589205399"/>
         </scene>
         <!--Reward View Controller-->
         <scene sceneID="bH1-Fz-wZM">
