@@ -16,6 +16,11 @@ class MenuViewController: UIViewController,UITableViewDataSource,UITableViewDele
     override func viewDidLoad() {
         //super.viewWillAppear(true)
         super.viewDidLoad()
+        
+        //self.view.backgroundColor = UIColor(red: 42.0/255.0, green: 151.0/255.0, blue: 42.0/255.0, alpha: 1.0)
+        
+        self.view.backgroundColor = UIColor(red: 127.0/255.0, green: 191.0/255.0, blue: 63.0/255.0, alpha: 0.9)
+        self.table.backgroundColor = UIColor(red: 127.0/255.0, green: 191.0/255.0, blue: 63.0/255.0, alpha: 0.9)
         menuNameArray=[]
         iconImage=[]
         table.reloadData()
@@ -123,7 +128,8 @@ class MenuViewController: UIViewController,UITableViewDataSource,UITableViewDele
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuTableViewCell") as! MenuTableViewCell
         cell.imgIcon.image = iconImage[indexPath.row]
         cell.lblMenuName.text! = menuNameArray[indexPath.row]
-        
+        cell.backgroundColor = UIColor(red: 127.0/255.0, green: 191.0/255.0, blue: 63.0/255.0, alpha: 0.9)
+        //cell.lblMenuName.textColor = UIColor.white
         return cell
     }
 

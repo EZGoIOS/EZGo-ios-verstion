@@ -38,8 +38,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gXm-RO-ey4">
-                                <rect key="frame" x="0.0" y="38" width="375" height="629"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="82" width="375" height="585"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MenuTableViewCell" id="aCz-FX-Kei" customClass="MenuTableViewCell" customModule="ezgo2" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -302,7 +302,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heH-pa-nrf">
-                                <rect key="frame" x="91" y="159" width="133" height="169"/>
+                                <rect key="frame" x="91" y="203" width="133" height="125"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -322,7 +322,9 @@
                         <viewLayoutGuide key="safeArea" id="3Zy-mZ-fbr"/>
                     </view>
                     <navigationItem key="navigationItem" id="VMx-iA-nZP">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="menu" id="xSa-iP-bCO"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="menu" id="xSa-iP-bCO">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="btnMenu" destination="xSa-iP-bCO" id="opB-mv-5pp"/>
@@ -521,11 +523,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xZW-Ym-7gL">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.49803921568627452" green="0.74901960784313726" blue="0.24705882352941178" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.49803921569999998" green="0.74901960779999999" blue="0.2470588235" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.49803921569999998" green="0.74901960779999999" blue="0.2470588235" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </textAttributes>
-                        <textAttributes key="largeTitleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </textAttributes>
                     </navigationBar>
@@ -842,8 +844,8 @@
         <image name="worksheet_background" width="450" height="800"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="R9Y-jI-Dzv"/>
-        <segue reference="A7P-Ac-Qdn"/>
-        <segue reference="6rF-DP-LT2"/>
+        <segue reference="xlA-bG-Cmv"/>
+        <segue reference="Lg2-kv-uA6"/>
+        <segue reference="O0F-IN-BI5"/>
     </inferredMetricsTieBreakers>
 </document>
