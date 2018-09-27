@@ -13,18 +13,6 @@ enum ConnectionResult2{
 }
 
 func updateWorksheet(user_id:String, correct:String, question_id:String, completion: @escaping(ConnectionResult2) -> ()){
-    /*呼叫用法
-     updateWorksheet(user_id:String((UserDefaults.standard.string(forKey: "user_id"))!).replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: "\n", with: ""),correct:"1",question_id:"27"){ConnectionResult2 in
-     switch ConnectionResult2{
-     case .failure(let error):
-     print(error)
-     
-     case .success(let data):
-     print("success")
-     }
-     }
-     */
-    
     var parameters = ["correct":correct,"question_id":question_id]
     guard let url = URL(string:"http://ezgo.twjoin.com/updateAns/" + user_id)else{return}
     var request = URLRequest(url:url)
