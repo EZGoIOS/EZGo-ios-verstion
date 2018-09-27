@@ -38,7 +38,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gXm-RO-ey4">
-                                <rect key="frame" x="0.0" y="38" width="375" height="629"/>
+                                <rect key="frame" x="0.0" y="82" width="375" height="585"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MenuTableViewCell" id="aCz-FX-Kei" customClass="MenuTableViewCell" customModule="ezgo2" customModuleProvider="target">
@@ -302,7 +302,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heH-pa-nrf">
-                                <rect key="frame" x="91" y="159" width="133" height="169"/>
+                                <rect key="frame" x="91" y="203" width="133" height="125"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -322,7 +322,9 @@
                         <viewLayoutGuide key="safeArea" id="3Zy-mZ-fbr"/>
                     </view>
                     <navigationItem key="navigationItem" id="VMx-iA-nZP">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="menu" id="xSa-iP-bCO"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="menu" id="xSa-iP-bCO">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="btnMenu" destination="xSa-iP-bCO" id="opB-mv-5pp"/>
@@ -1194,8 +1196,8 @@
     <inferredMetricsTieBreakers>
         <segue reference="Qfc-Yw-HkF"/>
         <segue reference="syG-W9-Xlu"/>
-        <segue reference="ILf-tM-cN3"/>
-        <segue reference="cHi-WH-QmU"/>
-        <segue reference="AzB-ll-ABT"/>
+        <segue reference="xlA-bG-Cmv"/>
+        <segue reference="Lg2-kv-uA6"/>
+        <segue reference="O0F-IN-BI5"/>
     </inferredMetricsTieBreakers>
 </document>
