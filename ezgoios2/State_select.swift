@@ -6,6 +6,7 @@
 //
 
 import UIKit
+public var stateAni = NSHomeDirectory() + "/Documents/stateAni.txt"
 
 class State_select: UIViewController {
     let fullScreenSize = UIScreen.main.bounds.size
@@ -19,12 +20,53 @@ class State_select: UIViewController {
     @IBOutlet weak var btnD: UIButton!
     @IBOutlet weak var btnOK: UIButton!
     
-    @IBAction func btnA(_ sender: Any) {select = "A"}
-    @IBAction func btnB(_ sender: Any) {select = "B"}
-    @IBAction func btnC(_ sender: Any) {select = "C"}
-    @IBAction func btnD(_ sender: Any) {select = "D"}
+    @IBAction func btnA(_ sender: Any) {
+        select = "吃東西中"
+        do{
+            try select.write(toFile: stateAni, atomically: true, encoding: .utf8)
+            print("choose this one========",stateAni)
+            let recString = try (NSString(contentsOfFile: stateAni, encoding: String.Encoding.utf8.rawValue) as String)
+            print("catch recString",recString)
+        }catch{
+            print("error")
+        }
+    }
+    @IBAction func btnB(_ sender: Any) {
+        select = "躲起來了"
+        do{
+            try select.write(toFile: stateAni, atomically: true, encoding: .utf8)
+            print("choose this one========",stateAni)
+            let recString = try (NSString(contentsOfFile: stateAni, encoding: String.Encoding.utf8.rawValue) as String)
+            print("catch recString",recString)
+        }catch{
+            print("error")
+        }
+    }
+    @IBAction func btnC(_ sender: Any) {
+        select = "活動中"
+        do{
+            try select.write(toFile: stateAni, atomically: true, encoding: .utf8)
+            print("choose this one========",stateAni)
+            let recString = try (NSString(contentsOfFile: stateAni, encoding: String.Encoding.utf8.rawValue) as String)
+            print("catch recString",recString)
+        }catch{
+            print("error")
+        }
+    }
+    @IBAction func btnD(_ sender: Any) {
+        select = "睡覺中"
+        do{
+            try select.write(toFile: stateAni, atomically: true, encoding: .utf8)
+            print("choose this one========",stateAni)
+            let recString = try (NSString(contentsOfFile: stateAni, encoding: String.Encoding.utf8.rawValue) as String)
+            print("catch recString",recString)
+        }catch{
+            print("error")
+        }
+    }
     
     @IBAction func btnOK(_ sender: Any) {
+        
     }
     
     /*

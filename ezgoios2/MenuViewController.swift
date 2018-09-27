@@ -26,24 +26,24 @@ class MenuViewController: UIViewController,UITableViewDataSource,UITableViewDele
         table.reloadData()
         if UserDefaults.standard.bool(forKey: "hasChangedReward")==true{
             if UserDefaults.standard.bool(forKey: "english")==false{
-                menuNameArray = ["Guide Map","Record","Woofy's file","Introduction","Knowledge","About","Test","Contact us","Language","Restart"]
-                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!,UIImage(named:"change")!]
+                menuNameArray = ["Guide Map","Record","Woofy's file","Introduction","Knowledge","About","Contact us","Language","Restart"]
+                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!,UIImage(named:"change")!]
                 print("英文")
             }else{
-                menuNameArray = ["地圖導覽","闖關進度","旺哥小檔案","闖關說明","動物小知識","關於我們","網頁測測","問題與回饋","切換語言","再玩一次"]
-                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!,UIImage(named:"change")!]
+                menuNameArray = ["地圖導覽","闖關進度","旺哥小檔案","闖關說明","動物小知識","動物狀況","關於我們","問題與回饋","切換語言","再玩一次"]
+                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!,UIImage(named:"change")!]
                 print("中文")
             }
             
             //print("側邊欄有新增")
         }else{
             if UserDefaults.standard.bool(forKey: "english")==false{
-                menuNameArray = ["Guide Map","Record","Woofy's file","Introduction","Knowledge","About","Test","Contact us","Language"]
-                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!]
+                menuNameArray = ["Guide Map","Record","Woofy's file","Introduction","Knowledge","About","Contact us","Language"]
+                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!]
                 print("英文")
             }else{
-                menuNameArray = ["地圖導覽","闖關進度","旺哥小檔案","闖關說明","動物小知識","關於我們","網頁測測","問題與回饋","切換語言"]
-                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!]
+                menuNameArray = ["地圖導覽","闖關進度","旺哥小檔案","闖關說明","動物小知識","動物狀況","關於我們","問題與回饋","切換語言"]
+                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!,UIImage(named:"change")!]
                 print("中文")
             }
             //print("側邊欄沒新增")
@@ -58,24 +58,24 @@ class MenuViewController: UIViewController,UITableViewDataSource,UITableViewDele
         super.viewDidLoad()
         table.reloadData()
         if UserDefaults.standard.bool(forKey: "hasChangedReward")==true{
-            if UserDefaults.standard.bool(forKey: "english")==false{
-                menuNameArray = ["Guide Map","Record","Woofy's file","Introduction","Knowledge","About","Test","Contact us","Language","Restart"]
-                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!,UIImage(named:"change")!]
+            if UserDefaults.standard.bool(forKey: "english")==true{
+                menuNameArray = ["Guide Map","Record","Woofy's file","Introduction","Knowledge","About","Contact us","Language","Restart"]
+                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!,UIImage(named:"change")!]
                 print("英文")
             }else{
-                menuNameArray = ["地圖導覽","闖關進度","旺哥小檔案","闖關說明","動物小知識","關於我們","網頁測測","問題與回饋","切換語言","再玩一次"]
-                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!,UIImage(named:"change")!]
+                menuNameArray = ["地圖導覽","闖關進度","旺哥小檔案","闖關說明","動物小知識","動物狀況","關於我們","問題與回饋","切換語言","再玩一次"]
+                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!,UIImage(named:"change")!]
                 print("中文")
             }
             print("側邊欄有新增")
         }else{
-            if UserDefaults.standard.bool(forKey: "english")==false{
-                menuNameArray = ["Guide Map","Record","Woofy's file","Introduction","Knowledge","About","Test","Contact us","Language"]
-                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!]
+            if UserDefaults.standard.bool(forKey: "english")==true{
+                menuNameArray = ["Guide Map","Record","Woofy's file","Introduction","Knowledge","About","Contact us","Language"]
+                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!]
                 print("英文")
             }else{
-                menuNameArray = ["地圖導覽","闖關進度","旺哥小檔案","闖關說明","動物小知識","關於我們","網頁測測","問題與回饋","切換語言"]
-                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!]
+                menuNameArray = ["地圖導覽","闖關進度","旺哥小檔案","闖關說明","動物小知識","動物狀況","關於我們","問題與回饋","切換語言"]
+                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!,UIImage(named:"change")!]
                 print("中文")
             }
             print("側邊欄沒新增")
@@ -89,24 +89,24 @@ class MenuViewController: UIViewController,UITableViewDataSource,UITableViewDele
         iconImage=[]
         
         if UserDefaults.standard.bool(forKey: "hasChangedReward")==true{
-            if UserDefaults.standard.bool(forKey: "english")==false{
-                menuNameArray = ["Guide Map","Record","Woofy's file","Introduction","Knowledge","About","Test","Contact us","Language","Restart"]
-                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!,UIImage(named:"change")!]
+            if UserDefaults.standard.bool(forKey: "english")==true{
+                menuNameArray = ["Guide Map","Record","Woofy's file","Introduction","Knowledge","About","Contact us","Language","Restart"]
+                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!,UIImage(named:"change")!]
                 print("英文")
             }else{
-                menuNameArray = ["地圖導覽","闖關進度","旺哥小檔案","闖關說明","動物小知識","關於我們","網頁測測","問題與回饋","切換語言","再玩一次"]
-                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!,UIImage(named:"change")!]
+                menuNameArray = ["地圖導覽","闖關進度","旺哥小檔案","闖關說明","動物小知識","動物狀況","關於我們","問題與回饋","切換語言","再玩一次"]
+                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!,UIImage(named:"change")!]
                 print("中文")
             }
             //print("側邊欄有新增")
         }else{
-            if UserDefaults.standard.bool(forKey: "english")==false{
-                menuNameArray = ["Guide Map","Record","Woofy's file","Introduction","Knowledge","About","Test","Contact us","Language"]
-                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!]
+            if UserDefaults.standard.bool(forKey: "english")==true{
+                menuNameArray = ["Guide Map","Record","Woofy's file","Introduction","Knowledge","About","Contact us","Language"]
+                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!]
                 print("英文")
             }else{
-                menuNameArray = ["地圖導覽","闖關進度","旺哥小檔案","闖關說明","動物小知識","關於我們","網頁測測","問題與回饋","切換語言"]
-                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!]
+                menuNameArray = ["地圖導覽","闖關進度","旺哥小檔案","闖關說明","動物小知識","動物狀況","關於我們","問題與回饋","切換語言"]
+                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!,UIImage(named:"change")!]
                 print("中文")
             }
             //print("側邊欄沒新增")
@@ -128,10 +128,7 @@ class MenuViewController: UIViewController,UITableViewDataSource,UITableViewDele
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuTableViewCell") as! MenuTableViewCell
         cell.imgIcon.image = iconImage[indexPath.row]
         cell.lblMenuName.text! = menuNameArray[indexPath.row]
-        
-        //顏色設定
         cell.backgroundColor = UIColor(red: 127.0/255.0, green: 191.0/255.0, blue: 63.0/255.0, alpha: 0.9)
-        //cell.lblMenuName.textColor = UIColor.white
         return cell
     }
     
@@ -178,16 +175,16 @@ class MenuViewController: UIViewController,UITableViewDataSource,UITableViewDele
             revealViewController.pushFrontViewController(newFrontViewController, animated: true)
             //tableView.reloadData()
         }
+        if cell.lblMenuName.text! == "動物狀況"{
+            let mainStoryboard:UIStoryboard = UIStoryboard(name:"Main",bundle:nil)
+            let newViewcontroller = mainStoryboard.instantiateViewController(withIdentifier: "State_menu") as! State_menu
+            let newFrontViewController = UINavigationController.init(rootViewController:newViewcontroller)
+            revealViewController.pushFrontViewController(newFrontViewController, animated: true)
+            //tableView.reloadData()
+        }
         if cell.lblMenuName.text! == "關於我們" || cell.lblMenuName.text! == "About"{
             let mainStoryboard:UIStoryboard = UIStoryboard(name:"Main",bundle:nil)
             let newViewcontroller = mainStoryboard.instantiateViewController(withIdentifier: "AboutViewController") as! AboutViewController
-            let newFrontViewController = UINavigationController.init(rootViewController:newViewcontroller)
-            revealViewController.pushFrontViewController(newFrontViewController, animated: true)
-            //   tableView.reloadData()
-        }
-        if cell.lblMenuName.text! == "網頁測測" || cell.lblMenuName.text! == "Test"{
-            let mainStoryboard:UIStoryboard = UIStoryboard(name:"Main",bundle:nil)
-            let newViewcontroller = mainStoryboard.instantiateViewController(withIdentifier: "State_menu") as! State_menu
             let newFrontViewController = UINavigationController.init(rootViewController:newViewcontroller)
             revealViewController.pushFrontViewController(newFrontViewController, animated: true)
             //   tableView.reloadData()

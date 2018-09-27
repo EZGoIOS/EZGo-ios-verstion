@@ -302,7 +302,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heH-pa-nrf">
-                                <rect key="frame" x="91" y="203" width="133" height="125"/>
+                                <rect key="frame" x="91" y="159" width="133" height="169"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1143,6 +1143,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="OK" image="ok-btn"/>
                                 <connections>
+                                    <action selector="clickOK:" destination="dvf-HX-hua" eventType="touchUpInside" id="aZJ-Mp-dVh"/>
                                     <segue destination="vE5-v2-GtL" kind="show" id="cHi-WH-QmU"/>
                                 </connections>
                             </button>
@@ -1191,11 +1192,10 @@
         <image name="動物狀況-2-bg" width="3061" height="5443"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ded-cC-Tr2"/>
         <segue reference="Qfc-Yw-HkF"/>
         <segue reference="syG-W9-Xlu"/>
         <segue reference="ILf-tM-cN3"/>
-        <segue reference="Lg2-kv-uA6"/>
+        <segue reference="cHi-WH-QmU"/>
         <segue reference="AzB-ll-ABT"/>
     </inferredMetricsTieBreakers>
 </document>

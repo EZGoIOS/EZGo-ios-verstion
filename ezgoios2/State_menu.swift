@@ -6,9 +6,11 @@
 //
 
 import UIKit
+public var chooseStatAni = NSHomeDirectory() + "/Documents/chooseStatAni.txt"
 
 class State_menu: UIViewController {
     var aa:Int = 0
+    var animal:String = ""
     @IBOutlet var btnMenu: UIBarButtonItem!
     
     @IBOutlet weak var btn1: UIButton!
@@ -55,12 +57,78 @@ class State_menu: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @IBAction func btn1(_ sender: Any) {aa = 1}
-    @IBAction func btn2(_ sender: Any) {aa = 2}
-    @IBAction func btn3(_ sender: Any) {aa = 3}
-    @IBAction func btn4(_ sender: Any) {aa = 4}
-    @IBAction func btn5(_ sender: Any) {aa = 5}
-    @IBAction func btn6(_ sender: Any) {aa = 6}
+    @IBAction func btn1(_ sender: Any) {
+        aa = 1
+        animal = "斑點鬣狗"
+        do{
+            try animal.write(toFile: chooseStatAni, atomically: true, encoding: .utf8)
+            print("choose this one========",chooseStatAni)
+            let aniString = try (NSString(contentsOfFile: chooseStatAni, encoding: String.Encoding.utf8.rawValue) as String)
+            print("catch aniString",aniString)
+        }catch{
+            print("error")
+        }
+    }
+    @IBAction func btn2(_ sender: Any) {
+        aa = 2
+        animal = "臺灣黑熊"
+        do{
+            try animal.write(toFile: chooseStatAni, atomically: true, encoding: .utf8)
+            print("choose this one========",chooseStatAni)
+            let aniString = try (NSString(contentsOfFile: chooseStatAni, encoding: String.Encoding.utf8.rawValue) as String)
+            print("catch aniString",aniString)
+        }catch{
+            print("error")
+        }
+    }
+    @IBAction func btn3(_ sender: Any) {
+        aa = 3
+        animal = "北美灰狼"
+        do{
+            try animal.write(toFile: chooseStatAni, atomically: true, encoding: .utf8)
+            print("choose this one========",chooseStatAni)
+            let aniString = try (NSString(contentsOfFile: chooseStatAni, encoding: String.Encoding.utf8.rawValue) as String)
+            print("catch aniString",aniString)
+        }catch{
+            print("error")
+        }
+    }
+    @IBAction func btn4(_ sender: Any) {
+        aa = 4
+        animal = "黑尾草原犬鼠"
+        do{
+            try animal.write(toFile: chooseStatAni, atomically: true, encoding: .utf8)
+            print("choose this one========",chooseStatAni)
+            let aniString = try (NSString(contentsOfFile: chooseStatAni, encoding: String.Encoding.utf8.rawValue) as String)
+            print("catch aniString",aniString)
+        }catch{
+            print("error")
+        }
+    }
+    @IBAction func btn5(_ sender: Any) {
+        aa = 5
+        animal = "笑翠鳥"
+        do{
+            try animal.write(toFile: chooseStatAni, atomically: true, encoding: .utf8)
+            print("choose this one========",chooseStatAni)
+            let aniString = try (NSString(contentsOfFile: chooseStatAni, encoding: String.Encoding.utf8.rawValue) as String)
+            print("catch aniString",aniString)
+        }catch{
+            print("error")
+        }
+    }
+    @IBAction func btn6(_ sender: Any) {
+        aa = 6
+        animal = "山羌"
+        do{
+            try animal.write(toFile: chooseStatAni, atomically: true, encoding: .utf8)
+            print("choose this one========",chooseStatAni)
+            let aniString = try (NSString(contentsOfFile: chooseStatAni, encoding: String.Encoding.utf8.rawValue) as String)
+            print("catch aniString",aniString)
+        }catch{
+            print("error")
+        }
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "gotoMA1"{
             

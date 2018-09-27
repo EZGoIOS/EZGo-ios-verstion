@@ -14,6 +14,25 @@ class State_done: UIViewController {
     @IBOutlet var btnMenu: UIBarButtonItem!
 
     @IBOutlet weak var btnOK: UIButton!
+    @IBAction func clickOK(_ sender: Any) {
+        do{
+            let recString = try (NSString(contentsOfFile: stateAni, encoding: String.Encoding.utf8.rawValue) as String)
+            let aniString = try (NSString(contentsOfFile: chooseStatAni, encoding: String.Encoding.utf8.rawValue) as String)
+            print("catch recString",recString)
+            updateStatus(status: recString, animal: aniString, completion: {
+                ConnectionResult4 in
+                switch ConnectionResult4{
+                case .failure(let error):
+                    print(error)
+                    
+                case .success(let data):
+                    print("success")
+                }
+            })
+        }catch{
+            print("error")
+        }
+    }
     
     
     /*
