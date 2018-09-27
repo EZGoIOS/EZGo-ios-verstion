@@ -28,17 +28,17 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
     let anns = [MKPointAnnotation(),MKPointAnnotation(),MKPointAnnotation(),MKPointAnnotation(),MKPointAnnotation(),MKPointAnnotation(),MKPointAnnotation()]
     public var tileRenderer: MKTileOverlayRenderer!
     //public parameters=[:]
-    
-    
     override func viewDidLoad() {
         var myDoubleTapGestureRecognizer: UIPanGestureRecognizer?
         let fullScreenSize = UIScreen.main.bounds.size
+        
+        
+        //navigation上面的bar顏色設定
         let navigationBarAppearnce = UINavigationBar.appearance()
         navigationBarAppearnce.tintColor = UIColor.white
-        navigationBarAppearnce.barTintColor = UIColor(red: 127.0/255.0, green: 191.0/255.0, blue: 63.0/255.0, alpha: 0.9)
+        navigationBarAppearnce.barTintColor = UIColor(red: 127.0/255.0, green: 191.0/255.0, blue: 63.0/255.0, alpha: 0/9)
 
         super.viewDidLoad()
-        
         if UserDefaults.standard.bool(forKey: "hasViewedGuide"){
             getWorksheet()
             getRecordDone()
@@ -48,12 +48,12 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
                 case .failure(let error):
                     print(error)
                     
-                case .success(let data):
+                case .success( _):
                     print("success")
                 }
             }
         }
-        getNowMM()
+       // getNowMM()
         //setupTileRenderer()
         // Do any additional setup after loading the view, typically from a nib.
         btnMenu.target = revealViewController()
@@ -216,7 +216,7 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "gotoDetail"{
-            var xx:KnowledgeDetailViewController = segue.destination as! KnowledgeDetailViewController
+            let xx:KnowledgeDetailViewController = segue.destination as! KnowledgeDetailViewController
             xx.whichOne = self.aa
         }
     }
@@ -291,7 +291,7 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
         let now = Date()
         let dformatter = DateFormatter()
         dformatter.dateFormat = "mm"
-        var time:Int = Int(dformatter.string(from: now))!
+        let time:Int = Int(dformatter.string(from: now))!
         //print("目前分鐘數：" + String(time))
         return time
     }
@@ -299,7 +299,7 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
         let now = Date()
         let dformatter = DateFormatter()
         dformatter.dateFormat = "ss"
-        var time:Int = Int(dformatter.string(from: now))!
+        let time:Int = Int(dformatter.string(from: now))!
         //print("目前秒數：" + String(time))
         return time
     }

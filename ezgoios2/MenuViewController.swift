@@ -17,10 +17,10 @@ class MenuViewController: UIViewController,UITableViewDataSource,UITableViewDele
         //super.viewWillAppear(true)
         super.viewDidLoad()
         
-        //self.view.backgroundColor = UIColor(red: 42.0/255.0, green: 151.0/255.0, blue: 42.0/255.0, alpha: 1.0)
-        
+        //設定側邊欄顏色
         self.view.backgroundColor = UIColor(red: 127.0/255.0, green: 191.0/255.0, blue: 63.0/255.0, alpha: 0.9)
         self.table.backgroundColor = UIColor(red: 127.0/255.0, green: 191.0/255.0, blue: 63.0/255.0, alpha: 0.9)
+        
         menuNameArray=[]
         iconImage=[]
         table.reloadData()
@@ -48,10 +48,10 @@ class MenuViewController: UIViewController,UITableViewDataSource,UITableViewDele
             }
             //print("側邊欄沒新增")
         }
- 
+        
         //self.reloadInputViews()
     }
-
+    
     
     
     override func viewDidAppear(_ animated: Bool) {
@@ -81,7 +81,7 @@ class MenuViewController: UIViewController,UITableViewDataSource,UITableViewDele
             print("側邊欄沒新增")
         }
     }
- 
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidLoad()
@@ -119,7 +119,7 @@ class MenuViewController: UIViewController,UITableViewDataSource,UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       
+        
         return menuNameArray.count
         
     }
@@ -128,11 +128,13 @@ class MenuViewController: UIViewController,UITableViewDataSource,UITableViewDele
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuTableViewCell") as! MenuTableViewCell
         cell.imgIcon.image = iconImage[indexPath.row]
         cell.lblMenuName.text! = menuNameArray[indexPath.row]
+        
+        //顏色設定
         cell.backgroundColor = UIColor(red: 127.0/255.0, green: 191.0/255.0, blue: 63.0/255.0, alpha: 0.9)
         //cell.lblMenuName.textColor = UIColor.white
         return cell
     }
-
+    
     //每個側邊欄按下去的事件
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         super.viewDidLoad()
@@ -181,11 +183,11 @@ class MenuViewController: UIViewController,UITableViewDataSource,UITableViewDele
             let newViewcontroller = mainStoryboard.instantiateViewController(withIdentifier: "AboutViewController") as! AboutViewController
             let newFrontViewController = UINavigationController.init(rootViewController:newViewcontroller)
             revealViewController.pushFrontViewController(newFrontViewController, animated: true)
-         //   tableView.reloadData()
+            //   tableView.reloadData()
         }
         if cell.lblMenuName.text! == "網頁測測" || cell.lblMenuName.text! == "Test"{
             let mainStoryboard:UIStoryboard = UIStoryboard(name:"Main",bundle:nil)
-            let newViewcontroller = mainStoryboard.instantiateViewController(withIdentifier: "WebViewController") as! WebViewController
+            let newViewcontroller = mainStoryboard.instantiateViewController(withIdentifier: "State_menu") as! State_menu
             let newFrontViewController = UINavigationController.init(rootViewController:newViewcontroller)
             revealViewController.pushFrontViewController(newFrontViewController, animated: true)
             //   tableView.reloadData()
@@ -220,7 +222,7 @@ class MenuViewController: UIViewController,UITableViewDataSource,UITableViewDele
                     let newViewcontroller = mainStoryboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
                     let newFrontViewController = UINavigationController.init(rootViewController:newViewcontroller)
                     revealViewController.pushFrontViewController(newFrontViewController, animated: true)
- 
+                    
                     //tableView.reloadData()
             })
             alertController.addAction(chAction)
@@ -238,7 +240,7 @@ class MenuViewController: UIViewController,UITableViewDataSource,UITableViewDele
                     let newViewcontroller = mainStoryboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
                     let newFrontViewController = UINavigationController.init(rootViewController:newViewcontroller)
                     revealViewController.pushFrontViewController(newFrontViewController, animated: true)
- 
+                    
                     //tableView.reloadData()
             })
             alertController.addAction(engAction)
@@ -249,7 +251,7 @@ class MenuViewController: UIViewController,UITableViewDataSource,UITableViewDele
                 alertController,
                 animated: true,
                 completion: nil)
-        
+            
         }
         if cell.lblMenuName.text! == "再玩一次" || cell.lblMenuName.text! == "Restart"{
             let mainStoryboard:UIStoryboard = UIStoryboard(name:"Main",bundle:nil)
