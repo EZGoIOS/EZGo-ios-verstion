@@ -22,20 +22,28 @@ class State_menu: UIViewController {
     override func viewDidLoad() {
         // 取得螢幕的尺寸
         let fullScreenSize = UIScreen.main.bounds.size
+        if UserDefaults.standard.bool(forKey: "english") == true{
+            btn1.setImage(UIImage(named: "state_btn-hyena_eng"), for: UIControlState.normal)
+            btn2.setImage(UIImage(named: "state_btn-taiwanese_bear_eng"), for: UIControlState.normal)
+            btn3.setImage(UIImage(named: "state_btn-wolf_eng"), for: UIControlState.normal)
+            btn4.setImage(UIImage(named: "state_btn-prairie_dog_eng"), for: UIControlState.normal)
+            btn5.setImage(UIImage(named: "state_btn-kookaburra_eng"), for: UIControlState.normal)
+            btn6.setImage(UIImage(named: "state_btn-deer_eng"), for: UIControlState.normal)
+        }else{
+            btn1.setImage(UIImage(named: "state_btn-hyena"), for: UIControlState.normal)
+            btn2.setImage(UIImage(named: "state_btn-taiwanese_bear"), for: UIControlState.normal)
+            btn3.setImage(UIImage(named: "state_btn-wolf"), for: UIControlState.normal)
+            btn4.setImage(UIImage(named: "state_btn-prairie_dog"), for: UIControlState.normal)
+            btn5.setImage(UIImage(named: "state_btn-kookaburra"), for: UIControlState.normal)
+            btn6.setImage(UIImage(named: "state_btn-deer"), for: UIControlState.normal)
+        }
         btn1.frame = CGRect(x: Int((fullScreenSize.width * 0.15)) , y:Int((fullScreenSize.height * 0.08)) , width: Int((fullScreenSize.width * 0.7)) , height: Int((fullScreenSize.width * 0.3)))
         btn2.frame = CGRect(x: Int((fullScreenSize.width * 0.15)) , y:Int((fullScreenSize.height * 0.28)) , width: Int((fullScreenSize.width * 0.7)) , height: Int((fullScreenSize.width * 0.3)))
         btn3.frame = CGRect(x: Int((fullScreenSize.width * 0.15)) , y:Int((fullScreenSize.height * 0.48)) , width: Int((fullScreenSize.width * 0.7)) , height: Int((fullScreenSize.width * 0.3)))
         btn4.frame = CGRect(x: Int((fullScreenSize.width * 0.15)) , y:Int((fullScreenSize.height * 0.68)) , width: Int((fullScreenSize.width * 0.7)) , height: Int((fullScreenSize.width * 0.3)))
         btn5.frame = CGRect(x: Int((fullScreenSize.width * 0.15)) , y:Int((fullScreenSize.height * 0.88)) , width: Int((fullScreenSize.width * 0.7)) , height: Int((fullScreenSize.width * 0.3)))
         btn6.frame = CGRect(x: Int((fullScreenSize.width * 0.15)) , y:Int((fullScreenSize.height * 1.08)) , width: Int((fullScreenSize.width * 0.7)) , height: Int((fullScreenSize.width * 0.3)))
-        if UserDefaults.standard.bool(forKey: "english") == true{
-            btn1.setImage(UIImage(named: "kn_hyena_en"), for: UIControlState.normal)
-            btn2.setImage(UIImage(named: "kn_bear_en"), for: UIControlState.normal)
-            btn3.setImage(UIImage(named: "kn_wolf_en"), for: UIControlState.normal)
-            btn4.setImage(UIImage(named: "kn_prairiedog_en"), for: UIControlState.normal)
-            btn5.setImage(UIImage(named: "kn_kookaburra_en"), for: UIControlState.normal)
-            btn6.setImage(UIImage(named: "kn_deer_en"), for: UIControlState.normal)
-        }
+        
         super.viewDidLoad()
         btnMenu.target = revealViewController()
         btnMenu.action = #selector(SWRevealViewController.revealToggle(_:))

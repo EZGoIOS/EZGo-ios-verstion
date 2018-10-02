@@ -13,6 +13,7 @@ class State_done: UIViewController {
 
     @IBOutlet var btnMenu: UIBarButtonItem!
 
+    @IBOutlet weak var image1: UIImageView!
     @IBOutlet weak var btnOK: UIButton!
     @IBAction func clickOK(_ sender: Any) {
         do{
@@ -35,38 +36,41 @@ class State_done: UIViewController {
     }
     
     
-    /*
+    
     func whichAnimal(whichOne:Int) -> String {
          var picture:String
          if UserDefaults.standard.bool(forKey: "english")==true{
          switch whichOne {
-         case 1: picture = "knowledge_hyena_en.png"
-         case 2: picture = "knowledge_bear_en.png"
-         case 3: picture = "knowledge_wolf_en.png"
-         case 4: picture = "knowledge_prairiedog_en.png"
-         case 5: picture = "knowledge_kookaburra_en.png"
-         case 6: picture = "knowledge_deer_en.png"
+         case 1: picture = "thankYou_btn-hyena_eng.png"
+         case 2: picture = "thankYou_btn-bear_eng.png"
+         case 3: picture = "thankYou_btn-wolf_eng.png"
+         case 4: picture = "thankYou_btn-prairieDog_eng.png"
+         case 5: picture = "thankYou_btn-kookaburra_eng.png"
+         case 6: picture = "thankYou_btn-deer_eng.png"
          default: picture = "GG"
          }
          }else{
          switch whichOne {
-         case 1: picture = "knowledge_hyena.png"
-         case 2: picture = "knowledge_bear.png"
-         case 3: picture = "knowledge_wolf.png"
-         case 4: picture = "knowledge_prairiedog.png"
-         case 5: picture = "knowledge_kookaburra.png"
-         case 6: picture = "knowledge_deer.png"
+         case 1: picture = "thankYou_btn-hyena.png"
+         case 2: picture = "thankYou_btn-bear.png"
+         case 3: picture = "thankYou_btn-wolf.png"
+         case 4: picture = "thankYou_btn-prairieDog.png"
+         case 5: picture = "thankYou_btn-kookaburra.png"
+         case 6: picture = "thankYou_btn-deer.png"
          default: picture = "GG"
          }
          }
          return picture
     }
-    */
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         btnOK.frame = CGRect(x: Int((fullScreenSize.width * 0.35)) , y:Int((fullScreenSize.height * 0.85)) , width: Int((fullScreenSize.width * 0.3)) , height: Int((fullScreenSize.width * 0.1)))
-
+        btnOK.setBackgroundImage(UIImage(named: "ok-btn" ), for: UIControlState.normal)
+        btnOK.setTitle("OK", for: UIControlState.normal)
+        image1.frame = CGRect(x: Int((fullScreenSize.width * 0.1)) , y:Int((fullScreenSize.height * 0.15)) , width: Int((fullScreenSize.width * 0.8)) , height: Int((fullScreenSize.height * 0.65)))
+        image1.image = UIImage(named: whichAnimal(whichOne: whichOne))
     }
 
     

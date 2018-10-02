@@ -14,6 +14,7 @@ class State_select: UIViewController {
     var select:String = "X"
     @IBOutlet var btnMenu: UIBarButtonItem!
 
+    @IBOutlet weak var image1: UIImageView!
     @IBOutlet weak var btnA: UIButton!
     @IBOutlet weak var btnB: UIButton!
     @IBOutlet weak var btnC: UIButton!
@@ -22,137 +23,147 @@ class State_select: UIViewController {
     
     @IBAction func btnA(_ sender: Any) {
         select = "吃東西中"
-        do{
-            try select.write(toFile: stateAni, atomically: true, encoding: .utf8)
-            print("choose this one========",stateAni)
-            let recString = try (NSString(contentsOfFile: stateAni, encoding: String.Encoding.utf8.rawValue) as String)
-            print("catch recString",recString)
-        }catch{
-            print("error")
+        if UserDefaults.standard.bool(forKey: "english")==true{
+            btnA.setBackgroundImage(UIImage(named: "emoticon-btn-eating-eng-pressed" ), for: UIControlState.normal)
+            btnB.setBackgroundImage(UIImage(named: "emoticon-btn-hiding-eng" ), for: UIControlState.normal)
+            btnC.setBackgroundImage(UIImage(named: "emoticon-btn-idle-eng" ), for: UIControlState.normal)
+            btnD.setBackgroundImage(UIImage(named: "emoticon-btn-sleeping-eng" ), for: UIControlState.normal)
+        }else{
+        btnA.setBackgroundImage(UIImage(named: "emoticon-btn-eating-pressed" ), for: UIControlState.normal)
+        btnB.setBackgroundImage(UIImage(named: "emoticon-btn-hiding" ), for: UIControlState.normal)
+        btnC.setBackgroundImage(UIImage(named: "emoticon-btn-idle" ), for: UIControlState.normal)
+        btnD.setBackgroundImage(UIImage(named: "emoticon-btn-sleeping" ), for: UIControlState.normal)
         }
+        
     }
     @IBAction func btnB(_ sender: Any) {
         select = "躲起來了"
-        do{
-            try select.write(toFile: stateAni, atomically: true, encoding: .utf8)
-            print("choose this one========",stateAni)
-            let recString = try (NSString(contentsOfFile: stateAni, encoding: String.Encoding.utf8.rawValue) as String)
-            print("catch recString",recString)
-        }catch{
-            print("error")
+        if UserDefaults.standard.bool(forKey: "english")==true{
+            btnA.setBackgroundImage(UIImage(named: "emoticon-btn-eating-eng" ), for: UIControlState.normal)
+            btnB.setBackgroundImage(UIImage(named: "emoticon-btn-hiding-eng-pressed" ), for: UIControlState.normal)
+            btnC.setBackgroundImage(UIImage(named: "emoticon-btn-idle-eng" ), for: UIControlState.normal)
+            btnD.setBackgroundImage(UIImage(named: "emoticon-btn-sleeping-eng" ), for: UIControlState.normal)
+        }else{
+            btnA.setBackgroundImage(UIImage(named: "emoticon-btn-eating" ), for: UIControlState.normal)
+            btnB.setBackgroundImage(UIImage(named: "emoticon-btn-hiding-pressed" ), for: UIControlState.normal)
+            btnC.setBackgroundImage(UIImage(named: "emoticon-btn-idle" ), for: UIControlState.normal)
+            btnD.setBackgroundImage(UIImage(named: "emoticon-btn-sleeping" ), for: UIControlState.normal)
         }
+        
     }
     @IBAction func btnC(_ sender: Any) {
         select = "活動中"
-        do{
-            try select.write(toFile: stateAni, atomically: true, encoding: .utf8)
-            print("choose this one========",stateAni)
-            let recString = try (NSString(contentsOfFile: stateAni, encoding: String.Encoding.utf8.rawValue) as String)
-            print("catch recString",recString)
-        }catch{
-            print("error")
+        if UserDefaults.standard.bool(forKey: "english")==true{
+            btnA.setBackgroundImage(UIImage(named: "emoticon-btn-eating-eng" ), for: UIControlState.normal)
+            btnB.setBackgroundImage(UIImage(named: "emoticon-btn-hiding-eng" ), for: UIControlState.normal)
+            btnC.setBackgroundImage(UIImage(named: "emoticon-btn-idle-eng-pressed" ), for: UIControlState.normal)
+            btnD.setBackgroundImage(UIImage(named: "emoticon-btn-sleeping-eng" ), for: UIControlState.normal)
+        }else{
+            btnA.setBackgroundImage(UIImage(named: "emoticon-btn-eating" ), for: UIControlState.normal)
+            btnB.setBackgroundImage(UIImage(named: "emoticon-btn-hiding" ), for: UIControlState.normal)
+            btnC.setBackgroundImage(UIImage(named: "emoticon-btn-idle-pressed" ), for: UIControlState.normal)
+            btnD.setBackgroundImage(UIImage(named: "emoticon-btn-sleeping" ), for: UIControlState.normal)
         }
+        
     }
     @IBAction func btnD(_ sender: Any) {
         select = "睡覺中"
-        do{
-            try select.write(toFile: stateAni, atomically: true, encoding: .utf8)
-            print("choose this one========",stateAni)
-            let recString = try (NSString(contentsOfFile: stateAni, encoding: String.Encoding.utf8.rawValue) as String)
-            print("catch recString",recString)
-        }catch{
-            print("error")
+        if UserDefaults.standard.bool(forKey: "english")==true{
+            btnA.setBackgroundImage(UIImage(named: "emoticon-btn-eating-eng" ), for: UIControlState.normal)
+            btnB.setBackgroundImage(UIImage(named: "emoticon-btn-hiding-eng" ), for: UIControlState.normal)
+            btnC.setBackgroundImage(UIImage(named: "emoticon-btn-idle-eng" ), for: UIControlState.normal)
+            btnD.setBackgroundImage(UIImage(named: "emoticon-btn-sleeping-eng-pressed" ), for: UIControlState.normal)
+        }else{
+            btnA.setBackgroundImage(UIImage(named: "emoticon-btn-eating" ), for: UIControlState.normal)
+            btnB.setBackgroundImage(UIImage(named: "emoticon-btn-hiding" ), for: UIControlState.normal)
+            btnC.setBackgroundImage(UIImage(named: "emoticon-btn-idle" ), for: UIControlState.normal)
+            btnD.setBackgroundImage(UIImage(named: "emoticon-btn-sleeping-pressed" ), for: UIControlState.normal)
         }
     }
     
     @IBAction func btnOK(_ sender: Any) {
-        
+        if select == "X"{
+            if UserDefaults.standard.bool(forKey: "english")==true{
+                var alert = UIAlertView()
+                alert.title = "Notice！"
+                alert.message = "You didn't choose"
+                alert.addButton(withTitle: "OK")
+                alert.show()
+            }else{
+                var alert = UIAlertView()
+                alert.title = "注意！"
+                alert.message = "你沒選選項"
+                alert.addButton(withTitle: "OK")
+                alert.show()
+            }
+        }else{
+
+            do{
+                try select.write(toFile: stateAni, atomically: true, encoding: .utf8)
+                print("choose this one========",stateAni)
+                let recString = try (NSString(contentsOfFile: stateAni, encoding: String.Encoding.utf8.rawValue) as String)
+                print("catch recString",recString)
+            }catch{
+                print("error")
+            }
+            performSegue(withIdentifier: "SelectgotoDone", sender: self)
+
+        }
     }
     
-    /*
     func whichAnimal(whichOne:Int) -> String {
          var picture:String
          if UserDefaults.standard.bool(forKey: "english")==true{
          switch whichOne {
-         case 1: picture = "knowledge_hyena_en.png"
-         case 2: picture = "knowledge_bear_en.png"
-         case 3: picture = "knowledge_wolf_en.png"
-         case 4: picture = "knowledge_prairiedog_en.png"
-         case 5: picture = "knowledge_kookaburra_en.png"
-         case 6: picture = "knowledge_deer_en.png"
+         case 1: picture = "pictureFrame-hyena_eng.png"
+         case 2: picture = "pictureFrame-bear_eng.png"
+         case 3: picture = "pictureFrame-wolf_eng.png"
+         case 4: picture = "prairie_dog-pictureFrames2wquestionBoard_eng.png"
+         case 5: picture = "pictureFrame-kookaburra_eng.png"
+         case 6: picture = "pictureFrame-deer_eng.png"
          default: picture = "GG"
          }
          }else{
          switch whichOne {
-         case 1: picture = "knowledge_hyena.png"
-         case 2: picture = "knowledge_bear.png"
-         case 3: picture = "knowledge_wolf.png"
-         case 4: picture = "knowledge_prairiedog.png"
-         case 5: picture = "knowledge_kookaburra.png"
-         case 6: picture = "knowledge_deer.png"
+         case 1: picture = "pictureFrame-hyena.png"
+         case 2: picture = "pictureFrame-bear.png"
+         case 3: picture = "pictureFrame-wolf.png"
+         case 4: picture = "prairie_dog-pictureFrames2wquestionBoard.png"
+         case 5: picture = "pictureFrame-kookaburra.png"
+         case 6: picture = "pictureFrame-deer.png"
          default: picture = "GG"
          }
          }
          return picture
     }
     
-    */
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        btnA.frame = CGRect(x: Int((fullScreenSize.width * 0.17)) , y:Int((fullScreenSize.height * 0.5)) , width: Int((fullScreenSize.width * 0.25)) , height: Int((fullScreenSize.width * 0.25)))
-        btnB.frame = CGRect(x: Int((fullScreenSize.width * 0.58)) , y:Int((fullScreenSize.height * 0.5)) , width: Int((fullScreenSize.width * 0.25)) , height: Int((fullScreenSize.width * 0.25)))
-        btnC.frame = CGRect(x: Int((fullScreenSize.width * 0.17)) , y:Int((fullScreenSize.height * 0.7)) , width: Int((fullScreenSize.width * 0.25)) , height: Int((fullScreenSize.width * 0.25)))
-        btnD.frame = CGRect(x: Int((fullScreenSize.width * 0.58)) , y:Int((fullScreenSize.height * 0.7)) , width: Int((fullScreenSize.width * 0.25)) , height: Int((fullScreenSize.width * 0.25)))
-        btnOK.frame = CGRect(x: Int((fullScreenSize.width * 0.35)) , y:Int((fullScreenSize.height * 0.85)) , width: Int((fullScreenSize.width * 0.3)) , height: Int((fullScreenSize.width * 0.1)))
-
-        
-        
-        
-        /*
-//        //按鈕Ａ----------------------------
-        btnA.frame = CGRect(x: Int((fullScreenSize.width * 0.15)) , y:Int((fullScreenSize.height * 0.4)) , width: Int((fullScreenSize.width * 0.3)) , height: Int((fullScreenSize.width * 0.1)))
-        //btnA.setBackgroundImage(UIImage(named: "btn_reward0" ), for: UIControlState.normal)
-        btnA.setTitleColor(UIColor.white, for: UIControlState.normal)
-       /* if UserDefaults.standard.bool(forKey: "english"){
-            btnA.setTitle("Write", for: UIControlState.normal)
+        if UserDefaults.standard.bool(forKey: "english")==true{
+            btnA.setBackgroundImage(UIImage(named: "emoticon-btn-eating-eng" ), for: UIControlState.normal)
+            btnB.setBackgroundImage(UIImage(named: "emoticon-btn-hiding-eng" ), for: UIControlState.normal)
+            btnC.setBackgroundImage(UIImage(named: "emoticon-btn-idle-eng" ), for: UIControlState.normal)
+            btnD.setBackgroundImage(UIImage(named: "emoticon-btn-sleeping-eng" ), for: UIControlState.normal)
         }else{
-            btnA.setTitle("填寫", for: UIControlState.normal)
-        }*/
-        //按鈕B----------------------------
-        btnB.frame = CGRect(x: Int((fullScreenSize.width * 0.55)) , y:Int((fullScreenSize.height * 0.4)) , width: Int((fullScreenSize.width * 0.3)) , height: Int((fullScreenSize.width * 0.1)))
-        //btnB.setBackgroundImage(UIImage(named: "btn_reward0" ), for: UIControlState.normal)
-        btnB.setTitleColor(UIColor.white, for: UIControlState.normal)
-        /* if UserDefaults.standard.bool(forKey: "english"){
-         btnB.setTitle("Write", for: UIControlState.normal)
-         }else{
-         btnB.setTitle("填寫", for: UIControlState.normal)
-         }*/
-        //按鈕C----------------------------
-        btnC.frame = CGRect(x: Int((fullScreenSize.width * 0.15)) , y:Int((fullScreenSize.height * 0.6)) , width: Int((fullScreenSize.width * 0.3)) , height: Int((fullScreenSize.width * 0.1)))
-        //btnC.setBackgroundImage(UIImage(named: "btn_reward0" ), for: UIControlState.normal)
-        btnC.setTitleColor(UIColor.white, for: UIControlState.normal)
-        /* if UserDefaults.standard.bool(forKey: "english"){
-         btnC.setTitle("Write", for: UIControlState.normal)
-         }else{
-         btnC.setTitle("填寫", for: UIControlState.normal)
-         }*/
-        //按鈕D----------------------------
-        btnD.frame = CGRect(x: Int((fullScreenSize.width * 0.55)) , y:Int((fullScreenSize.height * 0.6)) , width: Int((fullScreenSize.width * 0.3)) , height: Int((fullScreenSize.width * 0.1)))
-        //btnD.setBackgroundImage(UIImage(named: "btn_reward0" ), for: UIControlState.normal)
-        btnD.setTitleColor(UIColor.white, for: UIControlState.normal)
-        /* if UserDefaults.standard.bool(forKey: "english"){
-         btnD.setTitle("Write", for: UIControlState.normal)
-         }else{
-         btnD.setTitle("填寫", for: UIControlState.normal)
-         }*/
-        //按鈕OK-------------------------------
+            btnA.setBackgroundImage(UIImage(named: "emoticon-btn-eating" ), for: UIControlState.normal)
+            btnB.setBackgroundImage(UIImage(named: "emoticon-btn-hiding" ), for: UIControlState.normal)
+            btnC.setBackgroundImage(UIImage(named: "emoticon-btn-idle" ), for: UIControlState.normal)
+            btnD.setBackgroundImage(UIImage(named: "emoticon-btn-sleeping" ), for: UIControlState.normal)
+        }
+        btnA.frame = CGRect(x: Int((fullScreenSize.width * 0.12)) , y:Int((fullScreenSize.height * 0.45)) , width: Int((fullScreenSize.width * 0.32)) , height: Int((fullScreenSize.width * 0.32)))
+        btnB.frame = CGRect(x: Int((fullScreenSize.width * 0.56)) , y:Int((fullScreenSize.height * 0.45)) , width: Int((fullScreenSize.width * 0.32)) , height: Int((fullScreenSize.width * 0.32)))
+        btnC.frame = CGRect(x: Int((fullScreenSize.width * 0.12)) , y:Int((fullScreenSize.height * 0.65)) , width: Int((fullScreenSize.width * 0.32)) , height: Int((fullScreenSize.width * 0.32)))
+        btnD.frame = CGRect(x: Int((fullScreenSize.width * 0.56)) , y:Int((fullScreenSize.height * 0.65)) , width: Int((fullScreenSize.width * 0.32)) , height: Int((fullScreenSize.width * 0.32)))
         btnOK.frame = CGRect(x: Int((fullScreenSize.width * 0.35)) , y:Int((fullScreenSize.height * 0.85)) , width: Int((fullScreenSize.width * 0.3)) , height: Int((fullScreenSize.width * 0.1)))
-        //btnOK.setBackgroundImage(UIImage(named: "btn_reward0" ), for: UIControlState.normal)
-        btnOK.setTitleColor(UIColor.white, for: UIControlState.normal)*/
+        btnOK.setBackgroundImage(UIImage(named: "ok-btn" ), for: UIControlState.normal)
+        btnOK.setTitle("OK", for: UIControlState.normal)
+        image1.frame = CGRect(x: Int((fullScreenSize.width * 0.075)) , y:Int((fullScreenSize.height * 0.17)) , width: Int((fullScreenSize.width * 0.85)) , height: Int((fullScreenSize.height * 0.25)))
+        image1.image = UIImage(named: whichAnimal(whichOne: whichOne))
     }
-
+        
+        
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        
         let xx:State_done = segue.destination as! State_done
@@ -165,14 +176,8 @@ class State_select: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
+
+    
+    

@@ -38,7 +38,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gXm-RO-ey4">
-                                <rect key="frame" x="0.0" y="82" width="375" height="585"/>
+                                <rect key="frame" x="0.0" y="38" width="375" height="629"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MenuTableViewCell" id="aCz-FX-Kei" customClass="MenuTableViewCell" customModule="ezgo2" customModuleProvider="target">
@@ -302,7 +302,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heH-pa-nrf">
-                                <rect key="frame" x="91" y="203" width="133" height="125"/>
+                                <rect key="frame" x="91" y="159" width="133" height="169"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -811,13 +811,13 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gyr-tR-Urc">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="knowledge_background" translatesAutoresizingMaskIntoConstraints="NO" id="Ci0-qE-EGn">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="動物狀況-bg-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ci0-qE-EGn">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5eZ-N7-hmW">
                                                 <rect key="frame" x="42" y="37" width="291" height="121"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button" image="kn_hyena"/>
+                                                <state key="normal" title="Button"/>
                                                 <connections>
                                                     <action selector="btn1:" destination="41l-gJ-SPl" eventType="touchUpInside" id="iom-Uo-dTs"/>
                                                     <segue destination="wGq-t7-uKN" kind="show" id="Mml-pY-l7x"/>
@@ -826,7 +826,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o3b-p8-DJa">
                                                 <rect key="frame" x="42" y="197" width="291" height="121"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button" image="kn_bear"/>
+                                                <state key="normal" title="Button"/>
                                                 <connections>
                                                     <action selector="btn2:" destination="41l-gJ-SPl" eventType="touchUpInside" id="jOE-iH-cr7"/>
                                                     <segue destination="wGq-t7-uKN" kind="show" id="pty-Gf-KNp"/>
@@ -835,7 +835,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4c4-bq-EPd">
                                                 <rect key="frame" x="42" y="351" width="291" height="121"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button" image="kn_wolf"/>
+                                                <state key="normal" title="Button"/>
                                                 <connections>
                                                     <action selector="btn3:" destination="41l-gJ-SPl" eventType="touchUpInside" id="C6m-33-Jm2"/>
                                                     <segue destination="wGq-t7-uKN" kind="show" id="De8-fc-SqE"/>
@@ -844,7 +844,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="owP-fT-VfG">
                                                 <rect key="frame" x="42" y="512" width="291" height="121"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button" image="kn_prairiedog"/>
+                                                <state key="normal" title="Button"/>
                                                 <connections>
                                                     <action selector="btn4:" destination="41l-gJ-SPl" eventType="touchUpInside" id="gUk-WT-J5N"/>
                                                     <segue destination="wGq-t7-uKN" kind="show" id="04v-jq-czl"/>
@@ -853,7 +853,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H6q-Z4-gys">
                                                 <rect key="frame" x="42" y="667" width="291" height="121"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button" image="kn_kookaburra"/>
+                                                <state key="normal" title="Button"/>
                                                 <connections>
                                                     <action selector="btn5:" destination="41l-gJ-SPl" eventType="touchUpInside" id="9ot-8Z-o3Y"/>
                                                     <segue destination="wGq-t7-uKN" kind="show" id="zp1-Oh-aR7"/>
@@ -862,7 +862,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="044-2w-QQV">
                                                 <rect key="frame" x="42" y="829" width="291" height="121"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button" image="kn_deer"/>
+                                                <state key="normal" title="Button" image="state_btn-deer"/>
                                                 <connections>
                                                     <action selector="btn6:" destination="41l-gJ-SPl" eventType="touchUpInside" id="fCH-YB-8xE"/>
                                                     <segue destination="wGq-t7-uKN" kind="show" id="Zxk-1L-PlT"/>
@@ -930,7 +930,6 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SGa-FG-Mxq">
                                 <rect key="frame" x="153" y="490" width="69" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="填寫狀況"/>
                                 <connections>
                                     <segue destination="NO5-xc-4AV" kind="show" identifier="gotoSelect2" id="aUD-9s-maT"/>
                                 </connections>
@@ -945,15 +944,17 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rVJ-WY-KR8">
                                 <rect key="frame" x="19" y="554" width="108" height="92"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="圈圈圖表"/>
                                 <connections>
+                                    <action selector="btnPre:" destination="LJ2-sU-a8a" eventType="touchUpInside" id="4YB-YU-Mg9"/>
                                     <segue destination="wGq-t7-uKN" kind="show" id="Qfc-Yw-HkF"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gNC-7m-Uxz">
                                 <rect key="frame" x="228" y="555" width="108" height="92"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="長條圖表"/>
+                                <connections>
+                                    <action selector="btnGuess:" destination="LJ2-sU-a8a" eventType="touchUpInside" id="E4C-vN-jv7"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -995,7 +996,6 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mXZ-X7-b6l">
                                 <rect key="frame" x="35" y="339" width="100" height="82"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="A" image="emoticon-btn-eating"/>
                                 <connections>
                                     <action selector="btnA:" destination="NO5-xc-4AV" eventType="touchUpInside" id="WcP-hw-uvK"/>
                                 </connections>
@@ -1003,7 +1003,6 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="my2-Wd-IJm">
                                 <rect key="frame" x="220" y="339" width="87" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="B" image="emoticon-btn-hiding"/>
                                 <connections>
                                     <action selector="btnB:" destination="NO5-xc-4AV" eventType="touchUpInside" id="0M3-Pt-7bx"/>
                                 </connections>
@@ -1011,7 +1010,6 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bd4-sG-9Qt">
                                 <rect key="frame" x="36" y="459" width="99" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="C" image="emoticon-btn-idle"/>
                                 <connections>
                                     <action selector="btnC:" destination="NO5-xc-4AV" eventType="touchUpInside" id="rKk-2D-GCg"/>
                                 </connections>
@@ -1019,7 +1017,6 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uKw-ay-jJ9">
                                 <rect key="frame" x="220" y="459" width="87" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="D" image="emoticon-btn-sleeping"/>
                                 <connections>
                                     <action selector="btnD:" destination="NO5-xc-4AV" eventType="touchUpInside" id="4Qd-Jo-Fvs"/>
                                 </connections>
@@ -1027,10 +1024,8 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2WZ-MK-RVQ">
                                 <rect key="frame" x="130" y="582" width="115" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="OK" image="ok-btn"/>
                                 <connections>
                                     <action selector="btnOK:" destination="NO5-xc-4AV" eventType="touchUpInside" id="tTE-9h-8sD"/>
-                                    <segue destination="dvf-HX-hua" kind="show" id="tEm-a1-oxb"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1049,6 +1044,8 @@
                         <outlet property="btnC" destination="bd4-sG-9Qt" id="1e3-30-DnB"/>
                         <outlet property="btnD" destination="uKw-ay-jJ9" id="p3v-Qe-5ai"/>
                         <outlet property="btnOK" destination="2WZ-MK-RVQ" id="1D5-cc-IuK"/>
+                        <outlet property="image1" destination="2zC-Gk-d90" id="GD1-lR-MTb"/>
+                        <segue destination="dvf-HX-hua" kind="show" identifier="SelectgotoDone" id="HTZ-RZ-gnY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dzn-QB-DNO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1069,7 +1066,6 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddX-0S-gS6">
                                 <rect key="frame" x="127" y="453" width="126" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="填寫狀況" image="ok-btn"/>
                                 <connections>
                                     <segue destination="NO5-xc-4AV" kind="show" identifier="gotoSelect1" id="syG-W9-Xlu"/>
                                 </connections>
@@ -1084,15 +1080,17 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fM6-0O-dJv">
                                 <rect key="frame" x="199" y="573" width="108" height="92"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="長條圖表"/>
                                 <connections>
+                                    <action selector="btnGuess:" destination="wGq-t7-uKN" eventType="touchUpInside" id="gHd-DK-89Q"/>
                                     <segue destination="LJ2-sU-a8a" kind="show" id="ded-cC-Tr2"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36k-Mg-t9s">
                                 <rect key="frame" x="44" y="572" width="108" height="92"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="圈圈圖表"/>
+                                <connections>
+                                    <action selector="btnPre:" destination="wGq-t7-uKN" eventType="touchUpInside" id="1uv-rW-s0u"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wiX-lQ-HUO">
                                 <rect key="frame" x="127" y="377" width="121" height="68"/>
@@ -1143,7 +1141,6 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oC0-29-LaK">
                                 <rect key="frame" x="121" y="425" width="132" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="OK" image="ok-btn"/>
                                 <connections>
                                     <action selector="clickOK:" destination="dvf-HX-hua" eventType="touchUpInside" id="aZJ-Mp-dVh"/>
                                     <segue destination="vE5-v2-GtL" kind="show" id="cHi-WH-QmU"/>
@@ -1161,6 +1158,7 @@
                     </view>
                     <connections>
                         <outlet property="btnOK" destination="oC0-29-LaK" id="CZe-Lh-Cn0"/>
+                        <outlet property="image1" destination="UPD-Js-cPr" id="i5b-Da-NT3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nrf-0x-Kxa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1171,10 +1169,6 @@
     <resources>
         <image name="about_new" width="960" height="1466"/>
         <image name="dog_info" width="480" height="800"/>
-        <image name="emoticon-btn-eating" width="4064" height="4015"/>
-        <image name="emoticon-btn-hiding" width="4064" height="4015"/>
-        <image name="emoticon-btn-idle" width="4064" height="4015"/>
-        <image name="emoticon-btn-sleeping" width="4064" height="4015"/>
         <image name="exchange_background" width="450" height="750"/>
         <image name="guide" width="500" height="1600"/>
         <image name="kn_bear" width="480" height="210"/>
@@ -1185,19 +1179,20 @@
         <image name="kn_wolf" width="480" height="176"/>
         <image name="knowledge_background" width="480" height="800"/>
         <image name="menu" width="24" height="24"/>
-        <image name="ok-btn" width="1650" height="724"/>
         <image name="reset_background" width="450" height="800"/>
         <image name="reset_bk" width="480" height="144"/>
         <image name="reset_board" width="217" height="156"/>
         <image name="start" width="358" height="350"/>
+        <image name="state_btn-deer" width="1817" height="548"/>
         <image name="worksheet_background" width="450" height="800"/>
         <image name="動物狀況-2-bg" width="3061" height="5443"/>
+        <image name="動物狀況-bg-1" width="1080" height="1920"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Qfc-Yw-HkF"/>
-        <segue reference="syG-W9-Xlu"/>
-        <segue reference="xlA-bG-Cmv"/>
-        <segue reference="Lg2-kv-uA6"/>
-        <segue reference="O0F-IN-BI5"/>
+        <segue reference="zp1-Oh-aR7"/>
+        <segue reference="aUD-9s-maT"/>
+        <segue reference="FBG-5C-96c"/>
+        <segue reference="cHi-WH-QmU"/>
+        <segue reference="AzB-ll-ABT"/>
     </inferredMetricsTieBreakers>
 </document>

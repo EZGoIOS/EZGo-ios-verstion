@@ -8,20 +8,30 @@
 import UIKit
 import MapKit
 import CoreLocation
-class statePreViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate {
+import WebKit
+
+class statePreViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,WKUIDelegate {
     let fullScreenSize = UIScreen.main.bounds.size
     var whichOne = Int()
     let locationManager = CLLocationManager()
-
+    var webView: WKWebView!
     @IBOutlet var btnMenu: UIBarButtonItem!
-
     @IBOutlet weak var btnWrite: UIButton!
-
     @IBOutlet weak var btnPre: UIButton!
     @IBOutlet weak var btnGuess: UIButton!
     @IBOutlet weak var lblshow: UILabel!
     @IBOutlet weak var lblshow2: UILabel!
     
+    @IBAction func btnPre(_ sender: Any) {
+        btnPre.setBackgroundImage(UIImage(named: "previousStatuses-pressed-btn" ), for: UIControlState.normal)
+        btnGuess.setBackgroundImage(UIImage(named: "statusPredictions-btn" ), for: UIControlState.normal)
+
+    }
+    @IBAction func btnGuess(_ sender: Any) {
+        btnPre.setBackgroundImage(UIImage(named: "previousStatuses-btn" ), for: UIControlState.normal)
+        btnGuess.setBackgroundImage(UIImage(named: "statusPredictions-pressed-btn" ), for: UIControlState.normal)
+
+    }
     func getNowMM()->Int{                 //取得目前時間的分數
         let now = Date()
         let dformatter = DateFormatter()
@@ -62,7 +72,7 @@ class statePreViewController: UIViewController,MKMapViewDelegate,CLLocationManag
     
     func distanceIs(distance:Double)->Bool{                                  //判斷距離是否到達
         var yn:Bool
-        if distance<=10 {yn = true}
+        if distance<=25 {yn = true}
         else{yn = false}
         return yn
     }
@@ -71,6 +81,17 @@ class statePreViewController: UIViewController,MKMapViewDelegate,CLLocationManag
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
+        //網頁內嵌
+        let webConfiguration = WKWebViewConfiguration()
+        webView = WKWebView(frame: .zero, configuration: webConfiguration)
+        webView.uiDelegate = self
+        self.view.addSubview(webView)
+        let myURL = URL(string:"https://www.apple.com")
+        let myRequest = URLRequest(url: myURL!)
+        webView.frame = CGRect(x: Int((fullScreenSize.width * 0.055)) , y:Int((fullScreenSize.height * 0.02)) , width: Int((fullScreenSize.width * 0.9)) , height: Int((fullScreenSize.height * 0.65)))
+        webView.load(myRequest)
         
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
@@ -83,22 +104,30 @@ class statePreViewController: UIViewController,MKMapViewDelegate,CLLocationManag
             locationManager.startUpdatingLocation()
             
         }
-       
+        //圖片遮色
+        let origin = CIImage(image:UIImage(named: "ok-btn")!)
+        let filter = CIFilter(name:"CIPhotoEffectMono")
+        filter?.setDefaults()
+        filter?.setValue(origin,forKey:kCIInputImageKey)
         
         //控制物件位置---------------------
         lblshow.text = String(whichOne)
-        btnPre.frame = CGRect(x: Int((fullScreenSize.width * 0)) , y:Int((fullScreenSize.height * 0.89)) , width: Int((fullScreenSize.width * 0.5)) , height: Int((fullScreenSize.width * 0.1)))
-        btnGuess.frame = CGRect(x: Int((fullScreenSize.width * 0.5)) , y:Int((fullScreenSize.height * 0.89)) , width: Int((fullScreenSize.width * 0.5)) , height: Int((fullScreenSize.width * 0.1)))
+        btnPre.frame = CGRect(x: Int((fullScreenSize.width * 0)) , y:Int((fullScreenSize.height * 0.83)) , width: Int((fullScreenSize.width * 0.5)) , height: Int((fullScreenSize.width * 0.17)))
+        btnPre.setBackgroundImage(UIImage(named: "previousStatuses-pressed-btn" ), for: UIControlState.normal)
 
-        btnWrite.frame = CGRect(x: Int((fullScreenSize.width * 0.35)) , y:Int((fullScreenSize.height * 0.83)) , width: Int((fullScreenSize.width * 0.3)) , height: Int((fullScreenSize.width * 0.1)))
-        btnWrite.setBackgroundImage(UIImage(named: "btn_reward0" ), for: UIControlState.normal)
+        btnGuess.frame = CGRect(x: Int((fullScreenSize.width * 0.5)) , y:Int((fullScreenSize.height * 0.83)) , width: Int((fullScreenSize.width * 0.5)) , height: Int((fullScreenSize.width * 0.17)))
+        btnGuess.setBackgroundImage(UIImage(named: "statusPredictions-btn" ), for: UIControlState.normal)
+
+        btnWrite.frame = CGRect(x: Int((fullScreenSize.width * 0.15)) , y:Int((fullScreenSize.height * 0.7)) , width: Int((fullScreenSize.width * 0.7)) , height: Int((fullScreenSize.width * 0.2)))
         btnWrite.setTitleColor(UIColor.white, for: UIControlState.normal)
+        btnWrite.setBackgroundImage(UIImage(named: "pickStatus-btn" ), for: UIControlState.normal)
+
         if UserDefaults.standard.bool(forKey: "english"){
-            btnWrite.setTitle("Write", for: UIControlState.normal)
+            btnWrite.setBackgroundImage(UIImage(named: "pickStatus-btn_eng" ), for: UIControlState.normal)
         }else{
-            btnWrite.setTitle("填寫", for: UIControlState.normal)
+            btnWrite.setBackgroundImage(UIImage(named: "pickStatus-btn" ), for: UIControlState.normal)
         }
-        
+       
     }
 
     override func didReceiveMemoryWarning() {
@@ -107,11 +136,22 @@ class statePreViewController: UIViewController,MKMapViewDelegate,CLLocationManag
     }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations.first!
+        //圖片遮色
+        let origin = CIImage(image:UIImage(named: "ok-btn")!)
+        let filter = CIFilter(name:"CIPhotoEffectMono")
+        filter?.setDefaults()
+        filter?.setValue(origin,forKey:kCIInputImageKey)
+        
         var mylat,mylng:Double
         mylat=location.coordinate.latitude
         mylng=location.coordinate.longitude
         howLong(whichOne: whichOne, mylat: mylat, mylng: mylng)
-        lblshow2.text = String(howLong(whichOne: whichOne, mylat: mylat, mylng: mylng))
+        if distanceIs(distance: howLong(whichOne: whichOne, mylat: mylat, mylng: mylng)){
+            if let output = filter?.outputImage{
+                let tmp = CIContext().createCGImage(output, from: output.extent)
+                btnWrite.setImage(UIImage(cgImage:tmp!), for: UIControlState.normal)
+            }
+        }
     }
     
     
