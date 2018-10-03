@@ -26,8 +26,8 @@ class MenuViewController: UIViewController,UITableViewDataSource,UITableViewDele
         table.reloadData()
         if UserDefaults.standard.bool(forKey: "hasChangedReward")==true{
             if UserDefaults.standard.bool(forKey: "english")==false{
-                menuNameArray = ["Guide Map","Record","Woofy's file","Introduction","Knowledge","About","Contact us","Language","Restart"]
-                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!,UIImage(named:"change")!]
+                menuNameArray = ["Guide Map","Record","Woofy's file","Introduction","Knowledge","Animal's Status","About","Contact us","Language","Restart"]
+                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!,UIImage(named:"change")!]
                 print("英文")
             }else{
                 menuNameArray = ["地圖導覽","闖關進度","旺哥小檔案","闖關說明","動物小知識","動物狀況","關於我們","問題與回饋","切換語言","再玩一次"]
@@ -38,12 +38,12 @@ class MenuViewController: UIViewController,UITableViewDataSource,UITableViewDele
             //print("側邊欄有新增")
         }else{
             if UserDefaults.standard.bool(forKey: "english")==false{
-                menuNameArray = ["Guide Map","Record","Woofy's file","Introduction","Knowledge","About","Contact us","Language"]
-                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!]
+                menuNameArray = ["Guide Map","Record","Woofy's file","Introduction","Knowledge","Animal's Status","About","Contact us","Language"]
+                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!]
                 print("英文")
             }else{
                 menuNameArray = ["地圖導覽","闖關進度","旺哥小檔案","闖關說明","動物小知識","動物狀況","關於我們","問題與回饋","切換語言"]
-                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!,UIImage(named:"change")!]
+                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!]
                 print("中文")
             }
             //print("側邊欄沒新增")
@@ -59,8 +59,8 @@ class MenuViewController: UIViewController,UITableViewDataSource,UITableViewDele
         table.reloadData()
         if UserDefaults.standard.bool(forKey: "hasChangedReward")==true{
             if UserDefaults.standard.bool(forKey: "english")==true{
-                menuNameArray = ["Guide Map","Record","Woofy's file","Introduction","Knowledge","About","Contact us","Language","Restart"]
-                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!,UIImage(named:"change")!]
+                menuNameArray = ["Guide Map","Record","Woofy's file","Introduction","Knowledge","Animal's Status","About","Contact us","Language","Restart"]
+                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!,UIImage(named:"change")!]
                 print("英文")
             }else{
                 menuNameArray = ["地圖導覽","闖關進度","旺哥小檔案","闖關說明","動物小知識","動物狀況","關於我們","問題與回饋","切換語言","再玩一次"]
@@ -70,12 +70,12 @@ class MenuViewController: UIViewController,UITableViewDataSource,UITableViewDele
             print("側邊欄有新增")
         }else{
             if UserDefaults.standard.bool(forKey: "english")==true{
-                menuNameArray = ["Guide Map","Record","Woofy's file","Introduction","Knowledge","About","Contact us","Language"]
-                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!]
+                menuNameArray = ["Guide Map","Record","Woofy's file","Introduction","Knowledge","Animal's Status","About","Contact us","Language"]
+                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!]
                 print("英文")
             }else{
                 menuNameArray = ["地圖導覽","闖關進度","旺哥小檔案","闖關說明","動物小知識","動物狀況","關於我們","問題與回饋","切換語言"]
-                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!,UIImage(named:"change")!]
+                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!]
                 print("中文")
             }
             print("側邊欄沒新增")
@@ -90,8 +90,8 @@ class MenuViewController: UIViewController,UITableViewDataSource,UITableViewDele
         
         if UserDefaults.standard.bool(forKey: "hasChangedReward")==true{
             if UserDefaults.standard.bool(forKey: "english")==true{
-                menuNameArray = ["Guide Map","Record","Woofy's file","Introduction","Knowledge","About","Contact us","Language","Restart"]
-                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!,UIImage(named:"change")!]
+                menuNameArray = ["Guide Map","Record","Woofy's file","Introduction","Knowledge","Animal's Status","About","Contact us","Language","Restart"]
+                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!,UIImage(named:"change")!]
                 print("英文")
             }else{
                 menuNameArray = ["地圖導覽","闖關進度","旺哥小檔案","闖關說明","動物小知識","動物狀況","關於我們","問題與回饋","切換語言","再玩一次"]
@@ -101,12 +101,12 @@ class MenuViewController: UIViewController,UITableViewDataSource,UITableViewDele
             //print("側邊欄有新增")
         }else{
             if UserDefaults.standard.bool(forKey: "english")==true{
-                menuNameArray = ["Guide Map","Record","Woofy's file","Introduction","Knowledge","About","Contact us","Language"]
-                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!]
+                menuNameArray = ["Guide Map","Record","Woofy's file","Introduction","Knowledge","Animal's Status","About","Contact us","Language"]
+                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!]
                 print("英文")
             }else{
                 menuNameArray = ["地圖導覽","闖關進度","旺哥小檔案","闖關說明","動物小知識","動物狀況","關於我們","問題與回饋","切換語言"]
-                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!,UIImage(named:"change")!]
+                iconImage = [UIImage(named:"ezgo")!,UIImage(named:"assignment")!,UIImage(named:"footprint")!,UIImage(named:"info")!,UIImage(named:"knowledge")!,UIImage(named:"contact")!,UIImage(named:"contact")!,UIImage(named:"email")!,UIImage(named:"translate")!]
                 print("中文")
             }
             //print("側邊欄沒新增")
@@ -175,7 +175,7 @@ class MenuViewController: UIViewController,UITableViewDataSource,UITableViewDele
             revealViewController.pushFrontViewController(newFrontViewController, animated: true)
             //tableView.reloadData()
         }
-        if cell.lblMenuName.text! == "動物狀況"{
+        if cell.lblMenuName.text! == "動物狀況" || cell.lblMenuName.text! == "Animal's Status"{
             let mainStoryboard:UIStoryboard = UIStoryboard(name:"Main",bundle:nil)
             let newViewcontroller = mainStoryboard.instantiateViewController(withIdentifier: "State_menu") as! State_menu
             let newFrontViewController = UINavigationController.init(rootViewController:newViewcontroller)

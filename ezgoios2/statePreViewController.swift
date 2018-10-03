@@ -15,6 +15,8 @@ class statePreViewController: UIViewController,MKMapViewDelegate,CLLocationManag
     var whichOne = Int()
     let locationManager = CLLocationManager()
     var webView: WKWebView!
+    var boxView = UIView()
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var btnMenu: UIBarButtonItem!
     @IBOutlet weak var btnWrite: UIButton!
     @IBOutlet weak var btnPre: UIButton!
@@ -77,7 +79,35 @@ class statePreViewController: UIViewController,MKMapViewDelegate,CLLocationManag
         return yn
     }
     
+    func webViewDidStartLoad(webView_Pages: WKWebView) {
+        //        activityIndicator.startAnimating()
+        //        // Box config:
+        boxView = UIView(frame: CGRect(x: Int((fullScreenSize.width * 0.055)) , y:Int((fullScreenSize.height * 0.02)) , width: Int((fullScreenSize.width * 0.9)) , height: Int((fullScreenSize.height * 0.7))))
+        boxView.backgroundColor = UIColor.black
+        boxView.alpha = 0.9
+        boxView.layer.cornerRadius = 10
+        // Spin config:
+        let activityView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
+        activityView.frame = CGRect(x: Int((fullScreenSize.width * 0.055)) , y:Int((fullScreenSize.height * 0.02)) , width: Int((fullScreenSize.width * 0.9)) , height: Int((fullScreenSize.height * 0.7)))
+        activityView.startAnimating()
+        // Text config:
+        let textLabel = UILabel(frame: CGRect(x: Int((fullScreenSize.width * 0.055)) , y:Int((fullScreenSize.height * 0.02)) , width: Int((fullScreenSize.width * 0.9)) , height: Int((fullScreenSize.height * 0.7))))
+        textLabel.textColor = UIColor.white
+        textLabel.textAlignment = .center
+        textLabel.font = UIFont(name: textLabel.font.fontName, size: 13)
+        textLabel.text = "Loading..."
+        //        // Activate:
+        boxView.addSubview(activityView)
+        boxView.addSubview(textLabel)
+        view.addSubview(boxView)
+    }
     
+    func webViewDidFinishLoad(webView_Pages: WKWebView) {
+        
+        // Removes it:
+        boxView.removeFromSuperview()
+        //activityIndicator.stopAnimating()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,10 +118,13 @@ class statePreViewController: UIViewController,MKMapViewDelegate,CLLocationManag
         webView = WKWebView(frame: .zero, configuration: webConfiguration)
         webView.uiDelegate = self
         self.view.addSubview(webView)
-        let myURL = URL(string:"https://www.apple.com")
+        //webViewDidStartLoad(webView_Pages: webView)
+        //activityIndicator.hidesWhenStopped = true
+        let myURL = URL(string:"http://ezgo.twjoin.com/statusStackedColumnChart")
         let myRequest = URLRequest(url: myURL!)
         webView.frame = CGRect(x: Int((fullScreenSize.width * 0.055)) , y:Int((fullScreenSize.height * 0.02)) , width: Int((fullScreenSize.width * 0.9)) , height: Int((fullScreenSize.height * 0.65)))
         webView.load(myRequest)
+        print("is it running?????",webView.isLoading)
         
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()

@@ -45,6 +45,8 @@
 	<string>LaunchScreen-iPhone</string>
 	<key>UIPrerenderedIcon</key>
 	<false/>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Please Open GPS</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

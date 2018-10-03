@@ -91,7 +91,7 @@ class stateGuessViewController: UIViewController,MKMapViewDelegate,CLLocationMan
         webView = WKWebView(frame: .zero, configuration: webConfiguration)
         webView.uiDelegate = self
         self.view.addSubview(webView)
-        let myURL = URL(string:"https://www.apple.com")
+        let myURL = URL(string:"http://ezgo.twjoin.com/statusPieChart")
         let myRequest = URLRequest(url: myURL!)
         webView.frame = CGRect(x: Int((fullScreenSize.width * 0.055)) , y:Int((fullScreenSize.height * 0.02)) , width: Int((fullScreenSize.width * 0.9)) , height: Int((fullScreenSize.height * 0.65)))
         webView.load(myRequest)
