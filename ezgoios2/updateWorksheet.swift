@@ -13,7 +13,7 @@ enum ConnectionResult2{
 }
 
 func updateWorksheet(user_id:String, correct:String, question_id:String, completion: @escaping(ConnectionResult2) -> ()){
-    var parameters = ["correct":correct,"question_id":question_id]
+    let parameters = ["correct":correct,"question_id":question_id]
     guard let url = URL(string:"http://ezgo.twjoin.com/updateAns/" + user_id)else{return}
     var request = URLRequest(url:url)
     request.httpMethod = "POST"

@@ -125,7 +125,7 @@ class Q2: UIViewController {
         return picture
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var xx = segue.destination as!A1
+        let xx = segue.destination as!A1
         xx.answer = answer
         xx.frequency = frequency
         xx.recArray = recArray

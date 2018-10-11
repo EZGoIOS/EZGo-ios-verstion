@@ -65,7 +65,7 @@ class Q3: UIViewController {
     
     @IBAction func btnSure(_ sender: Any) {
         if answer != 0{
-            var Ans:String = showAns[frequency-1]
+            let Ans:String = showAns[frequency-1]
             var correct:String = "0"
             if Ans == String(answer){
                 correct = "1"
@@ -78,14 +78,14 @@ class Q3: UIViewController {
                 case .failure(let error):
                     print(error)
                     
-                case .success(let data):
+                case .success( _):
                     print("success")
                 }
             }
             performSegue(withIdentifier: "Q3gotoA1", sender: self)
         }else {
             if UserDefaults.standard.bool(forKey: "english")==true{
-                var alert = UIAlertView()
+                let alert = UIAlertView()
                 alert.title = "Notice！"
                 alert.message = "You didn't choose"
                 alert.addButton(withTitle: "OK")
@@ -138,7 +138,7 @@ class Q3: UIViewController {
         return picture
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var xx = segue.destination as!A1
+        let xx = segue.destination as!A1
         xx.answer = answer
         xx.frequency = frequency
         xx.recArray = recArray

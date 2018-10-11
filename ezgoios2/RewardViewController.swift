@@ -42,7 +42,7 @@ class RewardViewController: UIViewController {
                 switch ConnectionResult3{
                 case .failure(let error):
                     print(error)
-                case .success(let data):
+                case .success( _):
                     print("success")
                 }
             }
@@ -93,7 +93,7 @@ class RewardViewController: UIViewController {
                                 switch ConnectionResult3{
                                 case .failure(let error):
                                     print(error)
-                                case .success(let data):
+                                case .success( _):
                                     print("success")
                                 }
                             }
@@ -148,7 +148,7 @@ class RewardViewController: UIViewController {
                                 switch ConnectionResult3{
                                 case .failure(let error):
                                     print(error)
-                                case .success(let data):
+                                case .success( _):
                                     print("success")
                                 }
                             }

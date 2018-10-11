@@ -46,7 +46,7 @@ class Q1: UIViewController {
         
         
         if answer != 0{
-            var Ans:String = showAns[frequency-1]
+            let Ans:String = showAns[frequency-1]
             var correct:String = "0"
             if Ans == String(answer){
                 correct = "1"
@@ -59,20 +59,20 @@ class Q1: UIViewController {
                 case .failure(let error):
                     print(error)
                     
-                case .success(let data):
+                case .success( _):
                     print("success")
                 }
             }
             performSegue(withIdentifier: "Q1gotoA1", sender: self)
         }else {
             if UserDefaults.standard.bool(forKey: "english")==true{
-                var alert = UIAlertView()
+                let alert = UIAlertView()
                 alert.title = "Notice！"
                 alert.message = "You didn't choose"
                 alert.addButton(withTitle: "OK")
                 alert.show()
             }else{
-                var alert = UIAlertView()
+                let alert = UIAlertView()
                 alert.title = "注意！"
                 alert.message = "你沒選選項"
                 alert.addButton(withTitle: "OK")
@@ -104,7 +104,7 @@ class Q1: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var xx = segue.destination as!A1
+        let xx = segue.destination as!A1
         xx.answer = answer
         xx.frequency = frequency
         xx.recArray = recArray

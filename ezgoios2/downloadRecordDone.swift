@@ -25,7 +25,7 @@ func downloadRec(userid:String,completion: @escaping(ConnectionResult7) -> ()){
         if let data = data{
             do{
                 let json = try JSONSerialization.jsonObject(with: data, options:[.allowFragments]) as? NSDictionary
-                print(json)
+                //print(json)
                 let val = String(describing: ((json!.value(forKey: "reward")!) as! NSObject).value(forKey: "done")!).replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: "\n", with: "").replacingOccurrences(of: "\r\n", with: "")
                 print("是否完成兌獎",val)
                 if val=="1"{
