@@ -51,7 +51,7 @@ class LessonViewController: UIViewController {
                 case .failure(let error):
                     print(error)
                     
-                case .success(let data):
+                case .success( _):
                     print("success")
                 }
                 //寫檔 （給EnterUnityViewController讀）
@@ -76,7 +76,7 @@ class LessonViewController: UIViewController {
                 case .failure(let error):
                     print(error)
                     
-                case .success(let data):
+                case .success( _):
                     print("outside=====:",self.showQr)
                 }
                 //寫檔 （給EnterUnityViewController讀）
@@ -84,7 +84,7 @@ class LessonViewController: UIViewController {
                     vall = String(describing: self.whichAnimal)
                     try vall.write(toFile: which_Animal, atomically: true, encoding: .utf8)
                     print(which_Animal)
-                    let recString = try (NSString(contentsOfFile: which_Animal, encoding: String.Encoding.utf8.rawValue) as String)
+                    _ = try (NSString(contentsOfFile: which_Animal, encoding: String.Encoding.utf8.rawValue) as String)
                     //print("catch recString",recString)
                 }catch{
                     print("catch error")
@@ -99,7 +99,7 @@ class LessonViewController: UIViewController {
                 case .failure(let error):
                     print(error)
                     
-                case .success(let data):
+                case .success( _):
                     print("outside=====:",self.showQr)
                 }
                 //寫檔 （給EnterUnityViewController讀）
@@ -107,7 +107,7 @@ class LessonViewController: UIViewController {
                     vall = String(describing: self.whichAnimal)
                     try vall.write(toFile: which_Animal, atomically: true, encoding: .utf8)
                     print(which_Animal)
-                    let recString = try (NSString(contentsOfFile: which_Animal, encoding: String.Encoding.utf8.rawValue) as String)
+                    _ = try (NSString(contentsOfFile: which_Animal, encoding: String.Encoding.utf8.rawValue) as String)
                     //print("catch recString",recString)
                 }catch{
                     print("catch error")
@@ -122,7 +122,7 @@ class LessonViewController: UIViewController {
                 case .failure(let error):
                     print(error)
                     
-                case .success(let data):
+                case .success( _):
                     print("outside=====:",self.showQr)
                 }
                 //寫檔 （給EnterUnityViewController讀）
@@ -130,7 +130,7 @@ class LessonViewController: UIViewController {
                     vall = String(describing: self.whichAnimal)
                     try vall.write(toFile: which_Animal, atomically: true, encoding: .utf8)
                     print(which_Animal)
-                    let recString = try (NSString(contentsOfFile: which_Animal, encoding: String.Encoding.utf8.rawValue) as String)
+                    _ = try (NSString(contentsOfFile: which_Animal, encoding: String.Encoding.utf8.rawValue) as String)
                     //print("catch recString",recString)
                 }catch{
                     print("catch error")
@@ -145,7 +145,7 @@ class LessonViewController: UIViewController {
                 case .failure(let error):
                     print(error)
                     
-                case .success(let data):
+                case .success( _):
                     print("outside=====:",self.showQr)
                 }
                 //寫檔 （給EnterUnityViewController讀）
@@ -153,7 +153,7 @@ class LessonViewController: UIViewController {
                     vall = String(describing: self.whichAnimal)
                     try vall.write(toFile: which_Animal, atomically: true, encoding: .utf8)
                     print(which_Animal)
-                    let recString = try (NSString(contentsOfFile: which_Animal, encoding: String.Encoding.utf8.rawValue) as String)
+                    _ = try (NSString(contentsOfFile: which_Animal, encoding: String.Encoding.utf8.rawValue) as String)
                     //print("catch recString",recString)
                 }catch{
                     print("catch error")
@@ -169,7 +169,7 @@ class LessonViewController: UIViewController {
                 case .failure(let error):
                     print(error)
                     
-                case .success(let data):
+                case .success( _):
                     print("outside=====:",self.showQr)
                 }
                 //寫檔 （給EnterUnityViewController讀）
@@ -177,7 +177,7 @@ class LessonViewController: UIViewController {
                     vall = String(describing: self.whichAnimal)
                     try vall.write(toFile: which_Animal, atomically: true, encoding: .utf8)
                     print(which_Animal)
-                    let recString = try (NSString(contentsOfFile: which_Animal, encoding: String.Encoding.utf8.rawValue) as String)
+                    _ = try (NSString(contentsOfFile: which_Animal, encoding: String.Encoding.utf8.rawValue) as String)
                     //print("catch recString",recString)
                 }catch{
                     print("catch error")
@@ -275,7 +275,7 @@ class LessonViewController: UIViewController {
         
         lbl.frame = CGRect(x: Int((fullScreenSize.width * 0.15)) , y:Int((fullScreenSize.height * 0.9)) , width: Int((fullScreenSize.width * 0.7)) , height: Int((fullScreenSize.width * 0.2)))
         
-        for var i in 1...6
+        for i in 1...6
         {
             //按鋌水平位置
             var X:Int = i%2
@@ -287,12 +287,13 @@ class LessonViewController: UIViewController {
             else if Y==3 || Y==4 {Y=Int((fullScreenSize.height * 0.4))}
             else if Y==5 || Y==6 {Y=Int((fullScreenSize.height * 0.6))}
             //圖片大小
-            var OUO:Int = Int((fullScreenSize.width * 0.3))
+            let OUO:Int = Int((fullScreenSize.width * 0.3))
             //圖片遮色
             let origin = CIImage(image:UIImage(named: whichKnowledge(whichOne:i))!)
             let filter = CIFilter(name:"CIPhotoEffectMono")
             filter?.setDefaults()
             filter?.setValue(origin,forKey:kCIInputImageKey)
+            
             //new UIButton
             switch i{
             case 1:

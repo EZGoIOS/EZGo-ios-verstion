@@ -24,12 +24,12 @@ class State_select: UIViewController {
     @IBAction func btnA(_ sender: Any) {
         select = "吃東西中"
         if UserDefaults.standard.bool(forKey: "english")==true{
-            btnA.setBackgroundImage(UIImage(named: "emoticon-btn-eating-eng-pressed" ), for: UIControlState.normal)
+            btnA.setBackgroundImage(UIImage(named: "emoticon-btn-eating-eng-pressed-1" ), for: UIControlState.normal)
             btnB.setBackgroundImage(UIImage(named: "emoticon-btn-hiding-eng" ), for: UIControlState.normal)
             btnC.setBackgroundImage(UIImage(named: "emoticon-btn-idle-eng" ), for: UIControlState.normal)
             btnD.setBackgroundImage(UIImage(named: "emoticon-btn-sleeping-eng" ), for: UIControlState.normal)
         }else{
-        btnA.setBackgroundImage(UIImage(named: "emoticon-btn-eating-pressed" ), for: UIControlState.normal)
+        btnA.setBackgroundImage(UIImage(named: "emoticon-btn-eating-pressed-1" ), for: UIControlState.normal)
         btnB.setBackgroundImage(UIImage(named: "emoticon-btn-hiding" ), for: UIControlState.normal)
         btnC.setBackgroundImage(UIImage(named: "emoticon-btn-idle" ), for: UIControlState.normal)
         btnD.setBackgroundImage(UIImage(named: "emoticon-btn-sleeping" ), for: UIControlState.normal)
@@ -40,12 +40,12 @@ class State_select: UIViewController {
         select = "躲起來了"
         if UserDefaults.standard.bool(forKey: "english")==true{
             btnA.setBackgroundImage(UIImage(named: "emoticon-btn-eating-eng" ), for: UIControlState.normal)
-            btnB.setBackgroundImage(UIImage(named: "emoticon-btn-hiding-eng-pressed" ), for: UIControlState.normal)
+            btnB.setBackgroundImage(UIImage(named: "emoticon-btn-hiding-eng-pressed-1" ), for: UIControlState.normal)
             btnC.setBackgroundImage(UIImage(named: "emoticon-btn-idle-eng" ), for: UIControlState.normal)
             btnD.setBackgroundImage(UIImage(named: "emoticon-btn-sleeping-eng" ), for: UIControlState.normal)
         }else{
             btnA.setBackgroundImage(UIImage(named: "emoticon-btn-eating" ), for: UIControlState.normal)
-            btnB.setBackgroundImage(UIImage(named: "emoticon-btn-hiding-pressed" ), for: UIControlState.normal)
+            btnB.setBackgroundImage(UIImage(named: "emoticon-btn-hiding-pressed-1" ), for: UIControlState.normal)
             btnC.setBackgroundImage(UIImage(named: "emoticon-btn-idle" ), for: UIControlState.normal)
             btnD.setBackgroundImage(UIImage(named: "emoticon-btn-sleeping" ), for: UIControlState.normal)
         }
@@ -56,12 +56,12 @@ class State_select: UIViewController {
         if UserDefaults.standard.bool(forKey: "english")==true{
             btnA.setBackgroundImage(UIImage(named: "emoticon-btn-eating-eng" ), for: UIControlState.normal)
             btnB.setBackgroundImage(UIImage(named: "emoticon-btn-hiding-eng" ), for: UIControlState.normal)
-            btnC.setBackgroundImage(UIImage(named: "emoticon-btn-idle-eng-pressed" ), for: UIControlState.normal)
+            btnC.setBackgroundImage(UIImage(named: "emoticon-btn-idle-eng-pressed-1" ), for: UIControlState.normal)
             btnD.setBackgroundImage(UIImage(named: "emoticon-btn-sleeping-eng" ), for: UIControlState.normal)
         }else{
             btnA.setBackgroundImage(UIImage(named: "emoticon-btn-eating" ), for: UIControlState.normal)
             btnB.setBackgroundImage(UIImage(named: "emoticon-btn-hiding" ), for: UIControlState.normal)
-            btnC.setBackgroundImage(UIImage(named: "emoticon-btn-idle-pressed" ), for: UIControlState.normal)
+            btnC.setBackgroundImage(UIImage(named: "emoticon-btn-idle-pressed-1" ), for: UIControlState.normal)
             btnD.setBackgroundImage(UIImage(named: "emoticon-btn-sleeping" ), for: UIControlState.normal)
         }
         
@@ -72,25 +72,25 @@ class State_select: UIViewController {
             btnA.setBackgroundImage(UIImage(named: "emoticon-btn-eating-eng" ), for: UIControlState.normal)
             btnB.setBackgroundImage(UIImage(named: "emoticon-btn-hiding-eng" ), for: UIControlState.normal)
             btnC.setBackgroundImage(UIImage(named: "emoticon-btn-idle-eng" ), for: UIControlState.normal)
-            btnD.setBackgroundImage(UIImage(named: "emoticon-btn-sleeping-eng-pressed" ), for: UIControlState.normal)
+            btnD.setBackgroundImage(UIImage(named: "emoticon-btn-sleeping-eng-pressed-1" ), for: UIControlState.normal)
         }else{
             btnA.setBackgroundImage(UIImage(named: "emoticon-btn-eating" ), for: UIControlState.normal)
             btnB.setBackgroundImage(UIImage(named: "emoticon-btn-hiding" ), for: UIControlState.normal)
             btnC.setBackgroundImage(UIImage(named: "emoticon-btn-idle" ), for: UIControlState.normal)
-            btnD.setBackgroundImage(UIImage(named: "emoticon-btn-sleeping-pressed" ), for: UIControlState.normal)
+            btnD.setBackgroundImage(UIImage(named: "emoticon-btn-sleeping-pressed-1" ), for: UIControlState.normal)
         }
     }
     
     @IBAction func btnOK(_ sender: Any) {
         if select == "X"{
             if UserDefaults.standard.bool(forKey: "english")==true{
-                var alert = UIAlertView()
+                let alert = UIAlertView()
                 alert.title = "Notice！"
                 alert.message = "You didn't choose"
                 alert.addButton(withTitle: "OK")
                 alert.show()
             }else{
-                var alert = UIAlertView()
+                let alert = UIAlertView()
                 alert.title = "注意！"
                 alert.message = "你沒選選項"
                 alert.addButton(withTitle: "OK")
@@ -156,9 +156,8 @@ class State_select: UIViewController {
         btnB.frame = CGRect(x: Int((fullScreenSize.width * 0.56)) , y:Int((fullScreenSize.height * 0.45)) , width: Int((fullScreenSize.width * 0.32)) , height: Int((fullScreenSize.width * 0.32)))
         btnC.frame = CGRect(x: Int((fullScreenSize.width * 0.12)) , y:Int((fullScreenSize.height * 0.65)) , width: Int((fullScreenSize.width * 0.32)) , height: Int((fullScreenSize.width * 0.32)))
         btnD.frame = CGRect(x: Int((fullScreenSize.width * 0.56)) , y:Int((fullScreenSize.height * 0.65)) , width: Int((fullScreenSize.width * 0.32)) , height: Int((fullScreenSize.width * 0.32)))
-        btnOK.frame = CGRect(x: Int((fullScreenSize.width * 0.35)) , y:Int((fullScreenSize.height * 0.85)) , width: Int((fullScreenSize.width * 0.3)) , height: Int((fullScreenSize.width * 0.1)))
-        btnOK.setBackgroundImage(UIImage(named: "ok-btn" ), for: UIControlState.normal)
-        btnOK.setTitle("OK", for: UIControlState.normal)
+        btnOK.frame = CGRect(x: Int((fullScreenSize.width * 0.3)) , y:Int((fullScreenSize.height * 0.85)) , width: Int((fullScreenSize.width * 0.4)) , height: Int((fullScreenSize.height * 0.1)))
+        btnOK.setBackgroundImage(UIImage(named: "ok-btn3" ), for: UIControlState.normal)
         image1.frame = CGRect(x: Int((fullScreenSize.width * 0.075)) , y:Int((fullScreenSize.height * 0.17)) , width: Int((fullScreenSize.width * 0.85)) , height: Int((fullScreenSize.height * 0.25)))
         image1.image = UIImage(named: whichAnimal(whichOne: whichOne))
     }

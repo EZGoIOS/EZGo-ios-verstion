@@ -914,7 +914,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lvS-CQ-B0i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2570" y="-1369"/>
+            <point key="canvasLocation" x="2568.8000000000002" y="-1369.1154422788607"/>
         </scene>
         <!--長條圖表-->
         <scene sceneID="7Zm-tx-z8Q">
@@ -924,14 +924,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="動物狀況-2-bg" translatesAutoresizingMaskIntoConstraints="NO" id="YJy-AJ-suL">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="動物狀況-bg-1" translatesAutoresizingMaskIntoConstraints="NO" id="YJy-AJ-suL">
                                 <rect key="frame" x="0.0" y="0.0" width="374" height="667"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SGa-FG-Mxq">
                                 <rect key="frame" x="153" y="490" width="69" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <segue destination="NO5-xc-4AV" kind="show" identifier="gotoSelect2" id="aUD-9s-maT"/>
+                                    <action selector="write:" destination="LJ2-sU-a8a" eventType="touchUpInside" id="J3l-5C-FHq"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wxj-tM-WWb">
@@ -972,6 +972,7 @@
                         <outlet property="btnPre" destination="rVJ-WY-KR8" id="yLN-mI-icF"/>
                         <outlet property="btnWrite" destination="SGa-FG-Mxq" id="Jmy-cG-IEJ"/>
                         <outlet property="lblshow" destination="wxj-tM-WWb" id="x1L-3K-WrL"/>
+                        <segue destination="NO5-xc-4AV" kind="show" identifier="guegotoSelect" id="Q6T-oz-9IL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RBT-0A-fdU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1060,14 +1061,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="動物狀況-2-bg" translatesAutoresizingMaskIntoConstraints="NO" id="uKA-5q-qxV">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="動物狀況-bg-1" translatesAutoresizingMaskIntoConstraints="NO" id="uKA-5q-qxV">
                                 <rect key="frame" x="1" y="0.0" width="374" height="667"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddX-0S-gS6">
                                 <rect key="frame" x="127" y="453" width="126" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <segue destination="NO5-xc-4AV" kind="show" identifier="gotoSelect1" id="syG-W9-Xlu"/>
+                                    <action selector="write:" destination="wGq-t7-uKN" eventType="touchUpInside" id="GzS-wp-Z9F"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IxH-JX-4pj">
@@ -1117,6 +1118,7 @@
                         <outlet property="btnWrite" destination="ddX-0S-gS6" id="vjN-Zo-Tj8"/>
                         <outlet property="lblshow" destination="IxH-JX-4pj" id="qvt-7v-VQr"/>
                         <outlet property="lblshow2" destination="wiX-lQ-HUO" id="eUl-4O-d50"/>
+                        <segue destination="NO5-xc-4AV" kind="show" identifier="pregotoSelect" id="YUO-eJ-v8i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NqN-pK-jyf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1189,9 +1191,9 @@
         <image name="動物狀況-bg-1" width="1080" height="1920"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zp1-Oh-aR7"/>
-        <segue reference="aUD-9s-maT"/>
-        <segue reference="FBG-5C-96c"/>
+        <segue reference="Qfc-Yw-HkF"/>
+        <segue reference="YUO-eJ-v8i"/>
+        <segue reference="xlA-bG-Cmv"/>
         <segue reference="cHi-WH-QmU"/>
         <segue reference="AzB-ll-ABT"/>
     </inferredMetricsTieBreakers>

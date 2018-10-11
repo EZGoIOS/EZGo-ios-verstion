@@ -63,7 +63,7 @@ class RestartViewController: UIViewController {
             case .failure(let error):
                 print(error)
                 
-            case .success(let data):
+            case .success( _):
                 print("success")
             }
         }

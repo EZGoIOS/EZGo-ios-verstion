@@ -26,7 +26,7 @@ class State_done: UIViewController {
                 case .failure(let error):
                     print(error)
                     
-                case .success(let data):
+                case .success( _):
                     print("success")
                 }
             })
@@ -66,9 +66,8 @@ class State_done: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        btnOK.frame = CGRect(x: Int((fullScreenSize.width * 0.35)) , y:Int((fullScreenSize.height * 0.85)) , width: Int((fullScreenSize.width * 0.3)) , height: Int((fullScreenSize.width * 0.1)))
-        btnOK.setBackgroundImage(UIImage(named: "ok-btn" ), for: UIControlState.normal)
-        btnOK.setTitle("OK", for: UIControlState.normal)
+        btnOK.frame = CGRect(x: Int((fullScreenSize.width * 0.3)) , y:Int((fullScreenSize.height * 0.85)) , width: Int((fullScreenSize.width * 0.4)) , height: Int((fullScreenSize.height * 0.1)))
+        btnOK.setBackgroundImage(UIImage(named: "ok-btn3" ), for: UIControlState.normal)
         image1.frame = CGRect(x: Int((fullScreenSize.width * 0.1)) , y:Int((fullScreenSize.height * 0.15)) , width: Int((fullScreenSize.width * 0.8)) , height: Int((fullScreenSize.height * 0.65)))
         image1.image = UIImage(named: whichAnimal(whichOne: whichOne))
     }

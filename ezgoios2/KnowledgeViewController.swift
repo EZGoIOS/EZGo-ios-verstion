@@ -66,7 +66,7 @@ class KnowledgeViewController: UIViewController {
         if segue.identifier == "gotoM5"{
             
         }else{
-            var xx:KnowledgeDetailViewController = segue.destination as! KnowledgeDetailViewController
+            let xx:KnowledgeDetailViewController = segue.destination as! KnowledgeDetailViewController
             xx.whichOne = aa
         }
     }

@@ -16,6 +16,7 @@ class statePreViewController: UIViewController,MKMapViewDelegate,CLLocationManag
     let locationManager = CLLocationManager()
     var webView: WKWebView!
     var boxView = UIView()
+    var arrive:Bool = false
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var btnMenu: UIBarButtonItem!
     @IBOutlet weak var btnWrite: UIButton!
@@ -23,6 +24,25 @@ class statePreViewController: UIViewController,MKMapViewDelegate,CLLocationManag
     @IBOutlet weak var btnGuess: UIButton!
     @IBOutlet weak var lblshow: UILabel!
     @IBOutlet weak var lblshow2: UILabel!
+    @IBAction func write(_ sender: Any) {
+        if arrive{
+            if UserDefaults.standard.bool(forKey: "english")==true{
+                let alert = UIAlertView()
+                alert.title = "Notice！"
+                alert.message = "You have not arrived yet!"
+                alert.addButton(withTitle: "OK")
+                alert.show()
+            }else{
+                let alert = UIAlertView()
+                alert.title = "注意！"
+                alert.message = "您尚未到達！"
+                alert.addButton(withTitle: "OK")
+                alert.show()
+            }
+        }else{
+            performSegue(withIdentifier: "pregotoSelect", sender: self)
+        }
+    }
     
     @IBAction func btnPre(_ sender: Any) {
         btnPre.setBackgroundImage(UIImage(named: "previousStatuses-pressed-btn" ), for: UIControlState.normal)
@@ -122,7 +142,7 @@ class statePreViewController: UIViewController,MKMapViewDelegate,CLLocationManag
         //activityIndicator.hidesWhenStopped = true
         let myURL = URL(string:"http://ezgo.twjoin.com/statusStackedColumnChart")
         let myRequest = URLRequest(url: myURL!)
-        webView.frame = CGRect(x: Int((fullScreenSize.width * 0.055)) , y:Int((fullScreenSize.height * 0.02)) , width: Int((fullScreenSize.width * 0.9)) , height: Int((fullScreenSize.height * 0.65)))
+        webView.frame = CGRect(x: Int((fullScreenSize.width * 0.055)) , y:Int((fullScreenSize.height * 0.12)) , width: Int((fullScreenSize.width * 0.9)) , height: Int((fullScreenSize.height * 0.65)))
         webView.load(myRequest)
         print("is it running?????",webView.isLoading)
         
@@ -145,13 +165,15 @@ class statePreViewController: UIViewController,MKMapViewDelegate,CLLocationManag
         
         //控制物件位置---------------------
         lblshow.text = String(whichOne)
-        btnPre.frame = CGRect(x: Int((fullScreenSize.width * 0)) , y:Int((fullScreenSize.height * 0.83)) , width: Int((fullScreenSize.width * 0.5)) , height: Int((fullScreenSize.width * 0.17)))
+        btnPre.frame = CGRect(x: Int((fullScreenSize.width * 0.066)) , y:Int((fullScreenSize.height * 0.885)) , width: Int((fullScreenSize.width * 0.4)) , height: Int((fullScreenSize.height * 0.085)))
         btnPre.setBackgroundImage(UIImage(named: "previousStatuses-pressed-btn" ), for: UIControlState.normal)
+        
+        
 
-        btnGuess.frame = CGRect(x: Int((fullScreenSize.width * 0.5)) , y:Int((fullScreenSize.height * 0.83)) , width: Int((fullScreenSize.width * 0.5)) , height: Int((fullScreenSize.width * 0.17)))
+        btnGuess.frame = CGRect(x: Int((fullScreenSize.width * 0.533)) , y:Int((fullScreenSize.height * 0.885)) , width: Int((fullScreenSize.width * 0.4)) , height: Int((fullScreenSize.height * 0.085)))
         btnGuess.setBackgroundImage(UIImage(named: "statusPredictions-btn" ), for: UIControlState.normal)
 
-        btnWrite.frame = CGRect(x: Int((fullScreenSize.width * 0.15)) , y:Int((fullScreenSize.height * 0.7)) , width: Int((fullScreenSize.width * 0.7)) , height: Int((fullScreenSize.width * 0.2)))
+        btnWrite.frame = CGRect(x: Int((fullScreenSize.width * 0.15)) , y:Int((fullScreenSize.height * 0.78)) , width: Int((fullScreenSize.width * 0.7)) , height: Int((fullScreenSize.height * 0.1)))
         btnWrite.setTitleColor(UIColor.white, for: UIControlState.normal)
         btnWrite.setBackgroundImage(UIImage(named: "pickStatus-btn" ), for: UIControlState.normal)
 
@@ -178,18 +200,21 @@ class statePreViewController: UIViewController,MKMapViewDelegate,CLLocationManag
         var mylat,mylng:Double
         mylat=location.coordinate.latitude
         mylng=location.coordinate.longitude
-        howLong(whichOne: whichOne, mylat: mylat, mylng: mylng)
+       // howLong(whichOne: whichOne, mylat: mylat, mylng: mylng)
         if distanceIs(distance: howLong(whichOne: whichOne, mylat: mylat, mylng: mylng)){
+            arrive = true
             if let output = filter?.outputImage{
                 let tmp = CIContext().createCGImage(output, from: output.extent)
                 btnWrite.setImage(UIImage(cgImage:tmp!), for: UIControlState.normal)
             }
+        }else{
+            arrive = false
         }
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "gotoSelect1"{
+        if segue.identifier == "pregotoSelect"{
             let xx:State_select = segue.destination as! State_select
             xx.whichOne = whichOne
         }else{
