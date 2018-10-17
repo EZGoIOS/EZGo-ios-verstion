@@ -16,6 +16,8 @@ class statePreViewController: UIViewController,MKMapViewDelegate,CLLocationManag
     let locationManager = CLLocationManager()
     var webView: WKWebView!
     var boxView = UIView()
+    var animal = String()
+    var urlString = String()
     var arrive:Bool = false
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var btnMenu: UIBarButtonItem!
@@ -26,6 +28,8 @@ class statePreViewController: UIViewController,MKMapViewDelegate,CLLocationManag
     @IBOutlet weak var lblshow2: UILabel!
     @IBAction func write(_ sender: Any) {
         if arrive{
+            performSegue(withIdentifier: "pregotoSelect", sender: self)
+        }else{
             if UserDefaults.standard.bool(forKey: "english")==true{
                 let alert = UIAlertView()
                 alert.title = "Notice！"
@@ -39,20 +43,26 @@ class statePreViewController: UIViewController,MKMapViewDelegate,CLLocationManag
                 alert.addButton(withTitle: "OK")
                 alert.show()
             }
-        }else{
-            performSegue(withIdentifier: "pregotoSelect", sender: self)
         }
     }
     
     @IBAction func btnPre(_ sender: Any) {
-        btnPre.setBackgroundImage(UIImage(named: "previousStatuses-pressed-btn" ), for: UIControlState.normal)
-        btnGuess.setBackgroundImage(UIImage(named: "statusPredictions-btn" ), for: UIControlState.normal)
-
+        if UserDefaults.standard.bool(forKey: "english")==true{
+            btnPre.setBackgroundImage(UIImage(named: "previousStatuses-pressed-btn_eng" ), for: UIControlState.normal)
+            btnGuess.setBackgroundImage(UIImage(named: "statusPredictions-btn_eng" ), for: UIControlState.normal)
+        }else{
+            btnPre.setBackgroundImage(UIImage(named: "previousStatuses-pressed-btn" ), for: UIControlState.normal)
+            btnGuess.setBackgroundImage(UIImage(named: "statusPredictions-btn" ), for: UIControlState.normal)
+        }
     }
     @IBAction func btnGuess(_ sender: Any) {
-        btnPre.setBackgroundImage(UIImage(named: "previousStatuses-btn" ), for: UIControlState.normal)
-        btnGuess.setBackgroundImage(UIImage(named: "statusPredictions-pressed-btn" ), for: UIControlState.normal)
-
+        if UserDefaults.standard.bool(forKey: "english")==true{
+            btnPre.setBackgroundImage(UIImage(named: "previousStatuses-btn_eng" ), for: UIControlState.normal)
+            btnGuess.setBackgroundImage(UIImage(named: "statusPredictions-pressed_eng" ), for: UIControlState.normal)
+        }else{
+            btnPre.setBackgroundImage(UIImage(named: "previousStatuses-btn" ), for: UIControlState.normal)
+            btnGuess.setBackgroundImage(UIImage(named: "statusPredictions-pressed-btn" ), for: UIControlState.normal)
+        }
     }
     func getNowMM()->Int{                 //取得目前時間的分數
         let now = Date()
@@ -131,19 +141,33 @@ class statePreViewController: UIViewController,MKMapViewDelegate,CLLocationManag
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if whichOne == 1{
+            animal = "斑點鬣狗"
+        }else if whichOne == 2{
+            animal = "臺灣黑熊"
+        }else if whichOne == 3{
+            animal = "北美灰狼"
+        }else if whichOne == 4{
+            animal = "黑尾草原犬鼠"
+        }else if whichOne == 5{
+            animal = "笑翠鳥"
+        }else if whichOne == 6{
+            animal = "山羌"
+        }
 
         //網頁內嵌
         let webConfiguration = WKWebViewConfiguration()
         webView = WKWebView(frame: .zero, configuration: webConfiguration)
         webView.uiDelegate = self
-        self.view.addSubview(webView)
-        //webViewDidStartLoad(webView_Pages: webView)
-        //activityIndicator.hidesWhenStopped = true
-        let myURL = URL(string:"http://ezgo.twjoin.com/statusStackedColumnChart")
-        let myRequest = URLRequest(url: myURL!)
+        
+        let animalURL = "http://ezgo.twjoin.com/statusStackedColumnChart?whichAnimal=" + animal
+        print("**********",animalURL)
+        let myURL = URL(string: animalURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")
+        let request = URLRequest(url: myURL!)
+
         webView.frame = CGRect(x: Int((fullScreenSize.width * 0.055)) , y:Int((fullScreenSize.height * 0.12)) , width: Int((fullScreenSize.width * 0.9)) , height: Int((fullScreenSize.height * 0.65)))
-        webView.load(myRequest)
+        webView.load(request)
+        self.view.addSubview(webView)
         print("is it running?????",webView.isLoading)
         
         locationManager.requestAlwaysAuthorization()
@@ -157,32 +181,18 @@ class statePreViewController: UIViewController,MKMapViewDelegate,CLLocationManag
             locationManager.startUpdatingLocation()
             
         }
-        //圖片遮色
-        let origin = CIImage(image:UIImage(named: "ok-btn")!)
-        let filter = CIFilter(name:"CIPhotoEffectMono")
-        filter?.setDefaults()
-        filter?.setValue(origin,forKey:kCIInputImageKey)
         
         //控制物件位置---------------------
-        lblshow.text = String(whichOne)
         btnPre.frame = CGRect(x: Int((fullScreenSize.width * 0.066)) , y:Int((fullScreenSize.height * 0.885)) , width: Int((fullScreenSize.width * 0.4)) , height: Int((fullScreenSize.height * 0.085)))
-        btnPre.setBackgroundImage(UIImage(named: "previousStatuses-pressed-btn" ), for: UIControlState.normal)
-        
-        
-
         btnGuess.frame = CGRect(x: Int((fullScreenSize.width * 0.533)) , y:Int((fullScreenSize.height * 0.885)) , width: Int((fullScreenSize.width * 0.4)) , height: Int((fullScreenSize.height * 0.085)))
-        btnGuess.setBackgroundImage(UIImage(named: "statusPredictions-btn" ), for: UIControlState.normal)
-
         btnWrite.frame = CGRect(x: Int((fullScreenSize.width * 0.15)) , y:Int((fullScreenSize.height * 0.78)) , width: Int((fullScreenSize.width * 0.7)) , height: Int((fullScreenSize.height * 0.1)))
-        btnWrite.setTitleColor(UIColor.white, for: UIControlState.normal)
-        btnWrite.setBackgroundImage(UIImage(named: "pickStatus-btn" ), for: UIControlState.normal)
-
         if UserDefaults.standard.bool(forKey: "english"){
-            btnWrite.setBackgroundImage(UIImage(named: "pickStatus-btn_eng" ), for: UIControlState.normal)
+            btnPre.setBackgroundImage(UIImage(named: "previousStatuses-pressed-btn_eng" ), for: UIControlState.normal)
+            btnGuess.setBackgroundImage(UIImage(named: "statusPredictions-btn_eng" ), for: UIControlState.normal)
         }else{
-            btnWrite.setBackgroundImage(UIImage(named: "pickStatus-btn" ), for: UIControlState.normal)
+            btnPre.setBackgroundImage(UIImage(named: "previousStatuses-pressed-btn" ), for: UIControlState.normal)
+            btnGuess.setBackgroundImage(UIImage(named: "statusPredictions-btn" ), for: UIControlState.normal)
         }
-       
     }
 
     override func didReceiveMemoryWarning() {
@@ -191,24 +201,23 @@ class statePreViewController: UIViewController,MKMapViewDelegate,CLLocationManag
     }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations.first!
-        //圖片遮色
-        let origin = CIImage(image:UIImage(named: "ok-btn")!)
-        let filter = CIFilter(name:"CIPhotoEffectMono")
-        filter?.setDefaults()
-        filter?.setValue(origin,forKey:kCIInputImageKey)
-        
         var mylat,mylng:Double
         mylat=location.coordinate.latitude
         mylng=location.coordinate.longitude
-       // howLong(whichOne: whichOne, mylat: mylat, mylng: mylng)
         if distanceIs(distance: howLong(whichOne: whichOne, mylat: mylat, mylng: mylng)){
             arrive = true
-            if let output = filter?.outputImage{
-                let tmp = CIContext().createCGImage(output, from: output.extent)
-                btnWrite.setImage(UIImage(cgImage:tmp!), for: UIControlState.normal)
+            if UserDefaults.standard.bool(forKey: "english")==true{
+                btnWrite.setBackgroundImage(UIImage(named: "pickStatus-btn_eng" ), for: UIControlState.normal)
+            }else{
+                btnWrite.setBackgroundImage(UIImage(named: "pickStatus-btn" ), for: UIControlState.normal)
             }
         }else{
             arrive = false
+            if UserDefaults.standard.bool(forKey: "english")==true{
+                btnWrite.setBackgroundImage(UIImage(named: "pickStatus-btn_eng-gray" ), for: UIControlState.normal)
+            }else{
+                btnWrite.setBackgroundImage(UIImage(named: "pickStatus-btn-gray" ), for: UIControlState.normal)
+            }
         }
     }
     
