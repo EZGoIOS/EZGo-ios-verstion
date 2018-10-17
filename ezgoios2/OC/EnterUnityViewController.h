@@ -12,6 +12,9 @@
 @interface EnterUnityViewController : UIViewController<CLLocationManagerDelegate>
 @property NSTimer *timer;
 @property NSTimer *timer1;
+@property (nonatomic, weak) UIView *locationView;//add
+@property (nonatomic, weak) UIView *locationViewDown;//add 下方抵達後跳出
+@property (nonatomic, weak) UIView *locationViewUp;//add 右上方lbl
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
 
