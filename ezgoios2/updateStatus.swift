@@ -11,9 +11,10 @@ enum ConnectionResult4{
     case failure(Error)
 }
 
-func updateStatus(status:String, animal:String, completion: @escaping(ConnectionResult4) -> ()){
+func updateState(status:String, animal:String, completion: @escaping(ConnectionResult4) -> ()){
     let parameters = ["status":status,"whichAnimal":animal]
-    guard let url = URL(string:"http://ezgo.twjoin.com/status")else{return}
+    print("看看這裡喔喔喔ㄛ",parameters)
+    guard let url = URL(string:"http://ezgo.twjoin.com/status/postStatus")else{return}
     var request = URLRequest(url:url)
     request.httpMethod = "POST"
     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -21,7 +22,7 @@ func updateStatus(status:String, animal:String, completion: @escaping(Connection
     request.httpBody = httpBody
     
     let session = URLSession.shared
-    print(animal,status)
+    
     session.dataTask(with: request){(data,response,error) in
         if let response = response{
             print(response)
@@ -30,7 +31,7 @@ func updateStatus(status:String, animal:String, completion: @escaping(Connection
             do{
                 let json = try JSONSerialization.jsonObject(with: data, options: [.allowFragments]) as? [String: Any]
                 print(json!)
-                //print("success update")
+                
             }catch{
                 print(error)
             }

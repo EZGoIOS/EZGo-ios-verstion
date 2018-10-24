@@ -19,8 +19,36 @@ class State_done: UIViewController {
         do{
             let recString = try (NSString(contentsOfFile: stateAni, encoding: String.Encoding.utf8.rawValue) as String)
             let aniString = try (NSString(contentsOfFile: chooseStatAni, encoding: String.Encoding.utf8.rawValue) as String)
+            var postAni = String()
+            var postStat = String()
+            
+            if recString == "吃東西中"{
+                postStat = "1"
+            }else if recString == "躲起來了"{
+                postStat = "2"
+            }else if recString == "活動中"{
+                postStat = "3"
+            }else if recString == "睡覺中"{
+                postStat = "4"
+            }
+            
+            if aniString == "臺灣黑熊"{
+                postAni = "57"
+            }else if aniString == "北美灰狼"{
+                postAni = "58"
+            }else if aniString == "黑尾草原犬鼠"{
+                postAni = "59"
+            }else if aniString == "笑翠鳥"{
+                postAni = "60"
+            }else if aniString == "山羌"{
+                postAni = "61"
+            }else if aniString == "斑點鬣狗"{
+                postAni = "62"
+            }
+            
+            print("要上傳這個喔喔喔喔喔",recString,"跟跟跟跟",aniString)
             print("catch recString",recString)
-            updateStatus(status: recString, animal: aniString, completion: {
+            updateState(status: postStat, animal: postAni, completion: {
                 ConnectionResult4 in
                 switch ConnectionResult4{
                 case .failure(let error):

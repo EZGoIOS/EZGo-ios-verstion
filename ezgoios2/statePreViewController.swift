@@ -104,7 +104,7 @@ class statePreViewController: UIViewController,MKMapViewDelegate,CLLocationManag
     
     func distanceIs(distance:Double)->Bool{                                  //判斷距離是否到達
         var yn:Bool
-        if distance<=25 {yn = true}
+        if distance<=10000 {yn = true}
         else{yn = false}
         return yn
     }
@@ -160,7 +160,7 @@ class statePreViewController: UIViewController,MKMapViewDelegate,CLLocationManag
         webView = WKWebView(frame: .zero, configuration: webConfiguration)
         webView.uiDelegate = self
         
-        let animalURL = "http://ezgo.twjoin.com/statusStackedColumnChart?whichAnimal=" + animal
+        let animalURL = "http://ezgo.twjoin.com/status/stackedColumnChart?whichAnimal=" + animal
         print("**********",animalURL)
         let myURL = URL(string: animalURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")
         let request = URLRequest(url: myURL!)
