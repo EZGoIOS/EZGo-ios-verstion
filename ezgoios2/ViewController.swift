@@ -9,6 +9,48 @@
 import UIKit
 import MapKit
 //import ezgo1
+public var latAni0: Double? {
+    return UserDefaults.standard.double(forKey: "斑點鬣狗"+"lat")
+}
+public var latAni1: Double? {
+    return UserDefaults.standard.double(forKey: "臺灣黑熊"+"lat")
+}
+public var latAni2: Double? {
+    return UserDefaults.standard.double(forKey: "北美灰狼"+"lat")
+}
+public var latAni3: Double? {
+    return UserDefaults.standard.double(forKey: "笑翠鳥"+"lat")
+}
+public var latAni4: Double? {
+    return UserDefaults.standard.double(forKey: "黑尾草原犬鼠"+"lat")
+}
+public var latAni5: Double? {
+    return UserDefaults.standard.double(forKey: "遊客中心_前廣場"+"lat")
+}
+public var latAni6: Double? {
+    return UserDefaults.standard.double(forKey: "山羌"+"lat")
+}
+public var lngAni0: Double? {
+    return UserDefaults.standard.double(forKey: "斑點鬣狗"+"lng")
+}
+public var lngAni1: Double? {
+    return UserDefaults.standard.double(forKey: "臺灣黑熊"+"lng")
+}
+public var lngAni2: Double? {
+    return UserDefaults.standard.double(forKey: "北美灰狼"+"lng")
+}
+public var lngAni3: Double? {
+    return UserDefaults.standard.double(forKey: "笑翠鳥"+"lng")
+}
+public var lngAni4: Double? {
+    return UserDefaults.standard.double(forKey: "黑尾草原犬鼠"+"lng")
+}
+public var lngAni5: Double? {
+    return UserDefaults.standard.double(forKey: "遊客中心_前廣場"+"lng")
+}
+public var lngAni6: Double? {
+    return UserDefaults.standard.double(forKey: "山羌"+"lng")
+}
 
 class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate {
     var timer:Timer!
@@ -16,6 +58,8 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
     var timeArray = [String](repeating:"0",count:60)
     var latArray = [Double](repeating:0.0,count:60)
     var lngArray = [Double](repeating:0.0,count:60)
+    var postAniName = String()
+    
     
     @IBOutlet weak var lblshow: UILabel!
     let locationManager = CLLocationManager()
@@ -85,51 +129,148 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
         //可以在 mapView　中畫出一些額外的東西
         self.mapView.delegate = self
         print("set delegate")
-        //虎的maker
         
+        //虎的maker
+//        var i = 1;
+        for  i in 0...6{
+            if i == 0{
+                postAniName="斑點鬣狗"
+                print("hahaha")
+                print(postAniName)
+                print("hohoho")
+                getAnimalPosition(animal: postAniName, completion: {
+                    ConnectionResult5 in
+                    switch ConnectionResult5{
+                    case .failure(let error):
+                        print(error)
+                        
+                    case .success( _):
+                        print("success 存取動物經緯度")
+                    }
+                })
+                
+            }else if i == 1{
+                postAniName="臺灣黑熊"
+                print("hahaha")
+                print(postAniName)
+                print("hohoho")
+
+                getAnimalPosition(animal: postAniName, completion: {
+                    ConnectionResult5 in
+                    switch ConnectionResult5{
+                    case .failure(let error):
+                        print(error)
+                        
+                    case .success( _):
+                        print("success 存取動物經緯度")
+                    }
+                })
+            }else if i == 2{
+                postAniName="北美灰狼"
+                getAnimalPosition(animal: postAniName, completion: {
+                    ConnectionResult5 in
+                    switch ConnectionResult5{
+                    case .failure(let error):
+                        print(error)
+                        
+                    case .success( _):
+                        print("success 存取動物經緯度")
+                    }
+                })
+            }else if i == 3{
+                postAniName="笑翠鳥"
+                getAnimalPosition(animal: postAniName, completion: {
+                    ConnectionResult5 in
+                    switch ConnectionResult5{
+                    case .failure(let error):
+                        print(error)
+                        
+                    case .success( _):
+                        print("success 存取動物經緯度")
+                    }
+                })
+            }else if i == 4{
+                postAniName="黑尾草原犬鼠"
+                getAnimalPosition(animal: postAniName, completion: {
+                    ConnectionResult5 in
+                    switch ConnectionResult5{
+                    case .failure(let error):
+                        print(error)
+                        
+                    case .success( _):
+                        print("success 存取動物經緯度")
+                    }
+                })
+            }else if i == 5{
+                postAniName="遊客中心_前廣場"
+                getAnimalPosition(animal: postAniName, completion: {
+                    ConnectionResult5 in
+                    switch ConnectionResult5{
+                    case .failure(let error):
+                        print(error)
+                        
+                    case .success( _):
+                        print("success 存取動物經緯度")
+                    }
+                })
+            }else if i == 6{
+                postAniName="山羌"
+                getAnimalPosition(animal: postAniName, completion: {
+                    ConnectionResult5 in
+                    switch ConnectionResult5{
+                    case .failure(let error):
+                        print(error)
+                        
+                    case .success( _):
+                        print("success 存取動物經緯度")
+                    }
+                })
+            }
+        }
+
         if UserDefaults.standard.bool(forKey: "english")==true{
-            anns[0].coordinate = CLLocationCoordinate2D(latitude: 24.9946605, longitude: 121.5887605)
+            anns[0].coordinate = CLLocationCoordinate2D(latitude: latAni0!, longitude: lngAni0!)
             anns[0].title = "Spotted hyena"
             
-            anns[1].coordinate = CLLocationCoordinate2D(latitude: 24.9975801, longitude: 121.5799735)
+            anns[1].coordinate = CLLocationCoordinate2D(latitude: latAni1!, longitude: lngAni1!)
             anns[1].title = "Formosan black bear"
             
-            anns[2].coordinate = CLLocationCoordinate2D(latitude: 24.9932772, longitude: 121.5900815)
+            anns[2].coordinate = CLLocationCoordinate2D(latitude: latAni2! , longitude: lngAni2!)
             anns[2].title = "North American gray wolf"
             
-            anns[3].coordinate = CLLocationCoordinate2D(latitude: 24.9921553, longitude: 121.5890408)
+            anns[3].coordinate = CLLocationCoordinate2D(latitude: latAni3!, longitude: lngAni3!)
             anns[3].title = "Black-tailed prairie dog"
             
-            anns[4].coordinate = CLLocationCoordinate2D(latitude: 24.995106, longitude: 121.583514)
+            anns[4].coordinate = CLLocationCoordinate2D(latitude: latAni4!, longitude: lngAni4!)
             anns[4].title = "Laughing kookaburra"
             
-            anns[5].coordinate = CLLocationCoordinate2D(latitude: 24.9978621, longitude: 121.5818524)
+            anns[5].coordinate = CLLocationCoordinate2D(latitude: latAni5!, longitude: lngAni5!)
             anns[5].title = "Visitor Center"
             
-            anns[6].coordinate = CLLocationCoordinate2D(latitude: 24.9977223, longitude: 121.5810719)
+            anns[6].coordinate = CLLocationCoordinate2D(latitude: latAni6!, longitude: lngAni6!)
             anns[6].title = "Reeves's muntjac"
             
             mapView.addAnnotations(anns)
         }else{
-            anns[0].coordinate = CLLocationCoordinate2D(latitude: 24.9946605, longitude: 121.5887605)
+            anns[0].coordinate = CLLocationCoordinate2D(latitude: latAni0!, longitude: lngAni0!)
             anns[0].title = "斑點鬣狗"
         
-            anns[1].coordinate = CLLocationCoordinate2D(latitude: 24.9975801, longitude: 121.5799735)
+            anns[1].coordinate = CLLocationCoordinate2D(latitude: latAni1!, longitude: lngAni1!)
             anns[1].title = "臺灣黑熊"
             
-            anns[2].coordinate = CLLocationCoordinate2D(latitude: 24.9932772, longitude: 121.5900815)
+            anns[2].coordinate = CLLocationCoordinate2D(latitude: latAni2! , longitude: lngAni2!)
             anns[2].title = "北美灰狼"
             
-            anns[3].coordinate = CLLocationCoordinate2D(latitude: 24.9921553, longitude: 121.5890408)
+            anns[3].coordinate = CLLocationCoordinate2D(latitude: latAni3!, longitude: lngAni3!)
             anns[3].title = "黑尾草原犬鼠"
             
-            anns[4].coordinate = CLLocationCoordinate2D(latitude: 24.995106, longitude: 121.583514)
+            anns[4].coordinate = CLLocationCoordinate2D(latitude: latAni4!, longitude: lngAni4!)
             anns[4].title = "笑翠鳥"
             
-            anns[5].coordinate = CLLocationCoordinate2D(latitude: 24.9978621, longitude: 121.5818524)
+            anns[5].coordinate = CLLocationCoordinate2D(latitude: latAni5!, longitude: lngAni5!)
             anns[5].title = "服務中心"
             
-            anns[6].coordinate = CLLocationCoordinate2D(latitude: 24.9977223, longitude: 121.5810719)
+            anns[6].coordinate = CLLocationCoordinate2D(latitude: latAni6!, longitude: lngAni6!)
             anns[6].title = "山羌"
             
             mapView.addAnnotations(anns)
