@@ -11,6 +11,7 @@
 #import "MyDataManager.h"
 #import <AVFoundation/AVFoundation.h>//相機
 #import <AssetsLibrary/AssetsLibrary.h>
+#import "ezgo2-Swift.h"
 
 #include <math.h>
 #include <stdio.h>
@@ -218,18 +219,32 @@ UIView *upUiView;//上右邊lbl
     mylng = location.coordinate.longitude;
     NSLog(@"mylat: %f, mylng: %f", mylat,mylng);
     //=====用變數存算出來的距離====
-    
     //北商 25.041718, 121.526008
-    //圓山25.071819, 121.520059 25.017182, Lng: 121.292658 25.020389, Lng: 121.294560
-    //先跑一次 把log中的 Lat:??.???,Lng:???.??? 複製到 229行中測試
-    //25.042672, Lng: 121.524953
-    aa = [self xx:(mylat) xxx:(mylng) xxxx:(24.9946605) xxxxx:(121.5887605)];//斑點狗 xxxx:(24.9946605) xxxxx:(121.5887605)
-    ab = [self xx:(mylat) xxx:(mylng) xxxx:(24.9975801) xxxxx:(121.5799735)];//TW Bear
-    ac = [self xx:(mylat) xxx:(mylng) xxxx:(24.9932772) xxxxx:(121.5900815)];//North Gray Wolf
-    ad = [self xx:(mylat) xxx:(mylng) xxxx:(24.9921553) xxxxx:(121.5890408)];//Black Tail Mouse
-    ae = [self xx:(mylat) xxx:(mylng) xxxx:(24.995106) xxxxx:(121.583514)];//Happy Bird
-    af = [self xx:(mylat) xxx:(mylng) xxxx:(24.9977223) xxxxx:(121.5810719)];//Mountain gun
-    ag = [self xx:(mylat) xxx:(mylng) xxxx:(24.998286) xxxxx:(121.581045)];//Teaching core
+     AnimalLocationClass * mc = [ [ AnimalLocationClass alloc ] init ]; // <== INSTANTIATE SWIFT CLASS!!!
+//    AnimalLocationClass * mc = [AnimalLocationClass  new ]; // <==改成new 不知道差在哪 INSTANTIATE SWIFT CLASS!!!
+    
+    double AniLat0 = mc.latAni00;
+    double AniLat1 = mc.latAni11;
+    double AniLat2 = mc.latAni22;
+    double AniLat3 = mc.latAni33;
+    double AniLat4 = mc.latAni44;
+    double AniLat5 = mc.latAni55;
+    double AniLat6 = mc.latAni66;
+    double AniLng0 = mc.lngAni00;
+    double AniLng1 = mc.lngAni11;
+    double AniLng2 = mc.lngAni22;
+    double AniLng3 = mc.lngAni33;
+    double AniLng4 = mc.lngAni44;
+    double AniLng5 = mc.lngAni55;
+    double AniLng6 = mc.lngAni66;
+    
+    aa = [self xx:(mylat) xxx:(mylng) xxxx:(AniLat0) xxxxx:(AniLng0)];//斑點狗
+    ab = [self xx:(mylat) xxx:(mylng) xxxx:(AniLat1) xxxxx:(AniLng1)];//TW Bear
+    ac = [self xx:(mylat) xxx:(mylng) xxxx:(AniLat2) xxxxx:(AniLng2)];//North Gray Wolf
+    ad = [self xx:(mylat) xxx:(mylng) xxxx:(AniLat4) xxxxx:(AniLng4)];//Black Tail Mouse
+    ae = [self xx:(mylat) xxx:(mylng) xxxx:(AniLat3) xxxxx:(AniLng3)];//Happy Bird
+    af = [self xx:(mylat) xxx:(mylng) xxxx:(AniLat6) xxxxx:(AniLng6)];//Mountain gun
+    ag = [self xx:(mylat) xxx:(mylng) xxxx:(AniLat5) xxxxx:(AniLng5)];//Teaching core
 }
 
 //=============判斷是否到達範圍================
