@@ -75,12 +75,14 @@ class statePreViewController: UIViewController,MKMapViewDelegate,CLLocationManag
     func howLong(whichOne:Int,mylat:Double,mylng:Double) -> Double {                              //計算距離
         var distance:Double
         switch whichOne {
-        case 1: distance = xx(lat1:mylat,lng1:mylng,lat2:24.9946605, lng2:121.5887605) * 1000
-        case 2: distance = xx(lat1:mylat,lng1:mylng,lat2:24.9975801, lng2:121.5799735) * 1000
-        case 3: distance = xx(lat1:mylat,lng1:mylng,lat2:24.9932772, lng2:121.5900815) * 1000
-        case 4: distance = xx(lat1:mylat,lng1:mylng,lat2:24.9921553, lng2:121.5890408) * 1000
-        case 5: distance = xx(lat1:mylat,lng1:mylng,lat2:24.995106, lng2:121.583514) * 1000
-        case 6: distance = xx(lat1:mylat,lng1:mylng,lat2:24.9977223, lng2:121.5810719) * 1000
+
+        case 1: distance = xx(lat1:mylat,lng1:mylng,lat2:latAni0!, lng2:lngAni0!) * 1000
+        case 2: distance = xx(lat1:mylat,lng1:mylng,lat2:latAni1!, lng2:lngAni1!) * 1000
+        case 3: distance = xx(lat1:mylat,lng1:mylng,lat2:latAni2!, lng2:lngAni2!) * 1000
+        case 4: distance = xx(lat1:mylat,lng1:mylng,lat2:latAni4!, lng2:lngAni4!) * 1000
+        case 5: distance = xx(lat1:mylat,lng1:mylng,lat2:latAni3!, lng2:lngAni3!) * 1000
+        case 6: distance = xx(lat1:mylat,lng1:mylng,lat2:latAni6!, lng2:lngAni6!) * 1000
+            
         default: distance = 0.0
         }
         return distance
@@ -154,7 +156,7 @@ class statePreViewController: UIViewController,MKMapViewDelegate,CLLocationManag
         }else if whichOne == 6{
             animal = "山羌"
         }
-
+        
         //網頁內嵌
         let webConfiguration = WKWebViewConfiguration()
         webView = WKWebView(frame: .zero, configuration: webConfiguration)
@@ -164,7 +166,7 @@ class statePreViewController: UIViewController,MKMapViewDelegate,CLLocationManag
         print("**********",animalURL)
         let myURL = URL(string: animalURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")
         let request = URLRequest(url: myURL!)
-
+        
         webView.frame = CGRect(x: Int((fullScreenSize.width * 0.055)) , y:Int((fullScreenSize.height * 0.12)) , width: Int((fullScreenSize.width * 0.9)) , height: Int((fullScreenSize.height * 0.65)))
         webView.load(request)
         self.view.addSubview(webView)
@@ -194,7 +196,7 @@ class statePreViewController: UIViewController,MKMapViewDelegate,CLLocationManag
             btnGuess.setBackgroundImage(UIImage(named: "statusPredictions-btn" ), for: UIControlState.normal)
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -228,9 +230,9 @@ class statePreViewController: UIViewController,MKMapViewDelegate,CLLocationManag
             xx.whichOne = whichOne
         }else{
             let xx:stateGuessViewController = segue.destination as! stateGuessViewController
-        xx.whichOne = whichOne
+            xx.whichOne = whichOne
         }
     }
     
-
+    
 }

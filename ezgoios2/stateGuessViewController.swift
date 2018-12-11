@@ -71,13 +71,16 @@ class stateGuessViewController: UIViewController,MKMapViewDelegate,CLLocationMan
     }
     func howLong(whichOne:Int,mylat:Double,mylng:Double) -> Double {                              //計算距離
         var distance:Double
+//        var AniL = AnimalLocationClass()
         switch whichOne {
-        case 1: distance = xx(lat1:mylat,lng1:mylng,lat2:24.9946605, lng2:121.5887605) * 1000
-        case 2: distance = xx(lat1:mylat,lng1:mylng,lat2:24.9975801, lng2:121.5799735) * 1000
-        case 3: distance = xx(lat1:mylat,lng1:mylng,lat2:24.9932772, lng2:121.5900815) * 1000
-        case 4: distance = xx(lat1:mylat,lng1:mylng,lat2:24.9921553, lng2:121.5890408) * 1000
-        case 5: distance = xx(lat1:mylat,lng1:mylng,lat2:24.995106, lng2:121.583514) * 1000
-        case 6: distance = xx(lat1:mylat,lng1:mylng,lat2:24.9977223, lng2:121.5810719) * 1000
+            
+        case 1: distance = xx(lat1:mylat,lng1:mylng,lat2:latAni0!, lng2:lngAni0!) * 1000
+        case 2: distance = xx(lat1:mylat,lng1:mylng,lat2:latAni1!, lng2:lngAni1!) * 1000
+        case 3: distance = xx(lat1:mylat,lng1:mylng,lat2:latAni2!, lng2:lngAni2!) * 1000
+        case 4: distance = xx(lat1:mylat,lng1:mylng,lat2:latAni4!, lng2:lngAni4!) * 1000
+        case 5: distance = xx(lat1:mylat,lng1:mylng,lat2:latAni3!, lng2:lngAni3!) * 1000
+        case 6: distance = xx(lat1:mylat,lng1:mylng,lat2:latAni6!, lng2:lngAni6!) * 1000
+            
         default: distance = 0.0
         }
         return distance
@@ -109,7 +112,7 @@ class stateGuessViewController: UIViewController,MKMapViewDelegate,CLLocationMan
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         if whichOne == 1{
             animal = "斑點鬣狗"
         }else if whichOne == 2{
@@ -149,7 +152,7 @@ class stateGuessViewController: UIViewController,MKMapViewDelegate,CLLocationMan
             locationManager.startUpdatingLocation()
             
         }
-
+        
         //控制物件位置---------------------
         btnPre.frame = CGRect(x: Int((fullScreenSize.width * 0.066)) , y:Int((fullScreenSize.height * 0.885)) , width: Int((fullScreenSize.width * 0.4)) , height: Int((fullScreenSize.height * 0.085)))
         btnGuess.frame = CGRect(x: Int((fullScreenSize.width * 0.533)) , y:Int((fullScreenSize.height * 0.885)) , width: Int((fullScreenSize.width * 0.4)) , height: Int((fullScreenSize.height * 0.085)))
@@ -162,7 +165,7 @@ class stateGuessViewController: UIViewController,MKMapViewDelegate,CLLocationMan
             btnGuess.setBackgroundImage(UIImage(named: "statusPredictions-pressed-btn" ), for: UIControlState.normal)
         }
     }
-
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -191,7 +194,7 @@ class stateGuessViewController: UIViewController,MKMapViewDelegate,CLLocationMan
         }
     }
     
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "guegotoSelect"{
             let xx:State_select = segue.destination as! State_select
@@ -202,13 +205,13 @@ class stateGuessViewController: UIViewController,MKMapViewDelegate,CLLocationMan
         }
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
