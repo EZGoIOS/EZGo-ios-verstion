@@ -9,6 +9,8 @@
 import UIKit
 import MapKit
 //import ezgo1
+
+
 public var latAni0: Double? {
     return UserDefaults.standard.double(forKey: "斑點鬣狗"+"lat")
 }
@@ -51,6 +53,25 @@ public var lngAni5: Double? {
 public var lngAni6: Double? {
     return UserDefaults.standard.double(forKey: "山羌"+"lng")
 }
+@objc public class AnimalLocationClass : NSObject { // <== @objc AND NSObject ARE BOTH NECESSARY!!!
+    let my_color = UIColor( red:0/255,green:32/255,blue:64/255,alpha:1 ) // <== CONSTANT!!! 可用
+
+    let latAni00 = Double(latAni0!)
+    let latAni11 = Double(latAni1!)
+    let latAni22 = Double(latAni2!)
+    let latAni33 = Double(latAni3!)
+    let latAni44 = Double(latAni4!)
+    let latAni55 = Double(latAni5!)
+    let latAni66 = Double(latAni6!)
+    let lngAni00 = Double(lngAni0!)
+    let lngAni11 = Double(lngAni1!)
+    let lngAni22 = Double(lngAni2!)
+    let lngAni33 = Double(lngAni3!)
+    let lngAni44 = Double(lngAni4!)
+    let lngAni55 = Double(lngAni5!)
+    let lngAni66 = Double(lngAni6!)
+
+}
 
 class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate {
     var timer:Timer!
@@ -73,6 +94,7 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
     public var tileRenderer: MKTileOverlayRenderer!
     //public parameters=[:]
     override func viewDidLoad() {
+        
         var myDoubleTapGestureRecognizer: UIPanGestureRecognizer?
         let fullScreenSize = UIScreen.main.bounds.size
         
@@ -97,6 +119,7 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
                 }
             }
         }
+
        // getNowMM()
         //setupTileRenderer()
         // Do any additional setup after loading the view, typically from a nib.
@@ -227,7 +250,7 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
                 })
             }
         }
-
+        var AniL = AnimalLocationClass()//產生物件
         if UserDefaults.standard.bool(forKey: "english")==true{
             anns[0].coordinate = CLLocationCoordinate2D(latitude: latAni0!, longitude: lngAni0!)
             anns[0].title = "Spotted hyena"
@@ -258,7 +281,7 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
             anns[1].coordinate = CLLocationCoordinate2D(latitude: latAni1!, longitude: lngAni1!)
             anns[1].title = "臺灣黑熊"
             
-            anns[2].coordinate = CLLocationCoordinate2D(latitude: latAni2! , longitude: lngAni2!)
+            anns[2].coordinate = CLLocationCoordinate2D(latitude: latAni2! , longitude:lngAni2!)
             anns[2].title = "北美灰狼"
             
             anns[3].coordinate = CLLocationCoordinate2D(latitude: latAni3!, longitude: lngAni3!)
@@ -545,5 +568,6 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
         super.didReceiveMemoryWarning()
         locationManager.stopUpdatingLocation()
     }
+    
 }
 
